@@ -7,13 +7,13 @@
 %     debug - add grid lines/compile times (print variables)
 %     proof - local version of "final" 
 %     final - Final publishable version (calls PurdueThesis - requires LuaLaTeX)
-\def\ZZbuildmode{debug}
+\def\ZZbuildmode{final}
 
 % Input arguments required by PurdueThesis
 \input{a-template/te00-template-options.tex}
 
 % Build the document this will select the document class based on :
-%    quick/debug/proof - Local simplified PurdueTheiss.cls file
+%    quick/debug/proof - Local simplified PurdueThesis.cls file
 %                final - Official PurdueThesis.cls file
 \RequirePackage{ifthen}
 \ifthenelse{\equal{\ZZbuildmode}{final}}
@@ -26,7 +26,7 @@
 % TODO: not sure if everything should use \input
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% Ducument 
+% Document 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 \begin{document}
@@ -37,8 +37,9 @@
 
 % Input all chapters here
 \input{ch1-intro/in0-intro.tex}
-\input{ch2-background/bk0-background.tex}
-% ...
+\input{ch2-models/mo0-dynamical-models.tex}
+\input{ch3-structures/st0-cr3bp-dynamical-structures.tex}
+\input{ch4-trajectory/tr0-trajectory-construction.tex}
 
 % Appendices
 \input{ch8-appendices/ap0-appendices.tex}

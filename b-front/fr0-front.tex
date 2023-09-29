@@ -4,7 +4,7 @@
     \input{b-front/fr1-comittee.tex}
     \input{b-front/fr2-dedication.tex}
     \input{b-front/fr3-acknowledgments.tex}
-    \input{b-front/fr4-preface.tex}
+    %\input{b-front/fr4-preface.tex}
     %
     \pdfbookmark{TABLE OF CONTENTS}{Contents}
     \tableofcontents
@@ -13,6 +13,11 @@
 }
 
 % Optional: Symbols, Abbreviations, Nomenclature, Glossary
+\ifthenelse{\equal{\ZZbuildmode}{final}}
+{
+    \input{b-front/fr6-symbols.tex}
+    \input{b-front/fr7-abbreviations.tex}
+}{}
 
 % Always include the abstract
 \input{b-front/fr5-abstract.tex}
