@@ -1,1 +1,62 @@
 \section{The Circular Restricted Three-Body Problem}
+When a spacecraft is significantly impacted by the gravitational force of
+two celestial bodies the Circular Restricted 3-Body Problem better approximates the spacecraft's
+motion compared to two-body problems. Therefore, this investigation uses the CR3BP to model the
+Earth-Moon and Sun-planet systems when appropriate. The CR3BP is an autonomous model (its dynamics
+are not time-dependent) that provides insight into the dynamical structures present in the system
+without some of the complexities of a higher-fidelity ephemeris model.
+
+\subsection{Equations of Motion}
+The CR3BP consisits of three primary bodies, two celestial bodies and a masless spacecraft. The two
+celestial bodies exert gravitational forces on each other and the satellite; however, the satellite
+does not affect the other two bodies. 
+
+The two celestial bodies are treated as point masses and assumed to move in circular orbits, with a
+constant angular velocity, around their barycenter $B$. Assuming that no other forces are acting on
+the system, $B$ can be considered an inertial point and similar to the 2BP, Newton's Laws can be
+expressed relative to that point. Unlike the 2BP, there is currently no analytical solution to
+represent the dynamics of the CR3BP. Consequently, all trajectories in this model must be
+numerically propagated in time using nonlinear, coupled equations of motion.
+
+It is also useful and common practice to represent these equations and visualize them in a
+barycentric rotating coordinate frame, $\{\xhat,\yhat,\zhat\}$, as shown by the dashed lines in
+\cref{fig:baryFrames} and described in Section 2.1. In this frame, the two celestial primaries
+remain fixed, while the spacecraft moves relative to them in three-dimensional configuration space.
+
+A single mass ratio $\mu$ characterizes a CR3BP system:
+\begin{equation}
+    \mu=\frac{m_{2}}{m_{1}+m_{2}},
+    \label{eq:mu}
+\end{equation}
+where $m_{1}$ and $m_{2}$ are the masses of the larger and smaller celestial primaries,
+respectively. Using this parameter, a pseudo-potential function $U$ describes the gravitational
+forces on the system expressed in the barycentric rotating frame:
+\begin{equation}
+    U=\frac{1}{2}(x^{2}+y^{2})+\frac{1-\mu}{d}+\frac{\mu}{r},
+    \label{eq:pseud0-potential}
+\end{equation}
+\begin{equation}
+    d=\sqrt{(x+\mu)^{2}+y^{2}+z^{2}},
+    \label{eq:P1distance}
+\end{equation}
+\begin{equation}
+    r=\sqrt{(x-1+\mu)^{2}+y^{2}+z^{2}},
+    \label{eq:P2distance}
+\end{equation}
+where here, $d$ and $r$ are the distances from $P_{1}$ and $P_{2}$, respectively. From the pseudo-
+potential, the scalar nonlinear equations of motion are expressed in the barycentric rotating
+frame:
+\begin{equation}
+    \xddot=2\ydot+\frac{\partial U}{\partial x},
+    \label{eq:EoMx}
+\end{equation}
+\begin{equation}
+    \yddot=-2\xdot+\frac{\partial U}{\partial y},
+    \label{eq:EoMy}
+\end{equation}
+\begin{equation}
+    \zddot=\frac{\partial U}{\partial z}.
+    \label{eq:EoMz}
+\end{equation}.
+
+\subsection{Nondimensionalized Values}
