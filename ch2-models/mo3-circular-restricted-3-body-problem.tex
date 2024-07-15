@@ -1,10 +1,10 @@
 \section{The Circular Restricted Three-Body Problem}
-When a spacecraft is significantly impacted by the gravitational force of
-two celestial bodies the Circular Restricted 3-Body Problem better approximates the spacecraft's
-motion compared to two-body problems. Therefore, this investigation uses the CR3BP to model the
-Earth-Moon and Sun-planet systems when appropriate. The CR3BP is an autonomous model (its dynamics
-are time-invariant) that provides insight into the dynamical structures present in the system
-without some of the complexities of a higher-fidelity ephemeris model.
+When a spacecraft is significantly impacted by the gravitational force of two celestial bodies the
+Circular Restricted 3-Body Problem better approximates the spacecraft's motion compared to two-body
+problems. Therefore, this investigation uses the CR3BP to model the Earth-Moon and Sun-planet
+systems when appropriate. The CR3BP is an autonomous model (its dynamics are time-invariant) that
+provides insight into the dynamical structures present in the system without some of the
+complexities of a higher-fidelity ephemeris model.
 
 \subsection{Equations of Motion}
 The CR3BP consisits of three primary bodies, two celestial bodies and a masless spacecraft. The two
@@ -34,7 +34,7 @@ located at $x=1-\mu$. Using this parameter, a pseudo-potential function $U$ desc
 gravitational forces on the system expressed in the barycentric rotating frame:
 \begin{equation}
     U=\frac{1}{2}(x^{2}+y^{2})+\frac{1-\mu}{d}+\frac{\mu}{r},
-    \label{eq:pseud0-potential}
+    \label{eq:pseudopotential}
 \end{equation}
 \begin{equation}
     d=\sqrt{(x+\mu)^{2}+y^{2}+z^{2}},
