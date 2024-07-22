@@ -3,8 +3,8 @@ Since the patched and blended models used in this investigation use a variety of
 around different bodies, it is helpful to be able to view any trajectories in multiple reference
 frames. As mentioned previously, reference frames can be inertial or rotating, and an important
 component of interplanetary trajectory design is the ability to transform states and trajectories
-between these two types of frames. A few representative example coordinate frame transformations
-follow.
+between these two types of frames. A few representative examples of coordinate frame
+transformations follow.
 
 \subsection{Barycentric Rotating Frame - Primary-Centric Arbitrary Inertial Frame}
 Most trajectories in a CR3BP are constructed in the barycentric rotating frame where
@@ -26,7 +26,7 @@ to a primary-centric arbitrary inertial frame:
     \item   Rotate the states depending on time since $t_{0}$
     
             Recall that the mean motion $n$ of the rotating frame is constant. When
-            nondimensionalized in the CR3BP, $\ntilde=1$ and therefore the rtoation angle is just
+            nondimensionalized in the CR3BP, $\ntilde=1$ and therefore the rotation angle is just
             $\tau-\tau_{0}$. Since the $\zhat$- and $\Zhat$-axes coincide for an arbitrary inertial
             frame, a simple rotation matrix can be used to rotate the position states:
             \begin{equation}
@@ -51,8 +51,8 @@ to a primary-centric arbitrary inertial frame:
             \end{equation}
             
             Using the rotation matrix $\prescript{I}{}{C}^{R}$ from \cref{eq:positionrotation},
-            \cref{eq:inertialrotatingvelocity} can be written in matrix from and combined with the
-            position rotation to achieve full state rotation:
+            \cref{eq:inertialrotatingvelocity} can be written in a matrix form and combined with
+            the position rotation to achieve full state rotation:
             \begin{equation}
                 \Qbar=\begin{bmatrix}   \prescript{I}{}{C}^{R}      &   \zerobar                \\
                                         \prescript{I}{}{\dot{C}}^{R} &   \prescript{I}{}{C}^{R}  \end{bmatrix}\qbar,
@@ -66,7 +66,7 @@ To transform a primary-centric arbitrary inertial state to a barycentric rotatin
 reverse the above states (nondimensionalizing if necessary) and invert the state rotation matrix.
 
 \subsection{Barycentric Rotating Frame - Ecliptic J2000 Inertial Frame}
-When desigining a trajectory across multiple systems, it is often useful to view each part of the
+When designing a trajectory across multiple systems, it is often useful to view each part of the
 trajectory in a common inertial reference frame. In this investigation, the Earth Ecliptic J2000
 inertial frame, introduced in Section 2.1.2 (\cref{fig:eclipJ2000Frame}), is used as the common
 frame for interplanetary trajectories.

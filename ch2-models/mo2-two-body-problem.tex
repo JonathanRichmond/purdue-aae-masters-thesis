@@ -4,7 +4,7 @@ are far from planets and moons, as a Two-Body Problem, governed by a single grav
 This section provides a brief overview of key aspects of 2BP dynamics, Keplerian orbital elements,
 and Kepler's Equation. For a more comprehensive derivation of the 2BP, refer to Chapters 1 and 2 of
 Vallado's \emph{Fundamentals of Astrodynamics and Applications}\cite{Vallado:2013}. Additionally,
-Canales highlights the background information relevant for understanding the transfer methodologies
+Canales highlights the background information relevant to understanding the transfer methodologies
 presented in this analysis\cite{Canales:2021}.
 
 \subsection{Equations of Motion}
@@ -98,8 +98,8 @@ The eccentricity can also be used to determine the type of conic section:
 \end{itemize}
 This investigation focuses on circles and ellipses with $0\leq e<1$.
 
-In similar fashion, Kepler's third law provides the orbit period $\mathbb{P}$ and, consequently,
-the mean motion $n$:
+Similarly, Kepler's third law provides the orbit period $\mathbb{P}$ and, consequently, the mean
+motion $n$:
 \begin{equation}
     \mathbb{P}=2\pi\sqrt{\frac{a^{3}}{\mu_{2BP}}},
     \label{eq:period}
@@ -183,7 +183,7 @@ where
 \subsubsection{Keplerian orbital elements to Cartesian state}
 Similarly, the Cartesian state vector can be obtained from the Keplerian orbital elements. First,
 the eccentric anomaly $E$ is needed, which is the angle made by the eccentricity vector pointing to
-perapsis and the vector from the center of the ellipse to the point directly above the spcacecraft
+periapsis and the vector from the center of the ellipse to the point directly above the spacecraft
 location (perpendicular to the eccentricity vector) on an auxiliary circle drawn tangent to the
 ellipse. The eccentric anomaly and the auxiliary circle are illustrated in \cref{fig:auxCircle}, along
 with the eccentricity vector and semimajor axis.
@@ -240,8 +240,8 @@ time:
 \end{equation}
 where $(t-t_{p})$ represents the time since periapsis.
 
-Kepler's equation estabishes a connection between the mean and eccentric anomalies, thereby linking
-the eccentric anomaly to time:
+Kepler's equation establishes a connection between the mean and eccentric anomalies, thereby
+linking the eccentric anomaly to time:
 \begin{equation}
     M=E-e\sin(E).
     \label{eq:Keplersequation}
