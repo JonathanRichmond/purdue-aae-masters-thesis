@@ -1,21 +1,19 @@
 \section{Differential Corrections}
-Differential corrections are used to compute solutions in targeting problems
-that satisfy provided constraints on the initial condition and the trajectory
-arc. To do so, it is necessary to be able to relate downstream states to the
-initial condition.
+Differential corrections are used to compute solutions in targeting problems that satisfy provided
+constraints on the initial condition and the trajectory arc. To do so, it is necessary to be able
+to relate downstream states to the initial condition.
 
 \subsection{State Transition Matrix}
-The state transition matrix (STM) relates variations in an initial state,
-$\qbar_{0}=\qbar(t_{0})$, to variations in a downstream state $\qbar(t)$.
-Starting from a first-order Taylor series expansion about the baseline
-trajectory arc, the linear variational equation is derived:
+The state transition matrix (STM) relates variations in an initial state, $\qbar_{0}=\qbar(t_{0})$,
+to variations in a downstream state $\qbar(t)$. Starting from a first-order Taylor series expansion
+about the baseline trajectory arc, the linear variational equation is derived:
 \begin{equation}
     \partial\qbardot(t)=A(t)\partial\qbar(t),
     \label{eq:linearvariational}
 \end{equation}
-where $A(t)$ is the Jacobian matrix for the equations of motion with respect to
-the state at time $t$. A full derivation for the CR3BP $A(t)$ matrix can be
-found in Zimovan, but the result is given here\cite{Zimovan:2017}:
+where $A(t)$ is the Jacobian matrix for the equations of motion with respect to the state at time
+$t$. A full derivation for the CR3BP $A(t)$ matrix can be found in Zimovan, but the result is given
+here\cite{Zimovan:2017}:
 \begin{equation}
     A(t)=\begin{bmatrix}    \frac{\partial x}{\partial x_{0}}       &   \frac{\partial x}{\partial y_{0}}       &   \frac{\partial x}{\partial z_{0}}       &   \frac{\partial x}{\partial \xdot_{0}}       &   \frac{\partial x}{\partial \ydot_{0}}       &   \frac{\partial x}{\partial \zdot_{0}}       \\
                             \frac{\partial y}{\partial x_{0}}       &   \frac{\partial y}{\partial y_{0}}       &   \frac{\partial y}{\partial z_{0}}       &   \frac{\partial y}{\partial \xdot_{0}}       &   \frac{\partial y}{\partial \ydot_{0}}       &   \frac{\partial y}{\partial \zdot_{0}}       \\
@@ -66,8 +64,8 @@ can be rearranged to provide the STM $\Phi(t,t_{0})$:
     \Phi(t,t_{0})=\frac{\partial\qbar(t)}{\partial\qbar_{{0}}}.
     \label{eq:STM}
 \end{equation}
-The equation of motion for the STM can be appended to the CR3BP equations of
-motion when propagating:
+The equation of motion for the STM can be appended to the CR3BP equations of motion when
+propagating:
 \begin{equation}
     \dot{\Phi}(t,t_{0})=A(t)\Phi(t,t_{0}),
     \label{eq:STMEoM}
@@ -75,66 +73,92 @@ motion when propagating:
 with an initial condition of $\Phi(t_{0},t_{0})=I_{6\times6}$.
 
 \subsection{Multi-Variable Newton-Raphson Method}
-Targeting problems require iterative approaches where an initial guess is
-updated until it meets a set of constraints to solve a boundary value problem.
-This investigation uses a multi-variable Newton-Raphson method as a
-differential corrections process for single-shooting targeting problems,
-applying analytical or numerical partial derivatives of constraints with
-respect to the initial conditions.
+Targeting problems require iterative approaches where an initial guess is updated until it meets a
+set of constraints to solve a boundary value problem. This investigation uses a multi-variable
+Newton-Raphson method as a differential corrections process for single-shooting targeting problems,
+applying analytical or numerical partial derivatives of constraints with respect to the initial
+conditions.
 
-If $\Xbar$ is the free variable vector and $\Fbar(\Xbar)$ is the constraint
-vector, dependent on the free variables, then the goal of the targeting problem
-is to find $\Xbar$ such that $\Fbar(\Xbar)=\zerobar$ (to a chosen tolerance).
-Example free variable and constraint vectors will be introduced in future
-sections of this chapter and document. Under the Newton-Raphson method, the
-update equation is again provided by a first-order Taylor series expansion
-about the initial condition $\Xbar_{0}$:
+If $\Xbar$ is the free variable vector and $\Fbar(\Xbar)$ is the constraint vector, dependent on
+the free variables, then the goal of the targeting problem is to find $\Xbar$ such that
+$\Fbar(\Xbar)=\zerobar$ (to a chosen tolerance). Example free variable and constraint vectors will
+be introduced in future sections of this chapter and document. Under the Newton-Raphson method, the
+update equation is again provided by a first-order Taylor series expansion about the initial
+condition $\Xbar_{0}$:
 \begin{equation}
     \Fbar(\Xbar)=\Fbar(\Xbar_{0})+DF(\Xbar_{0})(\Xbar-\Xbar_{0})=\zerobar,
     \label{eq:updateequation}
 \end{equation}
-where $DF(\Xbar)$ is the Jacobian matrix containing the partial derivatives of
-the constraint vector with respect to the free variable vector.
+where $DF(\Xbar)$ is the Jacobian matrix containing the partial derivatives of the constraint
+vector with respect to the free variable vector.
 
-With this update equation, the next iteration on the initial conditions can be
-computed. If the number of free variables matches the number of constraints:
+With this update equation, the next iteration on the initial conditions can be computed. If the
+number of free variables matches the number of constraints:
 \begin{equation}
     \Xbar=\Xbar_{0}-DF(\Xbar_{0})^{-1}\Fbar(\Xbar_{0}),
     \label{eq:NRsolution}
 \end{equation}
-and this becomes the new iteration of the initial conditions. Ideally, upon
-each iteration, the norm of the constraint vector should approach closer to the
-tolerance. If the number of free variables is greater than the number of
-constraints, a minimum-norm solution can be used:
+and this becomes the new iteration of the initial conditions. Ideally, upon each iteration, the
+norm of the constraint vector should approach closer to the tolerance. If the number of free
+variables is greater than the number of constraints, a minimum-norm solution can be used:
 \begin{equation}
     \Xbar=\Xbar_{0}-DF(\Xbar_{0})^{T}(DF(\Xbar_{0})DF(\Xbar_{0})^{T})^{-1}\Fbar(\Xbar_{0}).
     \label{eq:minimumnorm}
 \end{equation}
-When the number of free variables is less than the number of constraints, a
-least squares solution can be used, but that is not addressed in this
-investigation.
+When the number of free variables is less than the number of constraints, a least squares solution
+can be used, but that is not addressed in this investigation.
+
+As a simple targeting example, consider the following planar boundary value problem in
+\cref{fig:targeting}. The objective is to vary the initial velocity and time-of-flight (TOF) to
+target a desired final position $\rhobar_{d}$. This results in a free variable vector:
+\begin{equation}
+    \Xbar=\begin{bmatrix}   \xdot_{0}   &   \ydot_{0}   &   \tau    \end{bmatrix}^{T},
+    \label{eq:exfreevar}
+\end{equation}
+and constraint vector:
+\begin{equation}
+    \Fbar(\Xbar)=\begin{bmatrix}    x_{f}-x_{d} &   y_{f}-y_{d} \end{bmatrix}^{T}=\zerobar.
+    \label{eq:exconst}
+\end{equation}
+The Jacobian matrix is comprised of the partial derivatives of the constraint vector with respect
+to the free variable vector, in this case, a combination of the STM and time derivatives:
+\begin{equation}
+    DF(\Xbar)=\begin{bmatrix}   \frac{\partial(x_{f}-x_{d})}{\partial\xdot_{0}} &   \frac{\partial(x_{f}-x_{d})}{\partial\ydot_{0}} &   \frac{\partial(x_{f}-x_{d})}{\partial\tau}  \\
+                                \frac{\partial(y_{f}-y_{d})}{\partial\xdot_{0}} &   \frac{\partial(y_{f}-y_{d})}{\partial\ydot_{0}} &   \frac{\partial(y_{f}-y_{d})}{\partial\tau}  \end{bmatrix}
+             =\begin{bmatrix}   \phi_{14}                                       &   \phi_{15}                                       &   \xdot_{f}                                   \\
+                                \phi_{24}                                       &   \phi_{25}                                       &   \ydot_{f}                                   \end{bmatrix},
+    \label{eq:exJacobian}
+\end{equation}
+where $\phi$ are elements of the STM of the propagated arc. These vectors and the Jacobian matrix
+can then be used in \cref{eq:minimumnorm} to iteratively solve for the free variable vector that
+satisfies the constraint vector and solves the provided boundary value problem.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/Targeting.jpg}
+    \caption{Simple Targeting Example.}
+    \label{fig:targeting}
+\end{figure}
 
 \subsection{Central Difference Method}
-The Newton-Raphson method uses partial derivatives to solve a targeting problem
-iteratively. These partial derivatives can be provided analytically (examples
-will be shown later) or numerically using an approximation method such as
-central differencing. This approach is used in this investigation to check
-analytical partial derivatives or when the analytical partials are overly
+The Newton-Raphson method uses partial derivatives to solve a targeting problem iteratively. These
+partial derivatives can be provided analytically (like in the previous example) or numerically
+using an approximation method such as central differencing. The numerical approach is used in this
+investigation to check analytical partial derivatives or when the analytical partials are overly
 complicated.
 
-The central difference method approximates the slope of the solution at
-discretized points just before and after the initial condition:
+The central difference method approximates the slope of the solution at discretized points just
+before and after the initial condition:
 \begin{equation}
     D\Fbar_{i}(\Xbar_{0})=\frac{\partial\Fbar(\Xbar_{0})}{\partial X_{i}}=\frac{\Fbar(X_{i}+\kappa)-\Fbar(X_{i}-\kappa)}{2\kappa},
     \label{eq:slope}
 \end{equation}
-where $X_{i}$ is one of the components of the free variable vector and $\kappa$
-is a small perturbation (this investigation uses the square root of the machine
-tolerance, $\sqrt{\epsilon}$). Each variable in the free variable vector is
-perturbed in both directions by $\kappa$, one at a time, and the constraint
-vector is evaluated at each new free variable vector and substituted into
-\cref{eq:slope} above. Perturbing all of the free variables individually makes
-up the numerical Jacobian matrix:
+where $X_{i}$ is one of the components of the free variable vector and $\kappa$ is a small
+perturbation (this investigation uses the square root of the machine tolerance, $\sqrt{\epsilon}$).
+Each variable in the free variable vector is perturbed in both directions by $\kappa$, one at a
+time, and the constraint vector is evaluated at each new free variable vector and substituted into
+\cref{eq:slope} above. Perturbing all of the free variables individually makes up the numerical
+Jacobian matrix:
 \begin{equation}
     DF(\Xbar_{0})=\begin{bmatrix}   D\Fbar_{1}(\Xbar_{0})   &   \dots   &   D\Fbar_{m}(\Xbar_{0})\end{bmatrix}.
     \label{eq:centraldifference}

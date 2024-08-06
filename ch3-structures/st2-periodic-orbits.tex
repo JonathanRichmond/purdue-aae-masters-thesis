@@ -6,41 +6,76 @@ in the rotating frame and this information can be utilized in the targeting proc
 the initial conditions for these families can be obtained through a variety of methods including
 linear variational equations about the Lagrange points and bifurcations from other orbit families.
 
-\subsection{Targeting a Planar Lyapunov Orbit}
+\subsection{Lyapunov Orbit Family}
+\subsubsection{Lyapunov Targeter}
 To demonstrate the periodic orbit targeting process, the Newton-Raphson scheme will be used to
 solve for a periodic orbit in the $xy$-plane of the rotating frame around the first Lagrange point.
 This family of solutions is known as the $L_{1}$ Lyapunov family and they are symmetric about the
 $xz$-plane. Therefore, instead of targeting the full orbit, it is only necessary to target half of
-it, from one perpendicular crossing of the $xz$-plane to the next. To target one of these orbits,
-starting from a desired $x_{0}$, consider the free variable vector:
-
+it, from one perpendicular crossing of the $xz$-plane to the next. To target one of these orbits at
+a specified energy level (Jacobi constant), consider the free variable vector:
 \begin{equation}
-    \Xbar=\begin{bmatrix}   \ydot_{0}   &   \tau    \end{bmatrix}^{T}.
+    \Xbar=\begin{bmatrix}   x_{0}   &   \ydot_{0}   &   \tau    \end{bmatrix}^{T}.
     \label{eq:Lyapunovfreevar}
 \end{equation}
-
 Since the boundary value problem being solved starts from a perpendicular crossing, it is only
-necessary to allow $\ydot_{0}$ to vary as the rest of the initial states will all be $0$. In
-\cref{eq:Lyapunovfreevar}, $\tau$ represents the nondimensional propagation time of the initial
-conditions. To target another perpendicular crossing for the endpoint of the trajectory arc, the
-following constraint vector is used:
-
+necessary to allow $x_{0}$ and $\ydot_{0}$ to vary as the rest of the initial states will all be
+$0$. In \cref{eq:Lyapunovfreevar}, $\tau$ represents the nondimensional propagation time (TOF) of
+the initial conditions. To target another perpendicular crossing for the endpoint of the trajectory
+arc, the following constraint vector is used:
 \begin{equation}
-    \Fbar(\Xbar)=\begin{bmatrix}    y_{f}   &   \xdot_{f}   \end{bmatrix}^{T}=\zerobar.
+    \Fbar(\Xbar)=\begin{bmatrix}    y_{f}   &   \xdot_{f}   &   C-C_{d} \end{bmatrix}^{T}=\zerobar,
     \label{eq:Lyapunovconst}
 \end{equation}
-
-The Jacobian matrix is comprised of the partial derivatives of the constaint vectore with respect
-to the free variable vector, in this case, a combination of the STM and time derivatives:
-
+where $C$ is the Jacobi constant of the propagated arc and $C_{d}$ is the desired Jacobi constant.
+The Jacobian matrix is then comprised of partial derivatives from the STM, time derivatives, and
+partial derivatives of the Jacobi constant with respect to state variables:
 \begin{equation}
-    DF=\begin{bmatrix}  \frac{\partial y_{f}}{\partial\ydot_{0}}        &   \frac{\partial y_{f}}{\partial\tau}     \\
-                        \frac{\partial\xdot_{f}}{\partial{\ydot_{0}}}   &   \frac{\partial\xdot_{f}}{\partial\tau}  \end{bmatrix}
-      =\begin{bmatrix}  \phi_{25}                                       &   \ydot_{f}                               \\
-                        \phi_{45}                                       &   \xddot_{f}                              \end{bmatrix},
+    DF(\Xbar)=\begin{bmatrix}   \frac{\partial y_{f}}{\partial x_{0}}                                       &   \frac{\partial y_{f}}{\partial\ydot_{0}}    &   \frac{\partial y_{f}}{\partial\tau}     \\
+                                \frac{\partial\xdot_{f}}{\partial x_{0}}                                    &   \frac{\partial\xdot_{f}}{\partial\ydot_{0}} &   \frac{\partial\xdot_{f}}{\partial\tau}  \\
+                                \frac{\partial(C-C_{d})}{\partial x_{0}}                                    &   \frac{\partial(C-C_{d})}{\partial\ydot_{0}} &   \frac{\partial(C-C_{d})}{\partial\tau}  \end{bmatrix}
+             =\begin{bmatrix}   \phi_{21}                                                                   &   \phi_{25}                                   &   \ydot_{f}                               \\
+                                \phi_{41}                                                                   &   \phi_{45}                                   &   \xddot_{f}                              \\
+                                2x_{0}-\frac{2(x_{0}+\mu)(1-\mu)}{d^{3}}-\frac{2\mu(x_{0}-1+\mu)}{r^{3}}    &   -2\ydot_{0}                                 &   0                                       \end{bmatrix}.
+\end{equation}
+This Jacobian matrix can then be used with \cref{eq:NRsolution} to iteratively solve for the free
+variable vector $\Xbar$ that solves the provided problem. This provides the initial state and half
+of the propagation time for a periodic Lyapunov orbit.
+
+\subsubsection{Lyapunov Initial Guess}
+An initial guess for a Lyapunov orbit close to the Lagrange point can come from variational
+equations of motion, linearized about the equilibrium point:
+\begin{equation}
+    x_{0}=x_{L}+\xi,
+    \label{eq:xvar}
+\end{equation}
+\begin{equation}
+    \ydot_{0}=-\beta_{3}\xi s,
+    \label{eq:ydotvar}
+\end{equation}
+where $\xi$ is a chosen variation from the $x$-value of the Lagrange point,
+\begin{equation}
+    \beta_{1}=2-\frac{\frac{\partial U}{\partial x\partial x}+\frac{\partial U}{\partial y\partial y}}{2},
+    \label{eq:beta1}
+\end{equation}
+\begin{equation}
+    \beta_{2}=\sqrt{-\frac{\partial U}{\partial x\partial x}\frac{\partial U}{\partial y\partial y}},
+    \label{eq:beta2}
+\end{equation}
+\begin{equation}
+    s=\sqrt{\beta_{1}+\sqrt{\beta_{1}^{2}+\beta_{2}^{2}}},
+    \label{eq:s}
+\end{equation}
+\begin{equation}
+    \beta_{3}=\frac{s^{2}+\frac{\partial U}{\partial x\partial x}}{2s}.
+    \label{eq:beta3}
 \end{equation}
 
-where $\phi$ are the corresponding elements of the STM of the propagated arc. This Jacobian matrix
-can then be used with \cref{eq:NRsolution} to iteratively solve for the free variable vector
-$\Xbar$ that solves the provided problem. This, combined with the given $x_{0}$ value, is the
-initial state and half of the propagation time for a periodic Lyapunov orbit.
+The last part of the initial guess for the free variable vector is the half-period of the orbit
+$\tau$. This can be approximated by propagating the initial state guess until it reaches the
+$x$-axis.
+
+
+
+\subsection{Stability}
+
