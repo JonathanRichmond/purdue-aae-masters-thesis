@@ -6,8 +6,8 @@ in the rotating frame and this information can be utilized in the targeting proc
 the initial conditions for these families can be obtained through a variety of methods including
 linear variational equations about the Lagrange points and bifurcations from other orbit families.
 
-\subsection{Lyapunov Orbit Family}
-\subsubsection{Lyapunov Targeter}
+\subsection{Lyapunov Orbit Families}
+\subsubsection{A Lyapunov Targeter}
 To demonstrate the periodic orbit targeting process, the Newton-Raphson scheme will be used to
 solve for a periodic orbit in the $xy$-plane of the rotating frame around the first Lagrange point.
 This family of solutions is known as the $L_{1}$ Lyapunov family and they are symmetric about the
@@ -75,7 +75,56 @@ The last part of the initial guess for the free variable vector is the half-peri
 $\tau$. This can be approximated by propagating the initial state guess until it reaches the
 $x$-axis.
 
+\subsubsection{Converged Lyapunov Orbit}
+The linear variational equations are only approximate the dynamics very close to the Lagrange
+point. Using $\xi=0.005$ as the initial variation in the $x$-direction from the $L_{1}$ Lagrange
+point in the Earth-Moon system:
+\begin{equation}
+    \Xbar_{0}=\begin{bmatrix}   0.841915    &   -0.0418614  &   1.29755\end{bmatrix}^{T},
+    \label{eq:Lyapunovguess}
+\end{equation}
+and from the guess for the initial state, $C_{d}=3.186877$. This initial free variable guess is
+propagated using the CR3BP equations of motion and is represented by the dashed curve in
+\cref{fig:Lyapunov}. After targeting a perpendicular crossing using the targeter described above,
+the solution can be propagated (for $2\tau$) to obtain the full periodic Lyapunov orbit, shown as
+a closed, solid curve in \cref{fig:Lyapunov}. Note that while the energy of the converged solution
+matches that of the initial guess, the $x$- and $\ydot$-values have shifted slightly.
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/Lyapunov.pdf}
+    \caption{Converged periodic Lyapunov orbit in the Earth-Moon barycentric rotating frame.}
+    \label{fig:Lyapunov}
+\end{figure}
+
+\subsubsection{Natural Parameter Continuation}
+The process described above produces a single solution near the Lagrange point. In order to compute
+more solutions (orbits) in the family, especially further away from the Lagrange point where the
+linear variational equations no longer apply, converged solutions can be used in a continuation
+scheme to find other family members. This investigation utilizes natural parameter continuation,
+where one of the parameters of a converged solution is changed by a small amount. This new guess
+for an orbit is then converged, and a new solution is obtained. This continuation process can then
+be repeated until the scheme reaches a natural/dynamical end or a desired orbit is reached. Natural
+parameters of the orbit include (but are not limited to) components of the initial state, the
+period, or the Jacobi constant. \cref{fig:L1Lyapunov} shows a large portion of the $L_{1}$ Lyapunov
+family in the Earth-Moon system, continued in Jacobi constant from the orbit in
+\cref{fig:Lyapunov}. Lyapunov families also exist about $L_{2}$ and $L_{3}$ and can be computed via
+the same process. Since $L_{2}$ Lyapunovs are also used in this investigation, they are shown in
+\cref{fig:L2Lyapunov}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/L1LyapunovFamily.pdf}
+    \caption{$L_{1}$ Lyapunov orbit family.}
+    \label{fig:L1Lyapunov}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/L2LyapunovFamily.pdf}
+    \caption{$L_{2}$ Lyapunov orbit family.}
+    \label{fig:L2Lyapunov}
+\end{figure}
 
 \subsection{Stability}
 
