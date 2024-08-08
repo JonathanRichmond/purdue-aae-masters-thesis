@@ -7,6 +7,7 @@ the initial conditions for these families can be obtained through a variety of m
 linear variational equations about the Lagrange points and bifurcations from other orbit families.
 
 \subsection{Lyapunov Orbit Families}
+\phantomsection
 \subsubsection{A Lyapunov Targeter}
 To demonstrate the periodic orbit targeting process, the Newton-Raphson scheme will be used to
 solve for a periodic orbit in the $xy$-plane of the rotating frame around the first Lagrange point.
@@ -126,5 +127,146 @@ the same process. Since $L_{2}$ Lyapunovs are also used in this investigation, t
     \label{fig:L2Lyapunov}
 \end{figure}
 
-\subsection{Stability}
+\subsection{Orbital Stability}
+Before discussing other orbit families, it is important to introduce orbital stability as it leads
+to orbit family bifurcations and another way to generate new orbit families. Orbital stability
+helps describe the characteristics of the orbit and the surrounding dynamics. The stability of an
+orbit also determines the best transfer design strategies to minimize the $\Delta v$ cost. 
+
+\phantomsection
+\subsubsection{Monodromy Matrix}
+The STM of one revolution of a periodic orbit in the CR3BP, $\Phi(t_{0}+\mathbb{P},t_{0})$, is
+called the monodromy matrix, and discretely maps the linear growth of perturbations. Some
+useful properties of the monodromy matrix are that it is symplectic, it has a determinant of $1$,
+and its eigenvalues occur in reciprocal pairs\cite{ZimovanSpreen:2021}. Since the trajectory is
+periodic, two of the eigenvalues (one pair) are always $1$, denoted the trivial pair, and
+correspond to the trajectory's periodicity and membership in a family of solutions.
+
+The stability of the orbit is characterized by the remaining two pairs of eigenvalues. Since the
+monodromy matrix is a discrete time mapping, eigenvalues that lie within the unit circle (magnitude
+less than $1$) in the complex plane are stable and those outside the unit circle are unstable.
+Perturbations in the stable subspace will flow back towards the orbit, while perturbations in the
+unstable subspace will depart the orbit. If the eigenvalues lie directly on the unit circle, then
+the corresponding flow is in the center subspace and remains bounded around the orbit. When the
+stability of an eigenvalue pair changes, it can indicate a change in the characteristics of orbits
+within a family and sometimes leads to a bifurcation in the family, discussed later.
+
+The overall stability of the orbit is then determined by all of the eigenvalues of its monodromy
+matrix. If any of the eigenvaules are unstable (greater than $1$), then the orbit is considered
+linearly unstable. Note that the existence of an unstable eigenvalue implies the existence of a
+stable eigenvalue because of the reciprocal pairs. Otherwise, the orbit is considered marginally
+stable and all of the eigenvalues reside on the unit circle. Throughout an orbit family, while the
+stability of the members may change, the eigenvalues experience a smooth (but not necessarily
+monotonic) evolution.
+
+\subsubsection{Stability Index}
+A variety of metrics exist to more succinctly portray the stability of orbits, rather than viewing
+all of the eigenvalues. One such metric is a stability index, of which there are a variety of
+definitions whose usefulness vary depending on application. In this investigation, the focus is on
+just the overall stability of the orbit --- whether it is unstable or marginally stable --- so a
+metric that can quickly differentiate between these behaviors suffices. Therefore, the following
+definition is used\cite{Power:2019}:
+\begin{equation}
+    \varsigma=||\bar{\lambda}||_{\inf},
+    \label{eq:stabilityindex}
+\end{equation}
+where $\bar{\lambda}$ is a vector of the eigenvalues of the monodromy matrix and the infinity norm
+returns the magnitude of the largest (magnitude) element of the vector. With this definition,
+$\varsigma>1$ indicates an unstable orbit and $\varsigma=1$ indicates one that is marginally
+stable. Other definitions can be found in Zimovan Spreen's work\cite{ZimovanSpreen:2021}.
+
+Like the eigenvalues themselves, the evolution of the stability index over an orbit family is
+smooth. \cref{fig:L1LyapunovStability} and \cref{fig:L2LyapunovStability} show the stability
+indices for the members of the $L_{1}$ and $L_{2}$ Lyapunov families from \cref{fig:L1Lyapunov} and
+\cref{fig:L2Lyapunov}. A larger stability index means that the orbit hasa higher instability and
+perturbations will experience faster growth. Note that all of the members of both of these families
+are unstable. However, there are stability changes among individual eigenvalues within each family
+that can lead to bifurcations.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/L1LyapunovStability.pdf}
+    \caption{$L_{1}$ Lyapunov family stability index evolution.}
+    \label{fig:L1LyapunovStability}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/L2LyapunovStability.pdf}
+    \caption{$L_{2}$ Lyapunov family stability index evolution.}
+    \label{fig:L2LyapunovStability}
+\end{figure}
+
+\subsubsection{Time Constant}
+Another useful metric of stability is the time constant, which approximates how long it takes, in
+time units or in orbit revolutions, for a perturbation to grow by a factor of $e$:
+\begin{equation}
+    \Upsilon=\frac{1}{\ln\varsigma},
+    \label{eq:timeconstant}
+\end{equation}
+where the dimensions are orbit revolutions. This equation can be multiplied by the period of the
+orbit $\mathbb{P}$ to produce the time constant in time units. \cref{fig:L1LyapunovTimeConstant}
+and \cref{fig:L2LyapunovTimeConstant} show the time constant evolution of both Lyapunov families in
+orbit revolutions. Note that a larger time constant indicates that it takes longer for a
+perturbation, meaning that the orbit is less unstable, and a marginally stable orbit has an
+infinite time constant.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/L1LyapunovTimeConstant.pdf}
+    \caption{$L_{1}$ Lyapunov family time constant evolution.}
+    \label{fig:L1LyapunovTimeConstant}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/L2LyapunovTimeConstant.pdf}
+    \caption{$L_{2}$ Lyapunov family time constant evolution.}
+    \label{fig:L2LyapunovTimeConstant}
+\end{figure}
+
+\subsubsection{Bifucations}
+Within the context of the CR3BP, bifurcation theory can be used to detect for changes in orbit
+stability characteristics within a family that can sometimes lead to the generation of orbit
+families that branch off from the original family. Zimovan Spreen provides a more thorough
+analysis of how bifurcation theory can be applied to the CR3BP so only the information most
+relevant to this investigation will be provided here\cite{ZimovanSpreen:2021}.
+
+There are two main bifurcation types that are relevant to the orbits used in this analysis:
+\begin{itemize}
+    \item \textbf{Tangent bifurcations} occcur when an eigenvalue pair goes to $1$, either from the
+    unit circle or the real axis. With a cyclic fold tangent bifurcation, which occurs at an
+    extremum in Jacobi constant, the stability of the eigenvalues changes, but there is no new
+    family of solutions created. Pitchfork tangent bifurcations produce two new families that have
+    the same stability as the original family. The last subtype, transcritical tangent
+    bifurcations, produce a new family and a change in eigenvalue stability of the original family.
+    \item \textbf{Period-multiplying bifurcations} occur when an eigenvalue pair reach a root of
+    $1$ ($\sqrt{1}$, $\sqrt[3]{1}$, $\sqrt[m]{1}$, etc.). In general, this produces a new family
+    with a period of $m$ times the original, but not necessarily a change in stability. The most
+    commonly-seen subtype is the period-doubling bifurcation, where the pair of eigenvalues meets
+    at $-1$, either from the unit circle or the real axis. This results in a change in stability of
+    the eigenvalues and a new family that has double the period of the original family.
+\end{itemize}
+There are other methods of detecting bifurcations beyond examining the evolution of the eigenvalues
+such as Broucke stability or bifurcation diagrams that are also described in Zimovan
+Spreen\cite{ZimovanSpreen:2021}.
+
+\subsubsection{New Family Generation from Bifurcation}
+To find the initial conditions for an orbit in a new family from a bifurcation, first the precise
+bifurcating orbit (within a tolerance) must be obtained. This can be done through a simple
+bisection algorithm. The Jacobian matrix of this bifurcating orbit should have an additional
+nullspace compared to the other orbits in the family since another pair of eigenvalues (besides the
+trivial pair) is at $1$. Note that for a period-multiplying bifurcation, the orbit must be
+propagated for $m$ revolutions to obtain the proper Jacobian matrx. When this is the case, one of
+the nullspace vectors points in the direction of continuing the old family, while the other vector
+indicates a direction for the new family.
+
+Using a singular value decomposition (SVD), this new nullspace direction can be identified by the
+right singular vector of $DF$ that corresponds to the additional nullspace. Stepping in this
+direction from the bifurcating orbit's initial conditions and correcting for a periodic solution
+should result in a new periodic orbit belonging to the new family. This approach is also known as
+pseudo-arclength continuation and the new member can then be continued using any scheme to obtain
+the new family.
+
+\subsection{Halo Orbit Families}
 
