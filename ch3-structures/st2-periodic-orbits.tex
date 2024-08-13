@@ -38,6 +38,7 @@ partial derivatives of the Jacobi constant with respect to state variables:
              =\begin{bmatrix}   \phi_{21}                                                                   &   \phi_{25}                                   &   \ydot_{f}                               \\
                                 \phi_{41}                                                                   &   \phi_{45}                                   &   \xddot_{f}                              \\
                                 2x_{0}-\frac{2(x_{0}+\mu)(1-\mu)}{d^{3}}-\frac{2\mu(x_{0}-1+\mu)}{r^{3}}    &   -2\ydot_{0}                                 &   0                                       \end{bmatrix}.
+    \label{eq:Lyapunovjacobian}
 \end{equation}
 This Jacobian matrix can then be used with \cref{eq:NRsolution} to iteratively solve for the free
 variable vector $\Xbar$ that solves the provided problem. This provides the initial state and half
@@ -116,14 +117,14 @@ the same process. Since $L_{2}$ Lyapunovs are also used in this investigation, t
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/L1LyapunovFamily.pdf}
-    \caption{$L_{1}$ Lyapunov orbit family.}
+    \caption{Earth-Moon $L_{1}$ Lyapunov orbit family.}
     \label{fig:L1Lyapunov}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/L2LyapunovFamily.pdf}
-    \caption{$L_{2}$ Lyapunov orbit family.}
+    \caption{Earth-Moon $L_{2}$ Lyapunov orbit family.}
     \label{fig:L2Lyapunov}
 \end{figure}
 
@@ -176,25 +177,25 @@ $\varsigma>1$ indicates an unstable orbit and $\varsigma=1$ indicates one that i
 stable. Other definitions can be found in Zimovan Spreen's work\cite{ZimovanSpreen:2021}.
 
 Like the eigenvalues themselves, the evolution of the stability index over an orbit family is
-smooth. \cref{fig:L1LyapunovStability} and \cref{fig:L2LyapunovStability} show the stability
-indices for the members of the $L_{1}$ and $L_{2}$ Lyapunov families from \cref{fig:L1Lyapunov} and
-\cref{fig:L2Lyapunov}. A larger stability index means that the orbit hasa higher instability and
-perturbations will experience faster growth. Note that all of the members of both of these families
-are unstable. However, there are stability changes among individual eigenvalues within each family
-that can lead to bifurcations.
+smooth. \cref{fig:stability} shows the stability indices for the members of the $L_{1}$ (a) and
+$L_{2}$ (b) Lyapunov families from \cref{fig:L1Lyapunov} and \cref{fig:L2Lyapunov}. A larger
+stability index means that the orbit hasa higher instability and perturbations will experience
+faster growth. Note that all of the members of both of these families are unstable. However, there
+are stability changes among individual eigenvalues within each family that can lead to
+bifurcations.
 
 \begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/L1LyapunovStability.pdf}
-    \caption{$L_{1}$ Lyapunov family stability index evolution.}
-    \label{fig:L1LyapunovStability}
-\end{figure}
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/L2LyapunovStability.pdf}
-    \caption{$L_{2}$ Lyapunov family stability index evolution.}
-    \label{fig:L2LyapunovStability}
+    \begin{subfigure}[h]{0.4\linewidth}
+        \includegraphics[width=\textwidth]{figures/L1LyapunovStability.pdf}
+        \caption{$L_{1}$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[h]{0.4\linewidth}
+        \includegraphics[width=\textwidth]{figures/L2LyapunovStability.pdf}
+        \caption{$L_{2}$}
+    \end{subfigure}
+    \caption{Earth-Moon Lyapunov family stability index evolution.}
+    \label{fig:stability}
 \end{figure}
 
 \subsubsection{Time Constant}
@@ -205,24 +206,23 @@ time units or in orbit revolutions, for a perturbation to grow by a factor of $e
     \label{eq:timeconstant}
 \end{equation}
 where the dimensions are orbit revolutions. This equation can be multiplied by the period of the
-orbit $\mathbb{P}$ to produce the time constant in time units. \cref{fig:L1LyapunovTimeConstant}
-and \cref{fig:L2LyapunovTimeConstant} show the time constant evolution of both Lyapunov families in
-orbit revolutions. Note that a larger time constant indicates that it takes longer for a
-perturbation, meaning that the orbit is less unstable, and a marginally stable orbit has an
-infinite time constant.
+orbit $\mathbb{P}$ to produce the time constant in time units. \cref{fig:timeConstant} shows the
+time constant evolution of both Lyapunov families in orbit revolutions. Note that a larger time
+constant indicates that it takes longer for a perturbation, meaning that the orbit is less
+unstable, and a marginally stable orbit has an infinite time constant.
 
 \begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/L1LyapunovTimeConstant.pdf}
-    \caption{$L_{1}$ Lyapunov family time constant evolution.}
-    \label{fig:L1LyapunovTimeConstant}
-\end{figure}
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/L2LyapunovTimeConstant.pdf}
-    \caption{$L_{2}$ Lyapunov family time constant evolution.}
-    \label{fig:L2LyapunovTimeConstant}
+    \begin{subfigure}[h]{0.4\linewidth}
+        \includegraphics[width=\textwidth]{figures/L1LyapunovTimeConstant.pdf}
+        \caption{$L_{1}$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[h]{0.4\linewidth}
+        \includegraphics[width=\textwidth]{figures/L2LyapunovTimeConstant.pdf}
+        \caption{$L_{2}$}
+    \end{subfigure}
+    \caption{Earth-Moon Lyapunov family time constant evolution.}
+    \label{fig:timeConstant}
 \end{figure}
 
 \subsubsection{Bifucations}
@@ -269,4 +269,287 @@ pseudo-arclength continuation and the new member can then be continued using any
 the new family.
 
 \subsection{Halo Orbit Families}
+\phantomsection
+\subsubsection{A Halo Targeter}
+Similar to Lyapunov orbits, halo orbits are symmetric about the $xz$-plane although they are
+spatial in the rotating frame and not limited to the $xy$-plane. This again allows for
+targeting only half of the periodic orbit, from one perpendicular crossing to the next. Since there
+is now a $z$-component to the orbits, it is helpful to introduce a new free variable and constraint
+for the halo targeter:
+\begin{equation}
+    \Xbar=\begin{bmatrix}   x_{0}   &   z_{0}   &   \ydot_{0}   &   \tau    \end{bmatrix}^{T},
+    \label{eq:halofreevar}
+\end{equation}
+\begin{equation}
+    \Fbar(\Xbar)=\begin{bmatrix}    y_{f}   &   \xdot_{f}   &   \zdot_{f}   &   C-C_{d} \end{bmatrix}^{T}=\zerobar,
+    \label{eq:haloconst}
+\end{equation}
+\begin{equation}
+    DF(\Xbar)=\begin{bmatrix}   \phi_{21}                                                                   &   \phi_{23}                                               &   \phi_{25}                                   &   \ydot_{f}                               \\
+                                \phi_{41}                                                                   &   \phi_{43}                                               &   \phi_{45}                                   &   \xddot_{f}                              \\
+                                \phi_{61}                                                                   &   \phi_{63}                                               &   \phi_{65}                                   &   \zddot_{f}                              \\
+                                2x_{0}-\frac{2(x_{0}+\mu)(1-\mu)}{d^{3}}-\frac{2\mu(x_{0}-1+\mu)}{r^{3}}    &   -\frac{2z_{0}(1-\mu)}{d^{3}}-\frac{2z_{0}\mu}{r^{3}}    &   -2\ydot_{0}                                 &   0                                       \end{bmatrix}.
+    \label{eq:halojacobian}
+\end{equation}
+The result of this targeting will provide the initial state ($y_{0}=\xdot_{0}=\zdot_{0}=0$) and
+half of the propagation time for a periodic halo orbit.
 
+\subsubsection{Converged Halo Families}
+The initial guess for a halo orbit comes from a bifurcating orbit in a Lyapunov family. At
+$C\approx3.174352$, the $L_{1}$ Lyapunov family has a tangent bifurcation and the $L_{1}$ halo
+family is formed. The pseudo-arclength method for generating an initial guess can be used as
+described above to obtain the initial guess for the initial state, propagation time, and Jacobi
+constant. Using natural parameter continuation, more of the family is produced, shown in
+\cref{fig:L1Halo}. Since the Lyapunov orbit can bifurcate above or below the $xy$-plane, two halves
+of the family are formed. \cref{fig:L1Halo} is denoted the $L_{1}$ southern halos because most of
+the orbit is spent south (in the rotating frame) of the Moon.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/L1HaloFamily.pdf}
+    \caption{Earth-Moon $L_{1}$ southern halo orbit family.}
+    \label{fig:L1Halo}
+\end{figure}
+
+\cref{fig:L2Halo} shows the $L_{2}$ southern halo family, generated in the same way as the $L_{1}$
+halos but from the $L_{2}$ Lyapunov family. Note that these halo families are not monotonic in
+Jacobi constant. The stability indices for both families are shown in \cref{fig:haloStability}.
+$L_{3}$ halos also exist, but are not used in this investigation.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/L2HaloFamily.pdf}
+    \caption{Earth-Moon $L_{2}$ southern halo orbit family.}
+    \label{fig:L2Halo}
+\end{figure}
+
+\begin{figure}[ht]
+    \begin{subfigure}[h]{0.4\linewidth}
+        \includegraphics[width=\textwidth]{figures/L1HaloStability.pdf}
+        \caption{$L_{1}$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[h]{0.4\linewidth}
+        \includegraphics[width=\textwidth]{figures/L2HaloStability.pdf}
+        \caption{$L_{2}$}
+    \end{subfigure}
+    \caption{Earth-Moon Halo family stability index evolution.}
+    \label{fig:haloStability}
+\end{figure}
+
+\subsection{Axial Orbit Families}
+\phantomsection
+\subsubsection{An Axial Targeter}
+Another spatial orbit family, the axial orbits, comes from a different tangent bifurcation in the
+Lyapunov families. These orbits have symmetry only about the $x$-axis; therefore, the perpendicular
+crossings must lie on the $x$-axis, unlike the halo orbits:
+\begin{equation}
+    \Xbar=\begin{bmatrix}   x_{0}   &   \ydot_{0}   &   \zdot_{0}   &   \tau    \end{bmatrix}^{T},
+    \label{eq:axialfreevar}
+\end{equation}
+\begin{equation}
+    \Fbar(\Xbar)=\begin{bmatrix}    y_{f}   &   z_{f}   &   \xdot_{f}   &   C-C_{d} \end{bmatrix}^{T}=\zerobar,
+    \label{eq:axialconst}
+\end{equation}
+\begin{equation}
+    DF(\Xbar)=\begin{bmatrix}   \phi_{21}                                                                   &   \phi_{25}   &   \phi_{26}   &   \ydot_{f}   \\
+                                \phi_{31}                                                                   &   \phi_{35}   &   \phi_{36}   &   \zdot_{f}   \\
+                                \phi_{41}                                                                   &   \phi_{45}   &   \phi_{46}   &   \xddot_{f}  \\
+                                2x_{0}-\frac{2(x_{0}+\mu)(1-\mu)}{d^{3}}-\frac{2\mu(x_{0}-1+\mu)}{r^{3}}    &   -2\ydot_{0} &   -2\zdot_{0} &   0           \end{bmatrix}.
+    \label{eq:axialjacobian}
+\end{equation}
+The result of this targeting will provide the initial state ($y_{0}=z_{0}=\xdot_{0}=0$) and half of
+the propagation time for a periodic axial orbit.
+
+\subsubsection{Converged Axial Families}
+From the methods used to obtain the halo families, the $L_{1}$ and $L_{2}$ axial families can also
+be obtained, shown in \cref{fig:L1Axial} and \cref{fig:L2Axial} respectively. Similar to the halo
+orbits, there are two halves to the family that can be obtained by bifurcating above or below the
+$xy$-plane, making these the $L_{1}$ northeast and $L_{2}$ northwest axial families. Their
+stability indices follow in \cref{fig:axialStability}. Again, there is an $L_{3}$ axial family, but
+it is not used in this investigation.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/L1AxialFamily.pdf}
+    \caption{Earth-Moon $L_{1}$ northeast axial orbit family.}
+    \label{fig:L1Axial}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/L2AxialFamily.pdf}
+    \caption{Earth-Moon $L_{2}$ northwest axial orbit family.}
+    \label{fig:L2Axial}
+\end{figure}
+
+\begin{figure}[ht]
+    \begin{subfigure}[h]{0.4\linewidth}
+        \includegraphics[width=\textwidth]{figures/L1AxialStability.pdf}
+        \caption{$L_{1}$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[h]{0.4\linewidth}
+        \includegraphics[width=\textwidth]{figures/L2AxialStability.pdf}
+        \caption{$L_{2}$}
+    \end{subfigure}
+    \caption{Earth-Moon axial family stability index evolution.}
+    \label{fig:axialStability}
+\end{figure}
+
+\subsection{Vertical Orbit Families}
+\phantomsection
+\subsubsection{A Vertical Targeter}
+Vertical orbits benefit from double symmetry about both the $xz$- and $xy$-planes. This allows for
+targeting of only a quarter of the orbit, with a perpendicular crossing of the $xz$-plane on one
+end of the arc and a perpendicular crossing of the $x$-axis on the other. Starting from the
+$xz$-plane crossing:
+\begin{equation}
+    \Xbar=\begin{bmatrix}   x_{0}   &   z_{0}   &   \ydot_{0}   &   \tau    \end{bmatrix}^{T},
+    \label{eq:verticalfreevar}
+\end{equation}
+\begin{equation}
+    \Fbar(\Xbar)=\begin{bmatrix}    y_{f}   &   z_{f}   &   \xdot_{f}   &   C-C_{d} \end{bmatrix}^{T}=\zerobar,
+    \label{eq:verticalconst}
+\end{equation}
+\begin{equation}
+    DF(\Xbar)=\begin{bmatrix}   \phi_{21}                                                                   &   \phi_{23}                                               &   \phi_{25}   &   \ydot_{f}   \\
+                                \phi_{31}                                                                   &   \phi_{33}                                               &   \phi_{35}   &   \zdot_{f}   \\
+                                \phi_{41}                                                                   &   \phi_{43}                                               &   \phi_{45}   &   \xddot_{f}  \\
+                                2x_{0}-\frac{2(x_{0}+\mu)(1-\mu)}{d^{3}}-\frac{2\mu(x_{0}-1+\mu)}{r^{3}}    &   -\frac{2z_{0}(1-\mu)}{d^{3}}-\frac{2z_{0}\mu}{r^{3}}    &   -2\ydot_{0} &   0           \end{bmatrix}.
+    \label{eq:verticaljacobian}
+\end{equation}
+The result of this targeting will provide the initial state ($y_{0}=\xdot_{0}=\zdot_{0}=0$) at the
+perpendicular crossing of the $xz$-plane (top/bottom of the orbit) and one quarter of the
+propagation time for a periodic vertical orbit.
+
+\subsubsection{Converged Vertical Families}
+The vertical orbit family bifurcates from the end of the axial family, when the axial orbit
+intersects itself and resembles a figure-eight. Stepping in one direction shrinks the orbits as the
+family collapses down to its origin Lagrange point. The other direction expands the orbits until
+they look like clam shells, demonstrated for the $L_{1}$ family in \cref{fig:L1Vertical}. Similar
+behavior occurs with the $L_{2}$ vertical family in \cref{fig:L2Vertical}.
+\cref{fig:verticalStability} shows the stability indices for these two families; $L_{3}$ verticals
+are not used in this investigation.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/L1VerticalFamily.pdf}
+    \caption{Earth-Moon $L_{1}$ vertical orbit family.}
+    \label{fig:L1Vertical}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/L2VerticalFamily.pdf}
+    \caption{Earth-Moon $L_{2}$ vertical orbit family.}
+    \label{fig:L2Vertical}
+\end{figure}
+
+\begin{figure}[ht]
+    \begin{subfigure}[h]{0.4\linewidth}
+        \includegraphics[width=\textwidth]{figures/L1VerticalStability.pdf}
+        \caption{$L_{1}$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[h]{0.4\linewidth}
+        \includegraphics[width=\textwidth]{figures/L2VerticalStability.pdf}
+        \caption{$L_{2}$}
+    \end{subfigure}
+    \caption{Earth-Moon vertical family stability index evolution.}
+    \label{fig:verticalStability}
+\end{figure}
+
+\subsection{Long Period Equilateral Orbits}
+\phantomsection
+\subsubsection{A Planar Equilateral Orbit Targeter}
+Similar to the Lyapunov orbits around the colinear equilibrium points, there are planar orbits
+around the equilateral equilibrium points; however, they do not have symmetry that can be
+exploited. Therefore, the full period of the orbit needs to be targeted, constraining periodicity
+between the propagation start and end points. Note that since the Jacobi constant of a propagated
+trajectory is naturally constrained, constraining periodicity only requires constraining five out
+of the six states (three out of the four for a planar problem):
+\begin{equation}
+    \Xbar=\begin{bmatrix}   x_{0}   &   \xdot_{0}   &   \ydot_{0}   &   \tau    \end{bmatrix}^{T},
+    \label{eq:longfreevar}
+\end{equation}
+\begin{equation}
+    \Fbar(\Xbar)=\begin{bmatrix}    x_{f}   &   y_{f}   &   \xdot_{f}   &   C-C_{d} \end{bmatrix}^{T}=\zerobar,
+    \label{eq:longconst}
+\end{equation}
+\begin{equation}
+    DF(\Xbar)=\begin{bmatrix}   \phi_{11}                                                                   &   \phi_{14}   &   \phi_{15}   &   \xdot_{f}   \\
+                                \phi_{21}                                                                   &   \phi_{24}   &   \phi_{25}   &   \ydot_{f}   \\
+                                \phi_{41}                                                                   &   \phi_{44}   &   \phi_{45}   &   \xddot_{f}  \\
+                                2x_{0}-\frac{2(x_{0}+\mu)(1-\mu)}{d^{3}}-\frac{2\mu(x_{0}-1+\mu)}{r^{3}}    &   -2\xdot_{0} &   -2\ydot_{0} &   0           \end{bmatrix}.
+    \label{eq:longjacobian}
+\end{equation}
+Since $z=\zdot=0$, this targeter provides five of the six initial state variables and the full
+period for the planar equilateral orbit.
+
+\subsubsection{Long Period Equilateral Orbit Initial Guess}
+Initial guesses for the planar equilateral orbits close to the Lagrange point can come from linear
+variational equations of motion about the equilibrium point:
+\begin{equation}
+    x_{0}=x_{L}+\xi,
+    \label{eq:xvareq}
+\end{equation}
+\begin{equation}
+    y_{0}=y_{L}+\eta,
+    \label{eq:yvareq}
+\end{equation}
+\begin{equation}
+    \xdot_{0}=\alpha s,
+    \label{eq:xdotvareq}
+\end{equation}
+\begin{equation}
+    \ydot_{0}=\beta s,
+    \label{eq:ydotvareq}
+\end{equation}
+where $\xi$ and $\eta$ are chosen variations from the Lagrange point,
+\begin{equation}
+    s=\Im(\lambda),
+    \label{eq:seq}
+\end{equation}
+\begin{equation}
+    \alpha=\frac{\xi\frac{\partial U}{\partial x\partial y}+\eta(\frac{\partial u}{\partial y\partial y}+s^{2})}{2s},
+    \label{eq:alphaeq}
+\end{equation}
+\begin{equation}
+    \beta=-\frac{\xi(\frac{\partial U}{\partial x\partial x}+s^{2})+\eta\frac{\partial U}{\partial x\partial y}}{2s}.
+    \label{eq:betaeq}
+\end{equation}
+The linearization has two frequencies, short and long, and the choice of frequency determines
+$\lambda$. The short period orbits are not used in this investigation, so for long periods:
+\begin{equation}
+    \lambda=\sqrt{\frac{\sqrt{1-27\mu(1-\mu)}-1}{2}}.
+    \label{eq:lambdaeq}
+\end{equation}
+
+For consistency, $y_{0}$ is chosen to be the $y$-value of the Lagrange point $y_{L}$ with $\eta=0$.
+The initial guess for the period is also determined by the choice of frequency:
+\begin{equation}
+    \tau=2\pi s.
+    \label{eq:taueq}
+\end{equation}
+
+\subsubsection{Converged Long Period Equilateral Orbit Families}
+Since the CR3BP is symmetric about the $xz$-plane, all $L_{4}$ orbit families can be mirrored
+across that plane to find the $L_{5}$ families and vice versa. This is done by flipping the signs
+of $y$, $\xdot$, and $\zdot$. Therefore, \cref{fig:longPeriod} shows portions of both long period
+equilateral orbit families in the Earth-Moon system and \cref{fig:longPeriodStability} shows their
+stability indices. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/LongPeriodFamily.pdf}
+    \caption{Earth-Moon $L_{4}$ and $L_{5}$ long period equilateral orbit families.}
+    \label{fig:longPeriod}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/LongPeriodStability.pdf}
+    \caption{Earth-Moon long period equilateral orbit family stability index evolution.}
+    \label{fig:longPeriodStability}
+\end{figure}
