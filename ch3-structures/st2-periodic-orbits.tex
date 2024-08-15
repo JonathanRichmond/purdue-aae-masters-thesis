@@ -6,9 +6,10 @@ in the rotating frame and this information can be utilized in the targeting proc
 the initial conditions for these families can be obtained through a variety of methods including
 linear variational equations about the Lagrange points and bifurcations from other orbit families.
 All of the orbit families used in this investigation and shown here were selected for their
-relative instability in the Earth-Moon CR3BP.
+relative instability in the Earth-Moon CR3BP. For some example initial conditions for these orbit
+families and others, see NASA Jet Propulsion Laboratory's CR3BP orbit database\cite{Park}.
 
-\subsection{Lyapunov Orbit Families}
+\subsection{Lyapunov Orbits}
 \phantomsection
 \subsubsection{A Lyapunov Targeter}
 To demonstrate the periodic orbit targeting process, the Newton-Raphson scheme will be used to
@@ -80,9 +81,9 @@ $\tau$. This can be approximated by propagating the initial state guess until it
 $x$-axis.
 
 \subsubsection{Converged Lyapunov Orbit}
-The linear variational equations are only approximate the dynamics very close to the Lagrange
-point. Using $\xi=0.005$ as the initial variation in the $x$-direction from the $L_{1}$ Lagrange
-point in the Earth-Moon system:
+The linear variational equations only approximate the dynamics very close to the Lagrange point.
+Using $\xi=0.005$ as the initial variation in the $x$-direction from the $L_{1}$ Lagrange point in
+the Earth-Moon system:
 \begin{equation}
     \Xbar_{0}=\begin{bmatrix}   0.841915    &   -0.0418614  &   1.29755\end{bmatrix}^{T},
     \label{eq:Lyapunovguess}
@@ -102,19 +103,18 @@ matches that of the initial guess, the $x$- and $\ydot$-values have shifted slig
 \end{figure}
 
 \subsubsection{Natural Parameter Continuation}
-The process described above produces a single solution near the Lagrange point. In order to compute
-more solutions (orbits) in the family, especially further away from the Lagrange point where the
-linear variational equations no longer apply, converged solutions can be used in a continuation
-scheme to find other family members. This investigation utilizes natural parameter continuation,
-where one of the parameters of a converged solution is changed by a small amount. This new guess
-for an orbit is then converged, and a new solution is obtained. This continuation process can then
-be repeated until the scheme reaches a natural/dynamical end or a desired orbit is reached. Natural
-parameters of the orbit include (but are not limited to) components of the initial state, the
-period, or the Jacobi constant. \cref{fig:L1Lyapunov} shows a large portion of the $L_{1}$ Lyapunov
-family in the Earth-Moon system, continued in Jacobi constant from the orbit in
-\cref{fig:Lyapunov}. Lyapunov families also exist about $L_{2}$ and $L_{3}$ and can be computed via
-the same process. Since $L_{2}$ Lyapunovs are also used in this investigation, they are shown in
-\cref{fig:L2Lyapunov}.
+The process described above produces a single solution near the Lagrange point. To compute more
+solutions (orbits) in the family, especially further away from the Lagrange point where the linear
+variational equations no longer apply, converged solutions can be used in a continuation scheme to
+find other family members. This investigation utilizes natural parameter continuation, where one of
+the parameters of a converged solution is changed by a small amount. This new guess for an orbit is
+then converged, and a new solution is obtained. This continuation process can then be repeated
+until the scheme reaches a natural/dynamical end or a desired orbit is reached. Natural parameters
+of the orbit include (but are not limited to) components of the initial state, the period, or the
+Jacobi constant. \cref{fig:L1Lyapunov} shows a large portion of the $L_{1}$ Lyapunov family in the
+Earth-Moon system, continued in Jacobi constant from the orbit in \cref{fig:Lyapunov}. Lyapunov
+families also exist about $L_{2}$ and $L_{3}$ and can be computed via the same process. Since
+$L_{2}$ Lyapunovs are also used in this investigation, they are shown in \cref{fig:L2Lyapunov}.
 
 \begin{figure}[ht]
     \centering
@@ -146,16 +146,16 @@ periodic, two of the eigenvalues (one pair) are always $1$, denoted the trivial 
 correspond to the trajectory's periodicity and membership in a family of solutions.
 
 The stability of the orbit is characterized by the remaining two pairs of eigenvalues. Since the
-monodromy matrix is a discrete time mapping, eigenvalues that lie within the unit circle (magnitude
+monodromy matrix is a discrete-time mapping, eigenvalues that lie within the unit circle (magnitude
 less than $1$) in the complex plane are stable and those outside the unit circle are unstable.
-Perturbations in the stable subspace will flow back towards the orbit, while perturbations in the
+Perturbations in the stable subspace will flow back toward the orbit, while perturbations in the
 unstable subspace will depart the orbit. If the eigenvalues lie directly on the unit circle, then
 the corresponding flow is in the center subspace and remains bounded around the orbit. When the
 stability of an eigenvalue pair changes, it can indicate a change in the characteristics of orbits
 within a family and sometimes leads to a bifurcation in the family, discussed later.
 
 The overall stability of the orbit is then determined by all of the eigenvalues of its monodromy
-matrix. If any of the eigenvaules are unstable (greater than $1$), then the orbit is considered
+matrix. If any of the eigenvalues are unstable (greater than $1$), then the orbit is considered
 linearly unstable. Note that the existence of an unstable eigenvalue implies the existence of a
 stable eigenvalue because of the reciprocal pairs. Otherwise, the orbit is considered marginally
 stable and all of the eigenvalues reside on the unit circle. Throughout an orbit family, while the
@@ -165,8 +165,8 @@ monotonic) evolution.
 \subsubsection{Stability Index}
 A variety of metrics exist to more succinctly portray the stability of orbits, rather than viewing
 all of the eigenvalues. One such metric is a stability index, of which there are a variety of
-definitions whose usefulness vary depending on application. In this investigation, the focus is on
-just the overall stability of the orbit --- whether it is unstable or marginally stable --- so a
+definitions whose usefulness vary depending on the application. In this investigation, the focus is
+on just the overall stability of the orbit --- whether it is unstable or marginally stable --- so a
 metric that can quickly differentiate between these behaviors suffices. Therefore, the following
 definition is used\cite{Power:2019}:
 \begin{equation}
@@ -181,7 +181,7 @@ stable. Other definitions can be found in Zimovan Spreen's work\cite{ZimovanSpre
 Like the eigenvalues themselves, the evolution of the stability index over an orbit family is
 smooth. \cref{fig:stability} shows the stability indices for the members of the $L_{1}$ (a) and
 $L_{2}$ (b) Lyapunov families from \cref{fig:L1Lyapunov} and \cref{fig:L2Lyapunov}. A larger
-stability index means that the orbit hasa higher instability and perturbations will experience
+stability index means that the orbit has a higher instability and perturbations will experience
 faster growth. Note that all of the members of both of these families are unstable. However, there
 are stability changes among individual eigenvalues within each family that can lead to
 bifurcations.
@@ -228,38 +228,40 @@ unstable, and a marginally stable orbit has an infinite time constant.
 \end{figure}
 
 \subsubsection{Bifucations}
-Within the context of the CR3BP, bifurcation theory can be used to detect for changes in orbit
+Within the context of the CR3BP, bifurcation theory can be used to detect changes in orbit
 stability characteristics within a family that can sometimes lead to the generation of orbit
 families that branch off from the original family. Zimovan Spreen provides a more thorough
 analysis of how bifurcation theory can be applied to the CR3BP so only the information most
 relevant to this investigation will be provided here\cite{ZimovanSpreen:2021}.
 
-There are two main bifurcation types that are relevant to the orbits used in this analysis:
+Two main bifurcation types are relevant to the orbits used in this analysis:
 \begin{itemize}
-    \item \textbf{Tangent bifurcations} occcur when an eigenvalue pair goes to $1$, either from the
+    \item \textbf{Tangent bifurcations} occur when an eigenvalue pair goes to $1$, either from the
     unit circle or the real axis. With a cyclic fold tangent bifurcation, which occurs at an
-    extremum in Jacobi constant, the stability of the eigenvalues changes, but there is no new
+    extremum in the Jacobi constant, the stability of the eigenvalues changes, but there is no new
     family of solutions created. Pitchfork tangent bifurcations produce two new families that have
     the same stability as the original family. The last subtype, transcritical tangent
-    bifurcations, produce a new family and a change in eigenvalue stability of the original family.
-    \item \textbf{Period-multiplying bifurcations} occur when an eigenvalue pair reach a root of
+    bifurcations, produce a new family and a change in the eigenvalue stability of the original
+    family.
+    \item \textbf{Period-multiplying bifurcations} occur when an eigenvalue pair reaches a root of
     $1$ ($\sqrt{1}$, $\sqrt[3]{1}$, $\sqrt[m]{1}$, etc.). In general, this produces a new family
     with a period of $m$ times the original, but not necessarily a change in stability. The most
-    commonly-seen subtype is the period-doubling bifurcation, where the pair of eigenvalues meets
-    at $-1$, either from the unit circle or the real axis. This results in a change in stability of
-    the eigenvalues and a new family that has double the period of the original family.
+    commonly seen subtype is the period-doubling bifurcation, where the pair of eigenvalues meets
+    at $-1$, either from the unit circle or the real axis. This results in a change in the
+    stability of the eigenvalues and a new family that has double the period of the original
+    family.
 \end{itemize}
 There are other methods of detecting bifurcations beyond examining the evolution of the eigenvalues
 such as Broucke stability or bifurcation diagrams that are also described in Zimovan
 Spreen\cite{ZimovanSpreen:2021}.
 
 \subsubsection{New Family Generation from Bifurcation}
-To find the initial conditions for an orbit in a new family from a bifurcation, first the precise
+To find the initial conditions for an orbit in a new family from a bifurcation, first, the precise
 bifurcating orbit (within a tolerance) must be obtained. This can be done through a simple
 bisection algorithm. The Jacobian matrix of this bifurcating orbit should have an additional
 nullspace compared to the other orbits in the family since another pair of eigenvalues (besides the
 trivial pair) is at $1$. Note that for a period-multiplying bifurcation, the orbit must be
-propagated for $m$ revolutions to obtain the proper Jacobian matrx. When this is the case, one of
+propagated for $m$ revolutions to obtain the proper Jacobian matrix. When this is the case, one of
 the nullspace vectors points in the direction of continuing the old family, while the other vector
 indicates a direction for the new family.
 
@@ -270,7 +272,7 @@ should result in a new periodic orbit belonging to the new family. This approach
 pseudo-arclength continuation and the new member can then be continued using any scheme to obtain
 the new family.
 
-\subsection{Halo Orbit Families}
+\subsection{Halo Orbits}
 \phantomsection
 \subsubsection{A Halo Targeter}
 Similar to Lyapunov orbits, halo orbits are symmetric about the $xz$-plane although they are
@@ -339,7 +341,29 @@ $L_{3}$ halos also exist, but are not used in this investigation.
     \label{fig:haloStability}
 \end{figure}
 
-\subsection{Axial Orbit Families}
+\subsection{Butterfly Orbits}
+Butterfly orbits is another name for the $P_{2}HO_{1}$ $L_{2}$ orbit family: the period-doubling
+bifurcation from the $L_{2}$ halo family with the smallest perilune\cite{ZimovanSpreen:2021}.
+Conveniently, the same targeter can be used for this family as with the halos above. The same
+pseudo-arclength method can also be used to obtain the initial guess from the bifurcating halo,
+remembering to double the period of the orbit first. A portion of this family is shown in
+\cref{fig:butterfly} and the stability indices are shown in \cref{fig:butterflyStability}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/L2ButterflyFamily.pdf}
+    \caption{Earth-Moon butterfly family.}
+    \label{fig:butterfly}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/L2ButterflyStability.pdf}
+    \caption{Earth-Moon butterfly family stability index evolution.}
+    \label{fig:butterflyStability}
+\end{figure}
+
+\subsection{Axial Orbits}
 \phantomsection
 \subsubsection{An Axial Targeter}
 Another spatial orbit family, the axial orbits, comes from a different tangent bifurcation in the
@@ -366,10 +390,10 @@ the propagation time for a periodic axial orbit.
 \subsubsection{Converged Axial Families}
 From the methods used to obtain the halo families, the $L_{1}$ and $L_{2}$ axial families can also
 be obtained, shown in \cref{fig:L1Axial} and \cref{fig:L2Axial} respectively. Similar to the halo
-orbits, there are two halves to the family that can be obtained by bifurcating above or below the
-$xy$-plane, making these the $L_{1}$ northeast and $L_{2}$ northwest axial families. Their
-stability indices follow in \cref{fig:axialStability}. Again, there is an $L_{3}$ axial family, but
-it is not used in this investigation.
+orbits, two halves to the family can be obtained by bifurcating above or below the $xy$-plane,
+making these the $L_{1}$ northeast and $L_{2}$ northwest axial families. Their stability indices
+follow in \cref{fig:axialStability}. Again, there is an $L_{3}$ axial family, but it is not used in
+this investigation.
 
 \begin{figure}[ht]
     \centering
@@ -399,13 +423,13 @@ it is not used in this investigation.
     \label{fig:axialStability}
 \end{figure}
 
-\subsection{Vertical Orbit Families}
+\subsection{Vertical Orbits}
 \phantomsection
 \subsubsection{A Vertical Targeter}
 Vertical orbits benefit from double symmetry about both the $xz$- and $xy$-planes. This allows for
-targeting of only a quarter of the orbit, with a perpendicular crossing of the $xz$-plane on one
-end of the arc and a perpendicular crossing of the $x$-axis on the other. Starting from the
-$xz$-plane crossing:
+targeting only a quarter of the orbit, with a perpendicular crossing of the $xz$-plane on one end
+of the arc and a perpendicular crossing of the $x$-axis on the other. Starting from the $xz$-plane
+crossing:
 \begin{equation}
     \Xbar=\begin{bmatrix}   x_{0}   &   z_{0}   &   \ydot_{0}   &   \tau    \end{bmatrix}^{T},
     \label{eq:verticalfreevar}
@@ -422,11 +446,11 @@ $xz$-plane crossing:
     \label{eq:verticaljacobian}
 \end{equation}
 The result of this targeting will provide the initial state ($y_{0}=\xdot_{0}=\zdot_{0}=0$) at the
-perpendicular crossing of the $xz$-plane (top/bottom of the orbit) and one quarter of the
+perpendicular crossing of the $xz$-plane (top/bottom of the orbit) and one-quarter of the
 propagation time for a periodic vertical orbit.
 
 \subsubsection{Converged Vertical Families}
-The vertical orbit family bifurcates from the end of the axial family, when the axial orbit
+The vertical orbit family bifurcates from the end of the axial family when the axial orbit
 intersects itself and resembles a figure-eight. Stepping in one direction shrinks the orbits as the
 family collapses down to its origin Lagrange point. The other direction expands the orbits until
 they look like clam shells, demonstrated for the $L_{1}$ family in \cref{fig:L1Vertical}. Similar
@@ -489,7 +513,7 @@ five out of the six states (three out of the four for a planar problem):
 Since $z=\zdot=0$, this targeter provides five of the six initial state variables and the full
 period for the planar equilateral orbit.
 
-\subsubsection{Long Period Equilateral Orbit Initial Guess}
+\subsubsection{Equilateral Long Period Orbit Initial Guess}
 Initial guesses for the planar equilateral orbits close to the Lagrange point can come from linear
 variational equations of motion about the equilibrium point:
 \begin{equation}
@@ -583,10 +607,10 @@ cannot be exploited to aid the targeting process, so periodicity must be targete
 
 \subsubsection{Converged Equilateral Axial Families}
 The pseudo-arclength method can be used to obtain the initial guess for the equilateral axial
-family. Stepping in one direction will produce the $L_{4}$ family, while stepping in the other
+family. Stepping in one direction will produce the $L_{4}$ family while stepping in the other
 produces the $L_{5}$ family. These are both shown in \cref{fig:eqAxial}.
-\cref{fig:eqAxialStability} shows the stability indices for these family. As hinted at by the end
-of these axial families, $L_{4}$ and $L_{5}$ vertical families also exist in the Earth-Moon system,
+\cref{fig:eqAxialStability} shows the stability indices for these families. As hinted at by the end
+of these axial families, $L_{4}$ and $L_{5}$ vertical families also exist in the Earth-Moon system
 but are not used in this investigation.
 
 \begin{figure}[ht]
@@ -604,14 +628,14 @@ but are not used in this investigation.
 \end{figure}
 
 \subsection{Resonant Orbits}
-There are many other types of CR3BP orbits that are not associated with a Lagrange point. Some of
-these orbit families are known as resonant orbits because their periods are resonant or close to
-resonant with the Moon's' period. These orbits are still periodic in the rotating frame but are
-also periodic or close to periodic in an inertial frame. Individual orbits also tend to span more
-of the Earth-Moon system than the Lagrange point orbits. For more details on how to determine
-initial guesses and correct these orbits, Gupta\cite{Gupta:2020} and Sadaka\cite{Sadaka:2023}
-provide extensive overviews and initial conditions. A couple of unstable resonant orbit families
-are used in this investigation and so they are shown here.
+Many other types of CR3BP orbits are not associated with a Lagrange point. Some of these orbit
+families are known as resonant orbits because their periods are resonant or close to resonant with
+the Moon's' period. These orbits are still periodic in the rotating frame but are also periodic or
+close to periodic in an inertial frame. Individual orbits also tend to span more of the Earth-Moon
+system than the Lagrange point orbits. For more details on how to determine initial guesses and
+correct these orbits, Gupta\cite{Gupta:2020} and Sadaka\cite{Sadaka:2023} provide extensive
+overviews and initial conditions. A couple of unstable resonant orbit families are used in this
+investigation and so they are shown here.
 
 \phantomsection
 \subsubsection{Converged 2:1a Resonant Orbit Family}
@@ -637,7 +661,7 @@ stability index evolution for this family.
 
 \subsubsection{Converged 3:4 Resonant Orbit Family}
 Another unstable family is the 3:4 resonant orbits, shown in \cref{fig:3_4Resonant}. These orbits
-go around the Earth three times for every times the Moon goes around. Their stability indices are
+go around the Earth three times for every time the Moon goes around. Their stability indices are
 given in \cref{fig:3_4ResonantStability}.
 
 \begin{figure}[ht]
