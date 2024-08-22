@@ -67,9 +67,12 @@ time from their initial condition.
 As mentioned, the value for $d$ depends on the CR3BP system in use. This parameter needs to be
 sufficiently small to well approximate the manifold structure. However, if $d$ is too small, the
 trajectory will take longer than reasonable to arrive at/depart from the orbit since the dynamics
-are asymptotic. \cref{tab:dValues} shows the values of $d$ used for the systems in
-this investigation. A more thorough explanantion of manifold theory can be found in
-Perko.
+are asymptotic\cite{Kakoi:2015}. \cref{tab:dValues} shows the values of $d$ used for the systems in
+this investigation. As some examples of manifold structures, \cref{fig:LyapunovManifold} and
+\cref{fig:haloManifold} show the stable and unstable manifolds for a planar Lyapunov orbit and a
+spatial halo orbit, respectively, in the Earth-Moon system. Each figure also shows a single
+manifold arc overlayed on the full structure for reference. A more thorough explanantion of\
+manifold theory can be found in Perko\cite{Perko:1991}.
 
 \begin{table}[ht]
     \centering
@@ -83,3 +86,17 @@ Perko.
     \end{tabular}
     \label{tab:dValues}
 \end{table}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/LyapunovManifold.pdf}
+    \caption{Earth-Moon $L_{1}$ Lyapunov Manifolds ($C=3.05$).}
+    \label{fig:LyapunovManifold}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/HaloManifold.pdf}
+    \caption{Earth-Moon $L_{2}$ Halo Manifolds ($C=3.08$).}
+    \label{fig:haloManifold}
+\end{figure}
