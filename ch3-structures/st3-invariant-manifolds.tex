@@ -1,8 +1,8 @@
 \section{Invariant Manifolds}
 Dynamically unstable periodic orbits in the CR3BP have useful structures called invariant manifolds
 that represent the local flow near the orbit. With applications for transfer design, trajectories
-along these manifold surfaces can be used to balistically arrive at or depart from the periodic
-orbit. Perko provides the following theorem for stable/unstable manifolds for periodic
+along these manifold surfaces can be used to arrive at or depart from the periodic orbit
+ballistically. Perko provides the following theorem for stable/unstable manifolds for periodic
 orbits\cite{Perko:1991}:
 \begin{quote}
     Let $f\in C^{1}(E)$ where E is an open subset of $R^{n}$ containing a periodic orbit,
@@ -22,18 +22,18 @@ orbits\cite{Perko:1991}:
         U(\Gamma)=\{\xbar\in N_{\delta}(\Gamma)|d(\phi_{t}(\xbar),\Gamma)\rightarrow0\text{ as }t\rightarrow-\infty\text{ and }\phi_{t}(\xbar)\in N_{\delta}(\Gamma)\text{ for }t\leq0\},
     \end{equation}
     is an $(n-k)$-dimensional, differentiable manifold which is negatively invariant under the flow
-    $\phi_{t}$. Furthermore, the stable and unstabe manifolds of $\Gamma$ intersect transversally
+    $\phi_{t}$. Furthermore, the stable and unstable manifolds of $\Gamma$ intersect transversally
     in $\Gamma$.
 \end{quote}
 In layman's terms, if a periodic orbit is unstable (has eigenvalues greater than and lesser than
 $1$), then stable/unstable manifold surfaces exist that approach/leave the orbit asymptotically in
 forward time.
 
-Since these manifold structures asymptotically depart the orbit structure, no determinisitic
+Since these manifold structures asymptotically depart the orbit structure, no deterministic
 maneuver is required to transfer onto them. However, a consequence of this is that it is not
 possible to identify the exact location along the orbit from where a manifold trajectory departs.
 Therefore, a numerical process is necessary to approximate the stable/unstable subspace of the
-orbit to determine an appropriate inital condition for an arc along the manifold surface.
+orbit to determine an appropriate initial condition for an arc along the manifold surface.
 
 Near the periodic orbit, the manifolds are tangent to their corresponding eigenspaces of the orbit.
 For a selected point on the periodic orbit:
@@ -60,19 +60,19 @@ is a step-off distance, generally chosen based on the specific CR3BP system. The
 can be either added to or subtracted from the periodic state as the eigenspace is bi-directional,
 creating two half-manifolds for each stability. To compute an initial condition for an unstable
 manifold arc, use \cref{eq:eigenvector}-\cref{eq:stablemanifold}, replacing the stable components
-for unstable ones. Stable manifold arcs are then propagated backwards in time from the initial
+for unstable ones. Stable manifold arcs are then propagated backward in time from the initial
 condition (arriving at the orbit in forward time) while unstable arcs are propagated forward in
 time from their initial condition.
 
 As mentioned, the value for $d$ depends on the CR3BP system in use. This parameter needs to be
-sufficiently small to well approximate the manifold structure. However, if $d$ is too small, the
+sufficiently small to approximate the manifold structure well. However, if $d$ is too small, the
 trajectory will take longer than reasonable to arrive at/depart from the orbit since the dynamics
 are asymptotic\cite{Kakoi:2015}. \cref{tab:dValues} shows the values of $d$ used for the systems in
 this investigation. As some examples of manifold structures, \cref{fig:LyapunovManifold} and
 \cref{fig:haloManifold} show the stable and unstable manifolds for a planar Lyapunov orbit and a
 spatial halo orbit, respectively, in the Earth-Moon system. Each figure also shows a single
-manifold arc overlayed on the full structure for reference. A more thorough explanantion of\
-manifold theory can be found in Perko\cite{Perko:1991}.
+manifold arc overlayed on the full structure for reference. A more thorough explanation of manifold
+theory can be found in Perko\cite{Perko:1991}.
 
 \begin{table}[ht]
     \centering
