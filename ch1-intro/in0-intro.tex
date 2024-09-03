@@ -1,77 +1,95 @@
-
 \chapter{INTRODUCTION}
-Experimenting with the available typographic conventions defined in the Purdue file: \NL \Literal|pa-typographic-conventions.sty|:  these include \Emph{Emph} \First{First} \First{Title} \Keys{Keys} \Literal|Literal| \Menu{Menu} \Menu{Open menu > Preferences} \Shell{Shell.sh}. Now let's try out a footnote\footnote{I'm a footnote!}, one of the fancy TODO notes  \todocomment{Do I really need this?}, and more scary TODO \todowarn{Be careful here}, as well as a a todo error \todoerror{This is wrong!} as well as a citation \cite{Howell:1984_HaloOrbits}. Note the TODO comments currently only show up in \Literal|quick| or \Literal|debug| modes (for now).
+\section{Motivation}
+Recent years have seen a rapid increase in interantional interest in missions and operations in the
+lunar vicinity (cislunar space). This is evidenced by the development of infrastructure for the
+National Aeronautics and Space Administration's (NASA) Gateway program, a long-term hub that will
+reside in an Earth-Moon near-rectilinear halo orbit (NRHO) in the lunar vicinity\cite{Zamora:2024}.
+While there are a lot of exciting opportunities for cislunar missions, periodic orbits and
+dynamical structures in this region of space can also be used as stepping stones on the way to
+deep-space exploration.
+
+In its 2022 Strategic Plan, NASA outlines a goal to "Extend human presence to the Moon and on
+towards Mars for sustainable long-term exploration, development, and utilization" and "Enhance
+space access and services"\cite{NASA:2022s}, further supported by its "Moon to Mars
+Objectives" document released that same year\cite{NASA:2022m}. These documents support the idea
+that operations and infrastructure in the cislunar region can be used to support future missions to
+Mars and other deep-space targets.
+
+Unlike Earth orbits, periodic orbits and trajectories in cislunar space exist in a complex
+multi-body dynamical regime that is significantly affected by gravitational forces from both the
+Earth and the Moon (and in some cases the Sun). While these complexities introduce new challenges
+to the trajectory design process, they also provide opportunities to leverage elements of dynamical
+systems theory in ways that are not possible with standard Keplerian dynamics. These include
+unstable families of periodic orbits with stable and unstable invariant manifolds that are useful
+for constructing transfers between orbits. As these techniques are currently being used to design
+missions in the cislunar region, similar strategies can be adapted and applied to construct
+transfers between cislunar orbits and deep-space targets residing outside of the Earth region.
+
+In the past, NASA and other space agencies have designed and executed uncrewed interplanetary
+missions to Mars. However, their goal is to develop a human presence on mars in the near future.
+This endeavor will require an increase in crewed and uncrewed missions to the Martian vicinity,
+highlighting a need for low-cost, reliable transfer strategies. Traditionally, uncrewed
+interplanetary missions depart from a low-Earth orbit (LEO) or similar Earth orbit using a direct,
+high-enery transfer\cite{Drake:2009}. Not only do these solutions have a high propellant cost, but
+they are also point solutions that need to be recomputed whenever one of the mission parameters
+changes.
+
+The success of the application of multi-body dynamical systems theory to cislunar transfer design
+suggests that these techniques can be applied to deep-space transfers with similar performance.
+Utilizing unstable periodic orbit families and invariant manifold theory allows for low-energy,
+lower-cost departures from the Earth-Moon system. Once departed, patched dynamical models and
+existing transfer techniques can be used to complete the construction of end-to-end transfers from
+the Earth-Moon system to deep-space destinations. Unfortunately, the use of invariant manifolds
+often increases trajectory time-of-flight. While this is not a desirable characteristic for manned
+missions (due to radiation and other concerns), it could be an acceptable trade-off for
+cargo/supply missions. Therefore, rather than focusing on optimizing the interplanetary transfer
+itself, comparison of some available unstable periodic orbit families leads to insight into
+time-efficient departure from the Earth-Moon system. The use of simplified dynamical models also
+provides families of transfers instead of point solutions, giving flexibility to the mission design
+process. 
+
+\section{Research Objectives}
+To sustain an increase in missions to Mars and other deep-space targets, a framework for lower-cost
+transfers from the Earth region is necessary. One promising avenue to decrease propellant costs is
+to utilize invariant manifold theory for low-energy departures from unstable, cislunar, multi-body
+periodic orbits. Since the use of multi-body dynamical systems theory in cislunar mission design is
+relatively new, there is a lack of knowledge about the departure characteristics for families of
+unstable periodic orbits in the Earth-Moon Circular Restricted 3-Body Problem (CR3BP). Additionally,
+it has been shown in previous investigations that invariant manifolds from one Sun-planet CR3BP
+do not connect to manifolds in other systems in a practical amount of time\cite{Koon:2000}.
+Therefore, new transfer design methodologies are needed to connect two planetary CR3BPs. Finally,
+since the current standard methodologies for interplanetary transfers produce only point solutions,
+it would be beneficial to have new flexible methodologies that provide families of transfers.
+
+The goal of this investigation is to develop an end-to-end, cislunar-to-Mars transfer design
+methodology that provides families of solutions in order to compare the departure characteristics
+of unstable Earth-Moon CR3BP periodic orbit families. The following objectives contribute to this
+goal:
+\begin{enumerate}
+    \item   \textbf{Establish a cislunar-to-Mars low-energy transfer design methodology that
+            utilizes CR3BP invariant manifolds.} This new transfer methodology will provide a
+            solution for bridging the gap between the invariant manifolds of Sun-planet CR3BP
+            systems. Using CR3BP and patched models, the resulting solutions will also exist in
+            families, providing flexible mission design.
+    \item   \textbf{Compare the use of intermediate Sun-Earth staging orbits to direct transfers.}
+            Immediately once a trajectory departs the Earth-Moon CR3BP, it will be in a region of
+            space that can be modeled by the Sun-Earth CR3BP. Sun-Earth invariant manifolds may
+            depart this system faster than Earth-Moon manifolds (propagated in the Sun-Earth
+            model). Therefore, transfers that arrive at an intermediate Sun-Earth orbit may exhibit
+            more favorable departure characteristics.
+    \item   \textbf{Analyze and compare the Earth-Moon departure characteristics of various
+            unstable CR3BP periodic orbit families within this framework.} The ultimate goal of
+            this investigation is to compare families of unstable Earth-Moon orbits to see which
+            ones provide low-energy transfers to Mars with lower times-of-flight. This will inform
+            future interplanetary and deep-space mission designs and lend insight into cislunar
+            departure dynamics.
+\end{enumerate}
+This investigation primarily investigates cislunar-Mars transfers, but the techniques and developed
+methodology can be applied to many other applications involving CR3BP systems and deep-space
+targets. To demonstrate the methodology, all the end-to-end cislunar-to-Mars transfers will depart
+from various Earth-Moon CR3BP orbits, but arrive at the same Sun-Mars $L_{1}$ northern halo orbit.
+
+\section{Previous Contributions}
 
 
-\section{Subcaption / Cleveref Testing}
-Here is a very important and informative figure for Orion. You can see in \cref{fig:orion} that there is both \cref{fig:orion:a} and \cref{fig:orion:b}! There is also important information in \cref{tab:sample_table}. If you're confused, then \cref{eq:euler} should clarify things. Some other ways to put it: \cref{eq:euler,eq:pythagorean} and \cref{eq:euler,eq:pythagorean,eq:calculus}. 
-
-\begin{figure}[p]
-    \centering
-    \begin{subcaptionblock}{.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{orion1}
-        \caption{Orion 1}
-        \label{fig:orion:a}
-    \end{subcaptionblock} %
-    \begin{subcaptionblock}{.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{orion2}
-        \caption{Orion 2}
-        \label{fig:orion:b}
-    \end{subcaptionblock} %
-    \caption{Two images of Orion: \subref{fig:orion:a} and \subref{fig:orion:b}.}
-    \label{fig:orion}
-\end{figure}
-
-\begin{table}[p]
-    \centering
-    \caption{Sample Table}
-    \begin{tabular}{|c|c|}
-    \hline
-        Sample & Table\\
-        $\xNd$ & 2\\
-    \hline
-    \end{tabular}
-    \label{tab:sample_table}
-\end{table}
-
-\subsection{Important Math}
-
-\begin{equation}
-    e^{i\pi}+1=0
-    \label{eq:euler}
-\end{equation}
-
-\begin{equation}
-    a^2+b^2=c^2
-    \label{eq:pythagorean}
-\end{equation}
-
-\begin{equation}
-    \frac{df}{dt} = \lim_{h\rightarrow 0} \frac{f(t+h)-f(t)}{h}
-    \label{eq:calculus}
-\end{equation}
-
-\subsection{Numbers/Units}
-Some of the number formats available: \num{-e10}. \numproduct{2 x 4}. \numrange{10}{11}. \ang{12.3}.
-
-Experimenting with the siunits package: 8 \unit{\kilo\gram\metre\per\square\second}. 9\unit{\newton}. \qty{2.3e27}{\kilogram}. \qty[per-mode = fraction]{1,345}{\coulomb\per\mole}.
-
-\subsubsection{A subsubsection} 
-A subsubsection for testing out the table of contents
-
-\paragraph{A paragraph}
-What happens for a paragraph in the table of contents?
-
-\subsection{Custom variables}
-
-Variables can be defined as functions in \Menu{t0-template > te4-custom-variables.tex}
-
-The rotating $\xNd$ axis is clearly the best of all axes. But even better is the $\vectorFmt{\xNd}$ vector and the $\unitVecFmt{\xNd}$ direction! See the appenix in Debug mode for details
-
-\subsection{Custom colors}
-There are a variety of available colors from Purdue's branding\footnote{see \href{https://marcom.purdue.edu/our-brand/visual-identity/}{https://marcom.purdue.edu/our-brand/visual-identity/}} like: {\color{purdue-boilermaker-gold} Boilermaker Gold}, {\color{purdue-rush} Rush}. This example document also include the Tableau colors\footnote{used in matplotlib - \href{https://matplotlib.org/3.4.1/gallery/color/named_colors.html}{https://matplotlib.org/3.4.1/gallery/color/named\_colors.html}}. For example, {\color{tab-blue} tab-blue} and {\color{tab-red} tab-red}.
-
-\subsection{Acronyms}
-Acronyms handled through \verb|glossaries|, and defined in \Menu{t0-template > te6-acronyms.tex}. For example, the first time we will refer to the \gls{crtbp}, and in the future only say \gls{crtbp}.
+\section{Overview of Current Work}
