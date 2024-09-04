@@ -1,12 +1,12 @@
 \chapter{INTRODUCTION}
 \section{Motivation}
-Recent years have seen a rapid increase in interantional interest in missions and operations in the
-lunar vicinity (cislunar space). This is evidenced by the development of infrastructure for the
-National Aeronautics and Space Administration's (NASA) Gateway program, a long-term hub that will
-reside in an Earth-Moon near-rectilinear halo orbit (NRHO) in the lunar vicinity\cite{Zamora:2024}.
-While there are a lot of exciting opportunities for cislunar missions, periodic orbits and
-dynamical structures in this region of space can also be used as stepping stones on the way to
-deep-space exploration.
+In recent years, there has been a rapid increase in international interest in missions and
+operations in the lunar vicinity (cislunar space). This is evidenced by the development of
+infrastructure for the National Aeronautics and Space Administration's (NASA) Gateway program, a
+long-term hub that will reside in an Earth-Moon near-rectilinear halo orbit (NRHO) in the lunar
+vicinity\cite{Zamora:2024}. While there are a lot of exciting opportunities for cislunar missions,
+periodic orbits and dynamical structures in this region of space can also be used as stepping
+stones on the way to deep-space exploration.
 
 In its 2022 Strategic Plan, NASA outlines a goal to "Extend human presence to the Moon and on
 towards Mars for sustainable long-term exploration, development, and utilization" and "Enhance
@@ -26,11 +26,11 @@ missions in the cislunar region, similar strategies can be adapted and applied t
 transfers between cislunar orbits and deep-space targets residing outside of the Earth region.
 
 In the past, NASA and other space agencies have designed and executed uncrewed interplanetary
-missions to Mars. However, their goal is to develop a human presence on mars in the near future.
+missions to Mars. However, their goal is to develop a human presence on Mars in the near future.
 This endeavor will require an increase in crewed and uncrewed missions to the Martian vicinity,
 highlighting a need for low-cost, reliable transfer strategies. Traditionally, uncrewed
-interplanetary missions depart from a low-Earth orbit (LEO) or similar Earth orbit using a direct,
-high-enery transfer\cite{Drake:2009}. Not only do these solutions have a high propellant cost, but
+interplanetary missions depart from a low Earth orbit (LEO) or similar Earth orbit using a direct,
+high-energy transfer\cite{Drake:2009}. Not only do these solutions have a high propellant cost, but
 they are also point solutions that need to be recomputed whenever one of the mission parameters
 changes.
 
@@ -43,7 +43,7 @@ the Earth-Moon system to deep-space destinations. Unfortunately, the use of inva
 often increases trajectory time-of-flight. While this is not a desirable characteristic for manned
 missions (due to radiation and other concerns), it could be an acceptable trade-off for
 cargo/supply missions. Therefore, rather than focusing on optimizing the interplanetary transfer
-itself, comparison of some available unstable periodic orbit families leads to insight into
+itself, a comparison of some available unstable periodic orbit families leads to insight into
 time-efficient departure from the Earth-Moon system. The use of simplified dynamical models also
 provides families of transfers instead of point solutions, giving flexibility to the mission design
 process. 
@@ -83,13 +83,110 @@ goal:
             ones provide low-energy transfers to Mars with lower times-of-flight. This will inform
             future interplanetary and deep-space mission designs and lend insight into cislunar
             departure dynamics.
+
 \end{enumerate}
 This investigation primarily investigates cislunar-Mars transfers, but the techniques and developed
 methodology can be applied to many other applications involving CR3BP systems and deep-space
 targets. To demonstrate the methodology, all the end-to-end cislunar-to-Mars transfers will depart
-from various Earth-Moon CR3BP orbits, but arrive at the same Sun-Mars $L_{1}$ northern halo orbit.
+from various Earth-Moon CR3BP orbits but arrive at the same Sun-Mars $L_{1}$ northern halo orbit.
 
 \section{Previous Contributions}
+As mentioned above, traditionally, missions to Mars and other deep-space targets have used direct,
+impulsive transfers departing from the Earth or low Earth orbit. Porkchop plots are often used in
+tandem with patched conics to quickly provide point initial guesses for various
+epochs\cite{Drake:2009}. Earth flybys have also been proposed by Landau and Longuski to reduce
+propellant requirements\cite{Landau:2006}, while Fritz and Turkoglu use gravity-assist maneuvers
+around other bodies\cite{Fritz:2016}.
 
+While the study of multi-body dynamics originated in the 17th century, one of the biggest
+breakthroughs occurred with the development of the CR3BP by Euler in 1722\cite{BarrowGreen:1997}.
+However, it took centuries before this theory was used in trajectory design. Some notable missions
+that have utilized multi-body dynamics include the International Sun-Earth Explorer-3
+(ISEE-3)\cite{Farquhar:1984}, Genesis\cite{Lo:2001}, ARTEMIS\cite{Woodard:2009}, and
+CAPSTONE\cite{Cheetham:2021}. Currently, multi-body dynamics are also being used to design the
+baseline trajectory and operations for NASA's Gateway
+hub\cite{Zamora:2024,Boudad:2022,ZimovanSpreen:2022}.
+
+Within the context of interplanetary transfers and missions to deep-space targets, although
+missions designed using multi-body dynamical systems theory have yet to be flown, several authors
+have developed/proposed multi-body dynamics methodologies. Miele and Wang use the dynamics of a
+circular-restricted 4-body problem to numerically optimize transfers between Keplerian LEO and low
+Mars orbits\cite{Miele:1999}. Going a step further, Conte starts from a lunar distant retrograde
+orbit (DRO), a stable CR3BP orbit, but still uses porkchop plots to design direct transfers to low
+Mars orbits\cite{Conte:2017}, while Esper and Aldrin use aero-braking to arrive into a Phobos
+DRO\cite{Esper:2019}.
+
+Interplanetary transfer design strategies utilizing multi-body invariant manifolds started to
+appear around 2005 with Topputo et al., who investigated transfers between CR3BP Sun-Earth and
+Sun-Mars Lyapunov orbits\cite{Topputo:2005}. Nakamiya et al. conducted a similar investigation in
+2010 between Sun-Earth and Sun-Mars halo orbits in the Hills restricted 3-body problem
+(HR3BP)\cite{Nakamiya:2010}. In 2014, Haibin et al. added gravity assists and pseudo-manifolds to
+aid in the transfer process between Sun-Earth and Sun-Mars halo orbits in the
+CR3BP\cite{Haibin:2014}, while Kakoi et al. investigated transfers from Earth-Moon CR3BP halo
+orbits to Mars\cite{Kakoi:2014}. To depart from a stable CR3BP orbit, Cavallari et al. in 2019 used
+Earth-Moon Lyapunov manifolds to facilitate transfers between lunar DROs and Sun-Mars Lyapunov
+orbits\cite{Cavallari:2019}. Most recently in 2022, Scantamburlo et al. investigated elliptic
+restricted 3-body problem (ER3BP) Lyapunov manifolds to connect Sun-Earth and
+Sun-Mars\cite{Scantamburlo:2022}, as Canales et al. used a semi-analytical moon-to-moon transfer
+design methodology to construct trajectories between CR3BP Sun-Earth and Sun-Mars halo
+orbits\cite{Canales:2022}. Concurrently with these investigations, Lu et al. (2015) and Shimane and
+Ho (2022) investigated the use of low-thrust maneuvers (instead of impulsive) to connect the
+invariant manifolds of Sun-planet systems\cite{Lu:2015,Shimane:2022}. Almost all of these previous
+studies treated the Sun-Earth and Sun-Mars systems as coplanar, and none of them included analyses
+of other periodic orbit families besides Lyapunovs and halos.
+
+Several authors have also investigated connecting Earth-Moon to Sun-Earth orbits in their
+respective CR3BP systems. The aforementioned study by Kakoi et al. in 2014 uses a patched CR3BP
+model to ballistically connect Earth-Moon and Sun-Earth halo orbits in their actual respective
+planes\cite{Kakoi:2014}. In 2019, Guo and Lei conducted a similar investigation to CR3BP Sun-Earth
+libration point orbits\cite{Guo:2019}, whereas Pasquale et al. investigated heliocentric escape
+options in 2021\cite{Pasquale:2021}. Finally, other authors have also investigated connections in
+other dynamical models, such as Boudad et al. with the bi-circular restricted 4-body problem in
+2021\cite{Boudad:2021}.
 
 \section{Overview of Current Work}
+The main goal of this investigation is to compare families of unstable periodic orbits in the
+Earth-Moon CR3BP to determine which ones have desirable system departure characteristics. A
+transfer design methodology will be developed between the Earth-Moon and Sun-Mars CR3BP systems
+that utilizes invariant manifolds to facilitate this orbit family comparison. This methodology will
+consist of two transfer types: one that stages at an intermediate Sun-Earth halo orbit and one that
+is direct. This new methodology will provide families of transfers instead of just point solutions,
+allowing for more flexible mission designs. The resulting methodology and results can be applied to
+other deep-space targets besides Mars, such as Venus or asteroids, and will provide insight into
+general low-energy interplanetary transfers.
+
+The cislunar-Mars transfer design methodology and the CR3BP Earth-Moon unstable orbit family
+analysis are elaborated in the following chapters:
+\begin{itemize}
+	\item	\textbf{Chapter 2:} This chapter introduces the dynamical models and coordinate frames
+			that are used in this investigation. The two-body problem and CR3BP are the main
+			dynamical models used with a couple of patched and blended model combinations to
+			describe transitions between systems. Within the CR3BP, the barycentric synodic
+			rotating frame is primarily used to represent trajectories, but a Sun-centered Ecliptic
+			J2000 frame best represents the interplanetary transfers in their entirety.
+	\item	\textbf{Chapter 3:} Many techniques from dynamical systems theory are used in this
+			investigation, and those are described here. These numerical techniques and dynamical
+			structures are used in both the transfer design process and the subsequent analysis of
+			the system departure characteristics. This chapter also includes examples of the
+			unstable CR3BP periodic orbit families that are used throughout this investigation, as
+			well as procedures for generating invariant manifolds from them.
+	\item	\textbf{Chapter 4:} Two existing transfer methodologies are adapted and combined to
+			form the end-to-end cislunar-Mars transfer strategy. All of the transfers use a version
+			of the moon-to-moon analytical transfer (MMAT) method developed by
+			Canales\cite{Canales:2021}. If transfers use the intermediate Sun-Earth staging orbit,
+			a near-ballistic transfer between the Earth-Moon orbits and the Sun-Earth halo orbit is
+			constructed similarly to Kakoi's methodology\cite{Kakoi:2015}. This chapter also explains
+			Lambert Arcs and how they are commonly used to design direct transfers between the
+			Earth and Mars.
+	\item	\textbf{Chapter 5:} With a fully developed end-to-end transfer strategy, cislunar-Mars
+			trajectories can be constructed, originating at a variety of unstable Earth-Moon
+			orbits. Several periodic orbit families, and orbits at different Jacobi constants
+			(energy levels) within the families, will be analyzed to determine which provide
+			favorable system departure characteristics compared to the others. This chapter also
+			includes a comparison between the direct transfers and those that utilize intermediate
+			staging orbits. It will conclude with a comparison of the transfer results to those
+			from the existing literature, including Lambert arc transfers.
+	\item	\textbf{Chapter 6:} A summary of the main results and conclusions of the investigation
+			is presented here. The success of the research objectives is discussed, and
+			recommendations for potential future work are provided.
+\end{itemize}
