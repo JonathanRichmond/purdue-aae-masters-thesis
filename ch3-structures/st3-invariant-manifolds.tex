@@ -29,6 +29,7 @@ In layman's terms, if a periodic orbit is unstable (has eigenvalues greater than
 $1$), then stable/unstable manifold surfaces exist that approach/leave the orbit asymptotically in
 forward time.
 
+\subsection{Approximating a Manifold Arc}
 Since these manifold structures asymptotically depart the orbit structure, no deterministic
 maneuver is required to transfer onto them. However, a consequence of this is that it is not
 possible to identify the exact location along the orbit from where a manifold trajectory departs.
@@ -74,6 +75,19 @@ a spatial halo orbit, respectively, in the Earth-Moon system. Each figure also s
 manifold arc overlayed on the full structure for reference. A more thorough explanation of manifold
 theory can be found in Perko\cite{Perko:1991}.
 
+\begin{table}[ht]
+    \centering
+    \caption{Manifold-related values of relevant CR3BP systems.}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{CR3BP System}   &   \boldmath$d$ \textbf{[km]}  &   \boldmath$\Delta MI$ \textbf{Threshold} \\  \hline
+        Earth-Moon              &   $25$                        &   $1\times10^{-3}$                        \\  \hline
+        Sun-Earth               &   $1000$                      &   $5\times10^{-5}$                        \\  \hline
+        Sun-Mars                &   $1000$                      &   $1\times10^{-5}$                        \\  \hline
+    \end{tabular}
+    \label{tab:manifoldValues}
+\end{table}
+
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/LyapunovManifold.pdf}
@@ -88,6 +102,7 @@ theory can be found in Perko\cite{Perko:1991}.
     \label{fig:haloManifold}
 \end{figure}
 
+\subsection{Manifold Time-of-Flight}
 Since manifolds asymptotically arrive at/depart from their orbit, even with a reasonable step-off
 distance, they can take a long time to depart from the orbit vicinity. Under higher-fidelity
 dynamics, this period of time would be eliminated from the mission design, so it would be useful to
@@ -106,18 +121,6 @@ the two values measures the similarity of the two trajectories:
     \label{eq:momentumdifference}
 \end{equation}
 Once $\Delta MI$ has reached a threshold value (determined for each system), the trajectory is
-considered departed from the orbit\cite{Guzzetti:2017}. \cref{tab:manifoldValues} shows the
-threshold values chosen for each system in this investigation.
-
-\begin{table}[ht]
-    \centering
-    \caption{Manifold-related values of relevant CR3BP systems.}
-    \begin{tabular}{|c|c|c|}
-        \hline
-        \textbf{CR3BP System}   &   \boldmath$d$ \textbf{[km]}  &   \boldmath$\Delta MI$    \\  \hline
-        Earth-Moon              &   $25$                        &   $1\times10^{-3}$        \\  \hline
-        Sun-Earth               &   $1000$                      &   $5\times10^{-5}$        \\  \hline
-        Sun-Mars                &   $1000$                      &   $1\times10^{-5}$        \\  \hline
-    \end{tabular}
-    \label{tab:manifoldValues}
-\end{table}
+considered departed from the orbit\cite{Guzzetti:2017}. Thus, the time it takes for the manifold to
+depart can be subtracted from the time-of-flight along the manifold arc starting from the step-off.
+\cref{tab:manifoldValues} shows the threshold values chosen for each system in this investigation.
