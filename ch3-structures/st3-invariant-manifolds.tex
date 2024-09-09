@@ -67,25 +67,12 @@ time from their initial condition.
 As mentioned, the value for $d$ depends on the CR3BP system in use. This parameter needs to be
 sufficiently small to approximate the manifold structure well. However, if $d$ is too small, the
 trajectory will take longer than reasonable to arrive at/depart from the orbit since the dynamics
-are asymptotic\cite{Kakoi:2015}. \cref{tab:dValues} shows the values of $d$ used for the systems in
-this investigation. As some examples of manifold structures, \cref{fig:LyapunovManifold} and
-\cref{fig:haloManifold} show the stable and unstable manifolds for a planar Lyapunov orbit and a
-spatial halo orbit, respectively, in the Earth-Moon system. Each figure also shows a single
+are asymptotic\cite{Kakoi:2015}. \cref{tab:manifoldValues} shows the values of $d$ used for the
+systems in this investigation. As some examples of manifold structures, \cref{fig:LyapunovManifold}
+and \cref{fig:haloManifold} show the stable and unstable manifolds for a planar Lyapunov orbit and
+a spatial halo orbit, respectively, in the Earth-Moon system. Each figure also shows a single
 manifold arc overlayed on the full structure for reference. A more thorough explanation of manifold
 theory can be found in Perko\cite{Perko:1991}.
-
-\begin{table}[ht]
-    \centering
-    \caption{Manifold Step-Off Distance Values of Relevant CR3BP Systems}
-    \begin{tabular}{|c|c|}
-        \hline
-        \textbf{CR3BP System}   &   \boldmath$d$ \textbf{[km]}  \\  \hline
-        Earth-Moon              &   $25$                        \\  \hline
-        Sun-Earth               &   $1000$                      \\  \hline
-        Sun-Mars                &   $1000$                      \\  \hline
-    \end{tabular}
-    \label{tab:dValues}
-\end{table}
 
 \begin{figure}[ht]
     \centering
@@ -100,3 +87,37 @@ theory can be found in Perko\cite{Perko:1991}.
     \caption{Earth-Moon $L_{2}$ Halo Manifolds ($C=3.08$).}
     \label{fig:haloManifold}
 \end{figure}
+
+Since manifolds asymptotically arrive at/depart from their orbit, even with a reasonable step-off
+distance, they can take a long time to depart from the orbit vicinity. Under higher-fidelity
+dynamics, this period of time would be eliminated from the mission design, so it would be useful to
+have a metric to determine when the manifold has departed the orbit vicinity. In this
+investigation, the momentum integral, or more specifically the momentum integral difference, is
+used to indicate orbit departure:
+\begin{equation}
+    MI=\int_{t_{0}}^{t}(x\xdot+y\ydot+z\zdot)d\tau,
+    \label{eq:momentumintegral}
+\end{equation}
+where all of the values are nondimensional. Starting from $MI_{0}=0$ at the step-off location, the
+momentum integral is calculated for both the orbit and the manifold arc and the difference between
+the two values measures the similarity of the two trajectories:
+\begin{equation}
+    \Delta MI=|MI-MI_{\Gamma}|.
+    \label{eq:momentumdifference}
+\end{equation}
+Once $\Delta MI$ has reached a threshold value (determined for each system), the trajectory is
+considered departed from the orbit\cite{Guzzetti:2017}. \cref{tab:manifoldValues} shows the
+threshold values chosen for each system in this investigation.
+
+\begin{table}[ht]
+    \centering
+    \caption{Manifold-related values of relevant CR3BP systems.}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{CR3BP System}   &   \boldmath$d$ \textbf{[km]}  &   \boldmath$\Delta MI$    \\  \hline
+        Earth-Moon              &   $25$                        &   $1\times10^{-3}$        \\  \hline
+        Sun-Earth               &   $1000$                      &   $5\times10^{-5}$        \\  \hline
+        Sun-Mars                &   $1000$                      &   $1\times10^{-5}$        \\  \hline
+    \end{tabular}
+    \label{tab:manifoldValues}
+\end{table}
