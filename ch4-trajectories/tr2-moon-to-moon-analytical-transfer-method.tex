@@ -147,9 +147,12 @@ with the caveat that it is dependent on the arrival phasing and needs to be targ
     \theta_{a_{int}}=2\pi o+(-1)^{o}\arccos(\frac{\frac{a_{a}(1-e_{a}^{2})}{r_{int}}-1}{e_{a}}),\text{ being }o=0,1.
     \label{eq:arrivalintersect}
 \end{equation}
-For every feasible $\theta_{b_{int}}$ then, there are two possible phasing solutions
-($\theta_{a_{int}}$) that correspond to the two arrival ellipse orientations that tangentially
-intersect the bridge ellipse:
+For every feasible $\theta_{b_{int}}$, there are then two possible phasing solutions
+($\theta_{a_{int}}$) that correspond to the two arrival ellipse orientations ($\omega_{a}$) that
+intersect the bridge ellipse at the line of nodes. A schematic representing these two orientations
+is shown in \cref{fig:orientation}, where the dashed part of the ellipses are under the $XY$-plane
+and the arrows show the direction of motion along each ellipse. The angles for the orientation are
+caluclated similar to before:
 \begin{equation}
     \omega_{a}=u_{a}-(\theta_{a_{int}}+n\pi),
     \label{eq:arrivalperiapse}
@@ -163,9 +166,16 @@ intersect the bridge ellipse:
     \label{eq:arrivalcosu}
 \end{equation}
 
-\cref{eq:arrivalperiapse} is dependent on the orientation of the arrival conic, which in turn is
-dependent on the phasing chosen. To solve for the proper phasing and orientation, a Newton-Raphson
-differential corrections scheme is applied:
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/orientation.jpg}
+    \caption{Representation of the two feasible arrival ellipse orientations. The top images are $XY$-plane views while the bottom are $XZ$-plane views.}
+    \label{fig:orientation}
+\end{figure}
+
+\cref{eq:arrivalperiapse} is dependent on the orientation of the arrival CR3BP arc, which in turn
+depends on a properly phased arrival. Therefore, tTo solve for the proper phasing and orientation,
+an iterative Newton-Raphson differential corrections scheme is applied:
 \begin{equation}
     \Xbar=\begin{bmatrix}   \theta_{b_{int}}    &   \theta_{4_{Mars}}   &   \theta_{a_{int}}    \end{bmatrix}^{T},
     \label{eq:MMATfreevar}
@@ -201,4 +211,44 @@ have different maneuver costs and times-of-flight. By continuing in the departur
 chosen manifold arc as discussed, a family of MMAT solutions can be obtained and compared.
 
 \subsection{Example}
+What follows is an example MMAT family between a Sun-Earth CR3BP northern halo orbit at a Jacobi
+constant of $3.0008189$ and a Sun-Mars CR3BP northern halo orbit at a Jacobi constant of
+$3.0001857$. Each transfer in the family starts at a different initial epoch, each day in an Earth
+year. These initial epochs correspond to $\theta_{0_{Earth}}$ values (which spans
+0\textdegree-360\textdegree in a year). All of the trajectories use the same departure CR3BP arc,
+which is the Sun-Earth halo unstable manifold with the largest apoapsis. Similarly, all of the
+trajectories use the same Sun-Mars halo stable manifold with the smallest periapsis as the arrival
+CR3BP arc. In between, the departure and arrival conic arcs are determined by the osculating
+Keplerian orbital elements when the manifolds reach their respecitve SoIs and the bridge conic arc
+joins them as described above.
 
+In \cref{fig:MMATTOF}, the times-of-flight and maneuver magnitudes of the family members are shown
+with respect to their initial phasing. Note that there are areas of initial epochs where transfers
+could not be computed because the inequality in \cref{eq:MMAT} was not satisfied with those
+orientations. Each successful epoch also has two transfer solutions corresponding to the two
+arrival phasing solutions described above. The two groups of transfers in the figure correspond to 
+the solutions where $n=0$ or $n=1$ satisfy \cref{eq:MMAT} and are similar because of symmetry
+perpendicular to the intersection line of the Earth and Mars orbital planes. The full
+time-of-flight for the transfers is generally bounded between 3 and 5 years, while the magnitude of
+the two maneuvers combined is between 4 and 7 km/s.
+
+\cref{fig:MMATtheta} shows the same tranfers, now with the required initial Mars phasing
+$\theta_{0_{Mars}}$. This plot can be used to assosciate each transfer with an actual launch date
+where the Earth and Mars are in the specified locations in their respective orbits. Varying the
+chosen manifold departure arc while keeping the initial epoch fixed creates families that would
+appear as vertical lines in \cref{fig:MMATtheta}, providing additional launch date flexibility but
+potentially at the cost of maneuver $\Delta v$.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/MMATTOF.pdf}
+    \caption{TOF and $\Delta v$ evolution along the MMAT family.}
+    \label{fig:MMATTOF}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/MMATtheta.pdf}
+    \caption{Required planet phasing along the MMAT family.}
+    \label{fig:MMATtheta}
+\end{figure}
