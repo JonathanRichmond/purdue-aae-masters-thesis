@@ -45,9 +45,10 @@ Once the CR3BP arc has reached the edge of the SoI, it can be treated as a 2BP t
 Sun as its focus (refer to the patched 2BP-CR3BP model introduced in Section 2.4.1). The
 barycentric rotating frame state that intersects the SoI is transformed to a heliocentric Ecliptic
 J2000 inertial frame state using the procedure outlined in Section 2.5.2. The resulting inertial
-state now defines a Keplerian heliocentric ellipse, the path for either the departure or arrival
-conic arc. \cref{eq:inclination}-\cref{eq:radialvelocity} can be used to retrieve the equivalent
-Keplerian orbital elements.
+state now defines a Keplerian heliocentric ellipse in the instantaneous plane of motion of the
+trajectory at the SoI, the path for either the departure or arrival conic arc.
+\cref{eq:inclination}-\cref{eq:radialvelocity} can be used to retrieve the equivalent Keplerian
+orbital elements.
 
 In the distant, two-burn MMAT strategy, the first maneuver is placed at the periapsis of the
 departure conic. Given that the true anomaly $\theta=0$ at periapsis,
@@ -242,10 +243,10 @@ shown with respect to their initial phasing. Note that there are areas of initia
 transfers could not be computed because the inequality in \cref{eq:MMAT} was not satisfied with
 those orientations. Each successful epoch also has two transfer solutions corresponding to the two
 arrival phasing solutions described above. The two groups of transfers in the figure correspond to 
-the solutions where $n=0$ or $n=1$ satisfy \cref{eq:MMAT} and are similar because of symmetry
-perpendicular to the intersection line of the Earth and Mars orbital planes. The full
-time-of-flight for the transfers is generally bounded between 3 and 5 years, while the magnitude of
-the two maneuvers combined is between 4 and 7 km/s.
+the solutions where $n=0$ or $n=1$ satisfy \cref{eq:MMAT} and are similar due to the symmetry of
+the possible bridge conic orientations for an intersection. The full time-of-flight for the
+transfers is generally bounded between 3 and 5 years, while the magnitude of the two maneuvers
+combined is between 4 and 7 km/s.
 
 \cref{fig:MMATEvo}(b) shows the same transfers, now with the required initial Mars phasing
 $\theta_{0_{Mars}}$. This plot can be used to associate each transfer with an actual launch date
