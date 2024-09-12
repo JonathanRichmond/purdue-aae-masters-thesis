@@ -35,16 +35,23 @@ inclination. The $XY$-projection of an example 2BP-CR3BP patched model system is
 \end{figure}
 
 The radius of the SoI is a design parameter dependent on the application. For this patched model,
-an SoI is desired such that CR3BP periodic orbits around the Lagrange points are included. By
-defining a gravitational ratio:
+an SoI is desired such that CR3BP periodic orbits around the Lagrange points are included,
+demonstrated in \cref{fig:SoI}. By defining a gravitational ratio:
 \begin{equation}
     d_{SoI}=\frac{g_{2}}{g_{1}},
     \label{eq:patchedSoI}
 \end{equation}
 where $g_{i}$ is the gravitational acceleration of the respective primary body at a specified
-location, an SoI radius from the planet can be chosen so that $d_SoI$ is sufficiently small, i.e.,
-the osculating (instantaneous) orbital elements remain near constant in the
+location, an SoI radius from the planet can be chosen so that $d_{SoI}$ is sufficiently small,
+i.e., the osculating (instantaneous) orbital elements remain near constant in the
 CR3BP\cite{Canales:2021b}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/SoI.pdf}
+    \caption{Patched 2BP-CR3BP sphere of influence around Earth, encompassing a large portion of the Sun-Earth $L_{2}$ Lyapunov family.}
+    \label{fig:SoI}
+\end{figure}
 
 \subsection{The Blended CR3BP Model}
 Two CR3BP models can be blended to form a 4-body model if one of the primary bodies is present in
