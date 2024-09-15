@@ -34,7 +34,15 @@ intersect hyperplane, chosen as an angle measured from the $x$-axis in the Sun-E
 frame. According to Kakoi, hyperplane angles between $-\ang{85}$ and $\ang{70}$ are desirable for
 transfers between Earth-Moon $L_{2}$ and Sun-Earth $L_{2}$ orbits, with $\ang{-80}$ being used in
 this investigation\cite{Kakoi:2015}. At the same time, the discretized stable manifold surface from
-the Sun-Earth $L_{2}$ halo orbit is propagated to the same hyperplane.
+the Sun-Earth $L_{2}$ halo orbit is propagated to the same hyperplane, as shown in
+\cref{fig:hyperplane}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Hyperplane.pdf}
+    \caption{Earth-Moon and Sun-Earth manifolds intersecting at the hyperplane.}
+    \label{fig:hyperplane}
+\end{figure}
 
 At the hyperplane, mappings of both sets of manifold arcs are used to form phase plots that inform
 the transfer initial guess selection. Following Kakoi's approach, the plots represent $\xdot$ vs.
@@ -43,12 +51,27 @@ angle, while the $\ydot$-value is determined by the Jacobi constant\cite{Kakoi:2
 along the Earth-Moon manifold curve is also used to denote the arc that matches the Sun-Earth
 manifold in Jacobi constant. The two sets of manifold arcs form curves on the plots and the goal is
 to find an intersection between the curves in all three phase plots that occurs at the black point.
-The initial epoch of the Earth-Moon manifold departure, the hyperplane angle, and the Sun-Earth
-halo Jacobi constant can all be varied to shift the curves on the phase plots and find an
-intersection; Kakoi provides some guidelines on how to do so\cite{Kakoi:2015}. Once a suitable
-point is determined, this information can be used to generate an initial guess for the transfer
-between the systems.
+\cref{fig:phasePlots} shows an example of these phase plots, where the red curve is the unstable
+Earth-Moon manifold and the blue curve is the stable Sun-Earth manifold. Note that there are two
+black markers representing two arcs that match the Sun-Earth Jacobi constant. The initial epoch of
+the Earth-Moon manifold departure, the hyperplane angle, and the Sun-Earth halo Jacobi constant can
+all be varied to shift the curves on the phase plots and find an intersection; Kakoi provides some
+guidelines on how to do so\cite{Kakoi:2015}. Once a suitable point is determined, like the black
+circle marker in \cref{fig:phasePlotsIntersect}, this information can be used to generate an
+initial guess for the transfer between the systems.
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/PhasePlots.pdf}
+    \caption{Representation of the distant, two-burn MMAT with a plane change (adapted from Canales\cite{Canales:2021b}).}
+    \label{fig:phasePlots}
+\end{figure}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/PhasePlotsIntersect.pdf}
+    \caption{Representation of the distant, two-burn MMAT with a plane change (adapted from Canales\cite{Canales:2021b}).}
+    \label{fig:phasePlotsIntersect}
+\end{figure}
 
 \subsection{Example}
