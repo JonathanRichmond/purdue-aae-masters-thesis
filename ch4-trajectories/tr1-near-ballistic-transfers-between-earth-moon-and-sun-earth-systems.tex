@@ -10,7 +10,7 @@ treating them as non-coplanar, where the required respective initial orientation
 bodies (the Sun, Earth, and Moon) are represented by angles and the interface between the CR3BP
 systems occurs at the intersection of the manifolds\cite{Kakoi:2014,Kakoi:2015}. This methodology
 inspired the approach used in this investigation, where the orientations are determined by a
-specified epoch date and the two systems interface prior to the arc intersection.
+specified epoch date and the two systems interface before the arc intersection.
 
 \subsection{Methodology}
 To find a connection between the orbits in the two different CR3BP systems, discretized arcs of the
@@ -19,7 +19,7 @@ defined in \cref{eq:blendedSoI}. At this distance from the Moon, its gravitation
 becomes negligible compared to those of the Earth and the Sun. At this interface of the two CR3BP
 systems, the Earth-Moon barycentric rotating frame state of each arc is transformed to a Sun-Earth
 barycentric rotating frame state by rotation to the Earth-centered Ecliptic J2000 inertial frame
-and back as described in Section 2.5.2. This rotation is dependent on the epoch date when the state
+and back as described in Section 2.5.2. This rotation depends on the epoch date when the state
 reaches the SoI, as this determines the relative orientations of the celestial bodies. While the
 orientations change slightly month-to-month due to the different planes, the transfer
 characteristics tend to repeat each month, so this study only investigates transfers during January
@@ -40,17 +40,17 @@ the Sun-Earth $L_{2}$ halo orbit is propagated to the same hyperplane, as shown 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/Hyperplane.pdf}
-    \caption{Earth-Moon and Sun-Earth manifolds intersecting at the hyperplane.}
+    \caption{Earth-Moon and Sun-Earth manifolds intersecting at the hyperplane in the Sun-Earth rotating frame.}
     \label{fig:hyperplane}
 \end{figure}
 
-At the hyperplane, mappings of both sets of manifold arcs are used to form phase plots that inform
-the transfer initial guess selection. Following Kakoi's approach, the plots represent $\xdot$ vs.
-$x$, $z$ vs. $x$, and $\zdot$ vs. $z$. The $y$-value is defined by the $x$-value and the hyperplane
-angle, while the $\ydot$-value is determined by the Jacobi constant\cite{Kakoi:2015}. A black dot
-along the Earth-Moon manifold curve is also used to denote the arc that matches the Sun-Earth
-manifold in Jacobi constant. The two sets of manifold arcs form curves on the plots and the goal is
-to find an intersection between the curves in all three phase plots that occurs at the black point.
+At the hyperplane, mappings of both manifolds are used to form phase plots that inform the transfer
+initial guess selection. Following Kakoi's approach, the plots represent $\xdot$ vs. $x$, $z$ vs.
+$x$, and $\zdot$ vs. $z$. The $y$-value is defined by the $x$-value and the hyperplane angle, while
+the $\ydot$-value is determined by the Jacobi constant\cite{Kakoi:2015}. A black dot along the
+Earth-Moon manifold curve is also used to denote the arc that matches the Sun-Earth manifold in
+Jacobi constant. The two sets of manifold arcs form curves on the plots and the goal is to find an
+intersection between the curves in all three phase plots that occurs at the black point.
 \cref{fig:phasePlots} shows an example of these phase plots, where the red curve is the unstable
 Earth-Moon manifold and the blue curve is the stable Sun-Earth manifold. Note that there are two
 black markers representing two arcs that match the Sun-Earth Jacobi constant.
@@ -66,8 +66,8 @@ The initial epoch of the Earth-Moon manifold departure, the hyperplane angle, an
 halo Jacobi constant can all be varied to shift the curves on the phase plots and find an
 intersection; Kakoi provides some guidelines on how to do so\cite{Kakoi:2015}. Once a suitable
 point is determined, like the black circle marker in \cref{fig:phasePlotsIntersect}, this
-information can be used to generate an initial guess for the transfer between the systems, shown in
-\cref{fig:initialGuess}.
+information can be used to generate an initial guess for the transfer between the systems, which is
+shown in \cref{fig:initialGuess}.
 
 \begin{figure}[ht]
     \centering
@@ -79,7 +79,7 @@ information can be used to generate an initial guess for the transfer between th
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/InitialGuess.pdf}
-    \caption{Initial guess for near-ballistic Earth-Moon to Sun-Earth transfer using phase plots.}
+    \caption{Initial guess for near-ballistic Earth-Moon to Sun-Earth transfer using phase plots in the Sun-Earth rotating frame.}
     \label{fig:initialGuess}
 \end{figure}
 
@@ -101,12 +101,31 @@ vectors at those points. The central difference method from Section 3.1.3 is use
 $DF$ Jacobian matrix. Note that the magnitude of the maneuver is included as the second constraint
 in the targeting problem. For the first implementation of the targeter, the $\Delta v$ of the
 initial guess is used as the constraint. Then, each time a solution is converged, this constraint
-value is decreased in an effort to find a near-ballistic solution with a local minimum in
-$\Delta v$. Also note that during this process, the intersection location of the two manifold arcs
-is free to shift from the designated hyperplane.
+value is decreased and the targeting problem is repeated to find a near-ballistic solution with a
+local minimum in $\Delta v$. Also note that during this process, the intersection location of the
+two manifold arcs is free to shift from the designated hyperplane. The result of this process is a
+near-ballistic transfer between an Earth-Moon orbit and a Sun-Earth halo orbit utilizing their
+invariant manifolds. These transfers have low enough maneuver costs that will likely be rendered
+negligible once the solution is transferred to a higher-fidelity dynamical model.
 
 \subsection{Example}
-The result of the above process is a near-ballistic transfer between an Earth-Moon orbit and a
-Sun-Earth halo orbit utilizing their invariant manifolds. These transfers have low enough maneuver
-costs that will likely be rendered negligible once the solution is transfered to a higher-fidelity
-dynamical model. 
+As an example, consider the phase plots in \cref{fig:phasePlotsIntersect} and the resulting initial
+guess in \cref{fig:initialGuess}. The unstable manifold arc departs from an Earth-Moon northern
+halo orbit with an Earth-Moon Jacobi constant of $3.13$ on January 2, 2026 at 07:12:00, while the
+stable manifold arc arrives at a Sun-Earth northern halo orbit with a Sun-Earth Jacobi constant of
+$3.0008189$. At the hyperplane intersection, these two arcs have a position discontinuity of
+$8.768\times10^{-6}$ Sun-Earth nondimensional units ($1312$ km) and a $\Delta v$ of $57.4$ m/s. The
+iterative corrections process outlined above produces a position continuous trajectory with a
+$\Delta v$ of $14.6$ m/s, a negligible amount in comparison to the rest of the end-to-end transfer.
+The initial departure epoch has also shifted slightly, to January 2, 2026 at 07:32:35. This
+corrected trajectory is shown in \cref{fig:solution}. Note that the location of the maneuver has
+shifted from the defined hyperplane to earlier along the Earth-Moon manifold arc. While this exact
+solution is only available for the given epoch, every month a similar solution presents itself, so
+this one can be used to represent the potential near-ballistic transfer solutions.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Solution.pdf}
+    \caption{Converged near-ballistic tranfer between Earth-Moon and Sun-Earth halo orbits in the Sun-Earth rotating frame.}
+    \label{fig:solution}
+\end{figure}
