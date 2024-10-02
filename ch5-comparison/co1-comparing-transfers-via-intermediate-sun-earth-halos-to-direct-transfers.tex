@@ -5,19 +5,21 @@ intermediate Sun-Earth unstable halo orbit. Tradespaces for all of the departure
 this investigation are provided in Appendix A, but a few will be introduced in this section to
 better facilitate the comparison.
 
-In all of the cases examined in this investigation, the family of "direct" transfers overall has
-lower times-of-flight than the staging transfers. As an example, in \cref{fig:tradespace}, the blue
-points representing the "direct" transfers mostly lie to the left of the red transfers that utilize
-a staging orbit. The transfers with the lowest times-of-flight generally have much higher
-$\Delta v$ costs, but there are some cases where the $\Delta v$ lies below the baseline of the
-"Hohmann" transfer.
+In general, for the cases examined in this investigation, transfers with lower times-of-flight tend
+to have higher maneuver costs and vice versa. This is not a strict rule, but in the example of
+\cref{fig:tradespace}, the blue points representing the "direct" transfers mostly lie to the left
+of the red staging orbit transfers but well above the "Hohmann" transfer baseline. These correspond
+to "direct" transfers with lower TOF but much higher $\Delta v$ compared to the staging orbit
+transfers. However, there are some cases where the $\Delta v$ lies below the baseline of the
+"Hohmann" transfer and even below the staging orbit transfers.
 
-\subsection{Cost Function}
-In the example of \cref{fig:tradespace}, the "direct" transfer family also contains the
-minimum-$\Delta v$ solutions, which also have lower times-of-flight than the staging orbit
-transfers. However, this is not always the case, as shown in \cref{fig:lowDeltav}. As a result,
-often a choice needs to be made balancing TOF and maneuver $\Delta v$ cost. A cost function can
-help select desirable transfers that balance these two parameters.
+\subsection{A Simple Cost Function}
+In the example of \cref{fig:tradespace}, the "direct" transfer family contains the minimum-TOF and
+minimum-$\Delta v$ solutions. In this specific case, the minimum-$\Delta v$ solution of the
+"direct" transfers has a lower TOF than most of the staging orbit transfers. However, this is not
+always the case, as shown in \cref{fig:lowDeltav}. As a result, often a choice needs to be made
+balancing TOF and maneuver $\Delta v$ cost. A cost function can help select desirable transfers
+that balance these two parameters.
 
 \begin{figure}[ht]
     \centering
@@ -43,12 +45,16 @@ baseline, and the ten transfers from each transfer category that have the lowest
 determined to be the best transfers for this application. For the case of the $L_{1}$ halo with
 $JC=3.07$ in \cref{fig:lowDeltav}, these are the cyan ("direct") and magenta ("staging") points.
 
-\subsection{Comparison of Selected Transfers}
-In \cref{fig:lowDeltav}, among the transfers selected using the cost function, the "direct" options
-still have lower times-of-flight, while the transfers with staging orbits achieve lower $\Delta v$
-costs. This contrasts with the earlier example from \cref{fig:tradespace}, now shown with the best
-solutions from the cost function in \cref{fig:lowBoth}, where the "direct" options have both lower
-times-of-flight and maneuver costs. 
+\subsection{Comparison of Best Solutions}
+In \cref{fig:lowDeltav}, among the best solutions selected using the cost function, the "direct"
+options still have lower times-of-flight, while the transfers with staging orbits achieve lower
+$\Delta v$ costs on average. This contrasts with the earlier example from \cref{fig:tradespace},
+now shown with the best solutions from the cost function in \cref{fig:lowBoth}. Here the "direct"
+options have both lower times-of-flight and maneuver costs when compared to the staging orbit
+transfers. Other scenarios result in "direct" transfers that are less desirable than the staging
+orbit transfers. \cref{fig:betterStaging} shows transfers departing from an $L_{2}$ Lyapunov orbit,
+where the transfers that utilize a staging orbit perform better in general with regards to both TOF
+and maneuver $\Delta v$.
 
 \begin{figure}[ht]
     \centering
@@ -56,3 +62,12 @@ times-of-flight and maneuver costs.
     \caption{Transfer tradespace departing from an Earth-Moon $L_{2}$ northern halo orbit ($JC=3.13$).}
     \label{fig:lowBoth}
 \end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/TradeSpace_L2Lyapunov_3_13.pdf}
+    \caption{Transfer tradespace departing from an Earth-Moon $L_{2}$ Lyapunov orbit ($JC=3.13$).}
+    \label{fig:betterStaging}
+\end{figure}
+
+...
