@@ -4,7 +4,36 @@ or cislunar space and Mars. These studies us a variety of methodologies to accom
 transfers, leveraging direct impulsive burns, low-thrust, and/or invariant manifolds. Some of their
 relevant findings are provided here for comparison to the results of this investigation.
 
+It is important to note that each of the transfers from these investigations, whose results are
+consolidated into \cref{tab:transferCosts}, uses a different methodology. Some use an optimizer,
+others leverage invariant manifolds, and the number and placement of maneuvers varies from transfer
+to transfer. Additionally, each one departs from and arrives at different locations, making it
+difficult to directly compare the total maneuver $\Delta v$ and TOF values. Many of the
+investigations also assume that the orbital planes of Earth and Mars are coplanar, neglecting the
+nontrivial plane change maneuver required when considering true orbital planes. Therefore, a direct
+comparison cannot be made between all of these methodologies. However, they do provide some
+intuition for the costs of similar interplanetary transfers.
+
 ...
+
+\begin{table}[ht]
+    \centering
+    \caption{Representative transfer costs from previous investigations.}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \textbf{Transfer Type}                      &   \textbf{Origin} &   \textbf{Destination}    &   \boldmath$\Delta v$ \textbf{[km/s]} &   \boldmath$TOF$ \textbf{[days]}  \\  \hline
+        Hohmann Transfer                            &   Earth           &   Sun-Mars $L_{1}$        &   5.64                                &   258                             \\  \hline
+        Lambert Arc\cite{Eagle:2022}                &   Earth           &   Mars                    &   5.61                                &   310                             \\  \hline
+        Optimized 4-Body\cite{Miele:1999}           &   LEO             &   LMO                     &   5.65                                &   258                             \\  \hline
+        Lambert Arc CR3BP\cite{Conte:2017}          &   Lunar DRO       &   LMO                     &   3.29                                &   206                             \\  \hline
+        CR3BP Manifolds\cite{Topputo:2005}          &   S-E Lyapunov    &   S-M Lyapunov            &   3.76                                &   999                             \\  \hline
+        Pseudo-Manifolds\cite{Haibin:2014}          &   S-E Halo        &   S-M Halo                &   2.06                                &   596                             \\  \hline
+        CR3BP Manifolds\cite{Kakoi:2014}            &   E-M Halo        &   Mars                    &   0.92                                &   1784                            \\  \hline
+        CR3BP Manifolds\cite{Cavallari:2019}        &   Lunar DRO       &   S-M Lyapunov            &   5.40                                &   1102                            \\  \hline
+        CR3BP MMAT\cite{Canales:2022}               &   S-E Halo        &   S-M Halo                &   4.53                                &   1776                            \\  \hline
+    \end{tabular}
+    \label{tab:transferCosts}
+\end{table}
 
 Kakoi et al. provided the inspiration for the transfer methodology between the Earth-Moon and
 Sun-Earth CR3BP models\cite{Kakoi:2014,Kakoi:2015}. Their investigation focused on comparing
