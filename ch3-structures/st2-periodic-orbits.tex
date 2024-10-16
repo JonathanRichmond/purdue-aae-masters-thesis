@@ -6,8 +6,9 @@ in the rotating frame and this information can be utilized in the targeting proc
 the initial conditions for these families can be obtained through a variety of methods including
 linear variational equations about the Lagrange points and bifurcations from other orbit families.
 All of the orbit families used in this investigation and shown here were selected for their
-relative instability in the Earth-Moon CR3BP. For some example initial conditions for these orbit
-families and others, see NASA Jet Propulsion Laboratory's CR3BP orbit database\cite{Park}.
+relative instability in the Earth-Moon CR3BP. For some example initial conditions and computation
+strategies for these orbit families and others, see Grebow's and Sadaka's theses and NASA Jet
+Propulsion Laboratory's CR3BP orbit database\cite{Grebow:2006,Sadaka:2023,Park}.
 
 \subsection{Lyapunov Orbits}
 \phantomsection
@@ -346,13 +347,15 @@ Butterfly orbits is another name for the $P_{2}HO_{1}$ $L_{2}$ orbit family: the
 bifurcation from the $L_{2}$ halo family with the smallest perilune\cite{ZimovanSpreen:2021}.
 Conveniently, the same targeter can be used for this family as with the halos above. The same
 pseudo-arclength method can also be used to obtain the initial guess from the bifurcating halo,
-remembering to double the period of the orbit first. A portion of this family is shown in
-\cref{fig:butterfly} and the stability indices are shown in \cref{fig:butterflyStability}.
+remembering to double the period of the orbit first. Like the halo orbits, this family has a
+northern and southern half of the family, depending on the halo half-family that it bifurcates
+from. A portion of the southern family is shown in \cref{fig:butterfly} and the stability indices
+are shown in \cref{fig:butterflyStability}.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/L2ButterflyFamily.pdf}
-    \caption{Earth-Moon butterfly family.}
+    \caption{Earth-Moon southern butterfly family.}
     \label{fig:butterfly}
 \end{figure}
 

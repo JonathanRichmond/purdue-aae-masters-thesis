@@ -4,7 +4,7 @@ All of the transfers used in this investigation arrive into the same Sun-Mars no
 \cref{fig:MMATSM}. The end-to-end methodology for constructing both categories of transfers is as
 follows:
 
-\subsection{"Direct" Transfers}
+\subsection{Transfers with "Direct" System Departure}
 \begin{enumerate}
     \item   Starting from the Earth-Moon CR3BP departure orbit, both unstable half-manifolds are
             propagated to the edge of the Earth's SoI (ignoring those that crash into the Earth or
@@ -17,11 +17,13 @@ follows:
             transfers between an Earth-Moon and Sun-Mars orbit.
 \end{enumerate}
 
-An example "direct" transfer is shown in \cref{fig:directE} and \cref{fig:directMMAT}. The
-departure CR3BP arc originates from an Earth-Moon northern $L_{2}$ halo with a Jacobi constant of
-$3.13$ in \cref{fig:directE}(a), shown in the Earth-Moon rotating frame, and continues under the
-Sun-Earth dynamics "directly" until it reaches the Earth SoI in \cref{fig:directE}(b). While two
-transfers can be computed, only one is shown in \cref{fig:directMMAT}.
+This transfer type is denoted as "direct" since it directly departs from the system along the
+invariant manifold arc instead of using a staging orbit, not to be confused with direct patched
+conic transfers between the Earth and Mars. An example "direct" transfer is shown in
+\cref{fig:directE} and \cref{fig:directMMAT}. The departure CR3BP arc originates from an Earth-Moon
+northern $L_{2}$ halo with a Jacobi constant of $3.13$ in \cref{fig:directE}(a), shown in the
+Earth-Moon rotating frame, and continues under the Sun-Earth dynamics until it reaches the Earth
+SoI in \cref{fig:directE}(b).
 
 Note that this trajectory is not optimized, nor is it the minimum-TOF or minimum-$\Delta v$
 solution in the MMAT family originating from that Earth-Moon departure orbit. This particular
@@ -49,7 +51,7 @@ years.
     \label{fig:directMMAT}
 \end{figure}
 
-\subsection{Transfers with Staging Orbit}
+\subsection{Transfers with an Intermediate Staging Orbit}
 \begin{enumerate}
     \item   Starting from the Earth-Moon CR3BP departure orbit, a near-ballistic transfer to a
             Sun-Earth northern halo orbit is computed using the methodology introduced in Section
@@ -103,7 +105,7 @@ transfers originating from a $JC=3.13$ Earth-Moon northern $L_{2}$ halo orbit (t
 the previous examples). In the figure, the red points represent the family of transfers that
 include a staging orbit, while the blue points represent the family of "direct" transfers. The
 black "Hohmann" transfer line serves as a $\Delta v$ baseline for comparison (this will be detailed
-further in the following section). 
+further in the following section).
 
 \begin{figure}[ht]
     \centering

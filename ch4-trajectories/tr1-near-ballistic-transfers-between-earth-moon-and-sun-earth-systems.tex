@@ -8,9 +8,11 @@ the more direct transfer type that uses the Earth-Moon manifold to depart the sy
 developed a design methodology for maneuver-free transfers between orbits in the two systems,
 treating them as non-coplanar, where the required respective initial orientations of the three
 bodies (the Sun, Earth, and Moon) are represented by angles and the interface between the CR3BP
-systems occurs at the intersection of the manifolds\cite{Kakoi:2014,Kakoi:2015}. This methodology
-inspired the approach used in this investigation, where the orientations are determined by a
-specified epoch date and the two systems interface before the arc intersection.
+systems occurs at the intersection of the manifolds\cite{Kakoi:2014,Kakoi:2015}. Parker and
+Anderson developed a similar approach utilizing the Sun-Earth stable and unstable manifolds to
+design low-energy transfers between Earth and lunar libration orbits\cite{Parker:2013}. These
+methodologies inspired the approach used in this investigation, where the orientations are
+determined by a specified epoch date and the two systems interface before the arc intersection.
 
 \subsection{Methodology}
 To find a connection between the orbits in the two different CR3BP systems, discretized arcs of the
@@ -25,16 +27,19 @@ orientations change slightly month-to-month due to the different planes, the tra
 characteristics tend to repeat each month, so this study only investigates transfers during January
 2026\cite{Parker:2013}.
 
-Note that although these states all had the same Earth-Moon Jacobi constant
-value, now that they are in the Sun-Earth system, their Jacobi constant values will vary. Since
-these new values will remain constant as the states are now propagated with the Sun-Earth CR3BP
-equations of motion, it is necessary that the Jacobi constant of the Sun-Earth staging halo lies
-within that range of values. The manifold arcs are now propagated until they reach the manifold
-intersect hyperplane, chosen as an angle measured from the $x$-axis in the Sun-Earth rotating
-frame. According to Kakoi, hyperplane angles between $-\ang{85}$ and $\ang{70}$ are desirable for
-transfers between Earth-Moon $L_{2}$ and Sun-Earth $L_{2}$ orbits, with $\ang{-80}$ being used in
-this investigation\cite{Kakoi:2015}. At the same time, the discretized stable manifold surface from
-the Sun-Earth $L_{2}$ halo orbit is propagated to the same hyperplane, as shown in
+Note that although these states all had the same Earth-Moon Jacobi constant value, now that they
+are in the Sun-Earth system, their Jacobi constant values will vary. Since these new values will
+remain constant as the states are now propagated with the Sun-Earth CR3BP equations of motion, it
+is necessary that the Jacobi constant of the Sun-Earth staging halo lies within that range of
+values. The manifold arcs are now propagated until they reach the manifold intersect hyperplane,
+chosen as an angle measured from the $x$-axis in the Sun-Earth rotating frame, centered at the
+Earth, that extends as a plane perpendicular to the $xy$-plane. According to Kakoi, hyperplane
+angles between $-\ang{85}$ and $\ang{70}$ are desirable for transfers between Earth-Moon $L_{2}$
+and Sun-Earth $L_{2}$ orbits\cite{Kakoi:2015}. In the Earth-centered Sun-Earth rotating frame, the
+stable manifolds from the $L_{2}$ halo orbits used in this investigation arrive in the Earth-Moon
+vicinity in the fourth quadrant (southeast) which includes that range of angles. A hyperplane angle
+of $\ang{-80}$ was chosen for this investigation. At the same time, the discretized stable manifold
+surface from the Sun-Earth $L_{2}$ halo orbit is propagated to the same hyperplane, as shown in
 \cref{fig:hyperplane}.
 
 \begin{figure}[ht]
