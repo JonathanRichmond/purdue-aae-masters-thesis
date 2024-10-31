@@ -6,16 +6,16 @@ component of interplanetary trajectory design is the ability to transform states
 between these two types of frames. A few representative examples of coordinate frame
 transformations follow.
 
-\subsection{Barycentric Rotating Frame - Primary-Centric Arbitrary Inertial Frame}
+\subsection{Barycentric Rotating Frame - Primary-Centered Arbitrary Frame}
 Most trajectories in a CR3BP are constructed in the barycentric rotating frame where
 \cref{eq:EoMx}-\cref{eq:EoMz} are defined (see \cref{fig:baryFrames}). However, it can also be
-beneficial to view these in an inertial frame centered on one of the primary gravitational bodies.
-An arbitrary inertial frame can be defined where the inertial unit vectors $\{\Xhat,\Yhat,\Zhat\}$
-are equivalent to the rotating unit vectors $\{\xhat,\yhat,\zhat\}$ at time $t_{0}$ (although the
-frame centers may be in different locations).
+beneficial to view these in an inertial reference frame. An arbitrary inertial frame is defined
+where the inertial unit vectors $\{\Xhat,\Yhat,\Zhat\}$ are equivalent to the rotating unit
+vectors $\{\xhat,\yhat,\zhat\}$ at time $t_{0}$. The origin of the unit vectors is also translated
+to the center of the primary body.
 
 The following steps will transform (nondimensionalized) states from the barycentric rotating frame
-to a primary-centric arbitrary inertial frame:
+to the primary-centered arbitrary frame:
 
 \begin{enumerate}
     \item   Translate the position states from barycentric to primary-centric:
@@ -62,27 +62,26 @@ to a primary-centric arbitrary inertial frame:
     \item   Dimensionalize the states if desired (see Section 2.3.2).
 \end{enumerate}
 
-To transform a primary-centric arbitrary inertial state to a barycentric rotating state, just
-reverse the above states (nondimensionalizing if necessary) and invert the state rotation matrix.
+To transform a primary-centric arbitrary state to a barycentric rotating state, just reverse the
+above process (nondimensionalizing the states if necessary) and invert the state rotation matrix.
 
-\subsection{Barycentric Rotating Frame - Ecliptic J2000 Inertial Frame}
+\subsection{Barycentric Rotating Frame - Ecliptic J2000 Frame}
 When designing a trajectory across multiple systems, it is often useful to view each part of the
-trajectory in a common inertial reference frame. In this investigation, the Earth Ecliptic J2000
-inertial frame, introduced in Section 2.1.2 (\cref{fig:eclipJ2000Frame}), is used as the common
-frame for interplanetary trajectories.
+trajectory in a common reference frame. In this investigation, the Earth Ecliptic J2000 frame,
+introduced in Section 2.1.2 (\cref{fig:eclipJ2000Frame}), is used as the common frame for
+interplanetary trajectories.
 
 The transformation between barycentric rotating frame states and a primary-centric Ecliptic J2000
-inertial frame states follows a similar process to the arbitrary inertial frame. However, since
-this frame is defined by a particular epoch (January 1, 2000), the frame rotation is
-epoch-dependent:
+frame states follows a similar process to the arbitrary frame. However, since this frame is defined
+by a particular epoch (January 1, 2000), the frame rotation is epoch-dependent:
 
 \begin{enumerate}
-    \item   To properly compare the rotating frame to the Ecliptic J2000 inertial frame, the
-            location of the second primary in its orbit at each epoch of the trajectory is needed.
-            This is obtained by retrieving the orbital elements of the second primary at a selected
-            initial epoch from SPICE\cite{Semenov:2023}. These orbital elements are then modified
-            to match the CR3BP orbit assumptions ($a=l^{*}$ and $e=0$). Since the mean
-            motion/angular velocity in the CR3Bp is constant at $\ntilde=1$:
+    \item   To properly compare the rotating frame to the Ecliptic J2000 frame, the location of the
+            second primary in its orbit at each epoch of the trajectory is needed. This is obtained
+            by retrieving the orbital elements of the second primary at a selected initial epoch
+            from SPICE\cite{Semenov:2023}. These orbital elements are then modified to match the
+            CR3BP orbit assumptions ($a=l^{*}$ and $e=0$). Since the mean motion/angular velocity
+            in the CR3Bp is constant at $\ntilde=1$:
             \begin{equation}
                 \theta=\tau-\tau_{0}+\theta_{0},
                 \label{eq:instantaneoustrueanomaly}
@@ -124,6 +123,6 @@ epoch-dependent:
     \item   Nondimensionalize the states if desired.
 \end{enumerate}
 
-States can be transformed from a primary-centric Ecliptic J2000 inertial frame to a barycentric
-rotating frame by reversing the above steps and inverting the state rotation matrix. This
-becomes a useful tool when designing interplanetary trajectories using multi-body dynamics.
+States can be transformed from a primary-centric Ecliptic J2000 frame to a barycentric rotating
+frame by reversing the above steps and inverting the state rotation matrix. This becomes a useful
+tool when designing interplanetary trajectories using multi-body dynamics.

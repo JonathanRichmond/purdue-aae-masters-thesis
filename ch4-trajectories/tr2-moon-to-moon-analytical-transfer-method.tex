@@ -44,9 +44,9 @@ provides more details on selecting of appropriate values for $d_{SoI}$\cite{Cana
 Once the CR3BP arc has reached the edge of the SoI, it can be treated as a 2BP trajectory with the
 Sun as its focus (refer to the patched 2BP-CR3BP model introduced in Section 2.4.1). The
 barycentric rotating frame state that intersects the SoI is transformed to a heliocentric Ecliptic
-J2000 inertial frame state using the procedure outlined in Section 2.5.2. The resulting inertial
-state now defines a Keplerian heliocentric ellipse in the instantaneous plane of motion of the
-trajectory at the SoI, the path for either the departure or arrival conic arc.
+J2000 frame state using the procedure outlined in Section 2.5.2. The resulting state now defines a
+Keplerian heliocentric ellipse in the instantaneous plane of motion of the trajectory at the SoI,
+the path for either the departure or arrival conic arc.
 \cref{eq:inclination}-\cref{eq:radialvelocity} can be used to retrieve the equivalent Keplerian
 orbital elements.
 
@@ -60,7 +60,7 @@ time-of-flight along the departure conic:
     \label{eq:departureTOF}
 \end{equation}
 where $\mathbb{P}_{d}$ is the period of the departure conic and $(t-t_{p})$ is the time since
-periapsis of the inertial SoI state.
+periapsis of the SoI state.
 
 As mentioned previously, a bridge arc is needed to connect the departure and arrival conic arcs,
 with a maneuver at both ends. The distant, two-burn MMAT bridge arc has the same periapsis radius
@@ -192,17 +192,16 @@ SoI. For an initial guess:
     \label{eq:arrivalepoch}
 \end{equation}
 where $\theta_{a}$ is the true anomaly of the arrival conic at the SoI intersection,
-$\theta_{Mars_{J2000}}$ is Mars' true anomaly when the J2000 inertial frame is defined, and $x_{4}$
-and $y_{4}$ are the rotating frame coordinates of the trajectory at the SoI intersection. For this
+$\theta_{Mars_{J2000}}$ is Mars' true anomaly when the J2000 frame is defined, and $x_{4}$ and
+$y_{4}$ are the rotating frame coordinates of the trajectory at the SoI intersection. For this
 targeting problem, the $DF$ Jacobian matrix is determined using the central difference method (see
 Section 3.1.3).
 
 Once $\Xbar$ has been solved, these true anomaly angles can be used to compute the Cartesian
-inertial states at each location and the times-of-flight of each segment as was done for the
-departure conic arc. At the intersection of the bridge and arrival conics, the second maneuver
-applies an inclination change on top of the energy change so it is not tangential like the first
-burn. This $\Delta v$ can still be calculated from the difference in the velocity states at the
-intersection.
+states at each location and the times-of-flight of each segment as was done for the departure conic
+arc. At the intersection of the bridge and arrival conics, the second maneuver applies an
+inclination change on top of the energy change so it is not tangential like the first burn. This
+$\Delta v$ can still be calculated from the difference in the velocity states at the intersection.
 
 The MMAT transfer between the Sun-Earth CR3BP arc and the Sun-Mars CR3BP arc is now completed. The
 trajectory should be position-continuous throughout, with a maneuver at the beginning and end of
@@ -274,7 +273,7 @@ the transfer is $1670$ days or $4.57$ years, with a total $\Delta v$ of $4.537$ 
 figure, the various arcs of the MMAT method are color-coded and the maneuvers are marked at the
 beginning and end of the bridge conic arc. Note that the magenta departure CR3BP arc and the blue
 arrival CR3BP arc are the same trajectories from \cref{fig:MMATSE} and \cref{fig:MMATSM}
-respectively, just portrayed in the inertial frame. This transfer can be compared with the
+respectively, just portrayed in the Ecliptic J2000 frame. This transfer can be compared with the
 minimum-TOF transfer in \cref{fig:MMATTOF}. This transfer has a different initial epoch, which
 shifts all of the arcs, and a much shorter arrival conic arc. The total TOF has decreased to $1160$
 days or $3.18$ years, but the $\Delta v$ has increased to $5.298$ km/s. Note that the first

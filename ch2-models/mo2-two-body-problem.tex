@@ -1,27 +1,27 @@
 \section{The Two-Body Problem}
 This investigation treats the motion of spacecraft in heliocentric space, specifically when they
 are far from planets and moons, as a 2-body Problem, governed by a single gravitational force. This
-section provides a brief overview of key aspects of 2BP dynamics, Keplerian orbital elements, and
-Kepler's Equation. For a more comprehensive derivation of the 2BP, refer to Chapters 1 and 2 of
-Vallado's \emph{Fundamentals of Astrodynamics and Applications}\cite{Vallado:2013}. Additionally,
-Canales highlights the background information relevant to understanding the transfer methodologies
-presented in this analysis\cite{Canales:2021b}.
+section provides a brief overview of key aspects of relative 2BP dynamics, Keplerian orbital
+elements, and Kepler's Equation. For a more comprehensive derivation of the 2BP, refer to Chapters
+1 and 2 of Vallado's \emph{Fundamentals of Astrodynamics and Applications}\cite{Vallado:2013}.
+Additionally, Canales highlights the background information relevant to understanding the transfer
+methodologies presented in this analysis\cite{Canales:2021b}.
 
 \subsection{Equations of Motion}
-The 2BP involves two point masses\textemdash a primary body and a spacecraft\textemdash that exert
-gravitational forces on each other. Since no external forces act on this system, the center of mass
-of the bodies moves at a constant velocity and serves as the origin for an inertial coordinate
-frame. In this inertial frame, the gravitational force that the primary body exerts on the
-spacecraft, denoted as $\Fbar_{g_{P\rightarrow s/c}}$, is expressed as:
+The relative 2BP involves two point masses, for example, a primary body and a spacecraft, that
+exert gravitational forces on each other. Since no external forces act on this system, the center
+of mass of these bodies moves at a constant velocity and serves as the origin for an inertial
+coordinate frame. In this inertial frame, the gravitational force that the primary body exerts on
+the spacecraft, denoted as $\Fbar_{g_{P\rightarrow s/c}}$, is expressed as:
 \begin{equation}
     \Fbar_{g_{P\rightarrow s/c}}=-\frac{Gm_{P}m_{s/c}}{r_{P\rightarrow s/c}^{3}}\rbar_{P\rightarrow s/c},
     \label{eq:gravity}
 \end{equation}
 where $G$ is the universal gravitational constant (6.67384x10$^{-20}$ kN*km$^{2}$/kg$^{2}$),
-$m_{P}$ and $m_{S}$ are the masses of the primary body and spacecraft, respectively,
-$r_{P\rightarrow s/c}$ is the distance from the primary body to the spacecraft, and
-$\rbar_{P\rightarrow s/c}=\rbar_{s/c}-\rbar_{P}$ is the position vector from the primary body to
-the spacecraft in the inertial frame, as illustrated in \cref{fig:2BP}.
+$m_{P}$ and $m_{S}$ are the masses of the primary and secondary body, e.g., a spacecraft,
+respectively, $r_{P\rightarrow s/c}$ is the distance from the primary body to the spacecraft, and
+$\rbar_{P\rightarrow s/c}=\rbar_{s/c}-\rbar_{P}$ is the relative position vector from the primary
+body to the spacecraft in the inertial frame, as illustrated in \cref{fig:2BP}.
 
 \begin{figure}[ht]
     \centering
@@ -30,15 +30,15 @@ the spacecraft in the inertial frame, as illustrated in \cref{fig:2BP}.
     \label{fig:2BP}
 \end{figure}
 
-Assuming that the mass of the spacecraft is negligible compared to the mass of the primary body,
-the nonlinear relative equation of motion for the 2BP is derived\cite{Vallado:2013,Canales:2021b}:
+Assuming that the secondary mass is negligible compared to the mass of the primary body, the
+nonlinear relative equation of motion for the 2BP is derived\cite{Vallado:2013,Canales:2021b}:
 \begin{equation}
     \rbarddot_{P\rightarrow s/c}=-\frac{\mu_{2BP}}{r_{P\rightarrow s/c}^{3}}\rbar_{P\rightarrow s/c},
     \label{eq:TBPEoM}
 \end{equation}
 where $\rbarddot_{P\rightarrow s/c}$ is the inertial acceleration of the spacecraft relative to the
-primary body and $\mu_{2BP}=Gm_{P}$. This vector equation can also be expressed as $\Xhat$,
-$\Yhat$, and $\Zhat$ scalar equations in the inertial frame:
+primary body and $\mu_{2BP}=Gm_{P}$. This vector equation is also expressed as $\Xhat$, $\Yhat$,
+and $\Zhat$ scalar equations in the inertial frame:
 \begin{equation}
     \Xddot=-\frac{\mu_{2BP}}{r_{P\rightarrow s/c}^{3}}(X_{s/c}-X_{P}),
     \label{eq:TBPEoMX}
@@ -54,8 +54,8 @@ $\Yhat$, and $\Zhat$ scalar equations in the inertial frame:
 
 \subsection{Conic Sections}
 Instead of relying on numerical propagation of the nonlinear equations of motion, spacecraft motion
-in the 2BP can be effectively represented analytically using conic sections. This section provides
-a concise overview of conic motion in the 2BP.
+in the relative 2BP is effectively represented analytically using conic sections. This section
+provides a concise overview of conic motion in the 2BP.
 
 Two essential constants characterize conic orbits: specific angular momentum $\ambar$ and specific
 mechanical energy $\mathcal{E}$:
@@ -77,7 +77,7 @@ the 2BP:
     \label{eq:trajectory}
 \end{equation}
 where $a$ represents the orbit semimajor axis, $e$ is the orbit eccentricity, and $\theta$ denotes
-the orbit true anomaly. These three elements will be elaborated upon in a later subsection.
+the orbit true anomaly. These three elements are elaborated upon in a later subsection.
 \cref{eq:trajectory} can also be employed to compute the periapsis and apoapsis distances, $r_{p}$
 and $r_{a}$ respectively:
 \begin{equation}
@@ -91,8 +91,7 @@ and $r_{a}$ respectively:
 
 The eccentricity can also be used to determine the type of conic section:
 \begin{itemize}
-    \item   $e=0$: Circular orbit (a special case of an ellipse).
-    \item   $0<e<1$: Elliptical orbit.
+    \item   $0<e<1$: Elliptical orbit ($e=0$ represents a circular orbit).
     \item   $e=1$: Parabola.
     \item   $e>1$: Hyperbola.
 \end{itemize}
@@ -110,8 +109,8 @@ motion $n$:
 \end{equation}
 
 \subsection{Keplerian Orbital Elements}
-Instead of specifying the six-dimensional state of a spacecraft in a 2BP elliptical orbit using
-Cartesian coordinates, six orbital elements can be employed to articulate the size, shape,
+Instead of specifying the six-dimensional state of a spacecraft in a relative 2BP elliptical orbit
+using Cartesian coordinates, six orbital elements are employed to articulate the size, shape,
 orientation, and current location along the orbit. In addition to the semimajor axis $a$ and
 eccentricity $e$, which were introduced earlier and describe the size and shape of the ellipse,
 three angles characterize the orientation of the orbit with respect to an inertial frame, as
@@ -125,8 +124,7 @@ depicted in \cref{fig:orbitalElements}:
     \item \textbf{Argument of periapsis} $\omega$ is the angle between the ascending node and the
     periapsis.
 \end{itemize}
-Finally, the true anomaly $\theta$ defines the spacecraft's position relative to the orbit's
-periapsis.
+Finally, the true anomaly $\theta$ defines the spacecraft position relative to the orbit periapsis.
 
 \begin{figure}[ht]
     \centering
