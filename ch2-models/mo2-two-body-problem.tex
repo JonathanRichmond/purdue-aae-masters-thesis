@@ -31,14 +31,12 @@ body to the spacecraft in the inertial frame, as illustrated in \cref{fig:2BP}.
 \end{figure}
 
 Assuming that the secondary mass is negligible compared to the mass of the primary body, the
-nonlinear relative equation of motion for the 2BP is derived\cite{Vallado:2013,Canales:2021b}:
+nonlinear relative equation of motion for the 2BP is derived in both vector and scalar forms in the
+an $\{\Xhat,\Yhat\Zhat\}$ inertial frame\cite{Vallado:2013,Canales:2021b}:
 \begin{equation}
     \rbarddot_{P\rightarrow s/c}=-\frac{\mu_{2BP}}{r_{P\rightarrow s/c}^{3}}\rbar_{P\rightarrow s/c},
     \label{eq:TBPEoM}
 \end{equation}
-where $\rbarddot_{P\rightarrow s/c}$ is the inertial acceleration of the spacecraft relative to the
-primary body and $\mu_{2BP}=Gm_{P}$. This vector equation is also expressed as $\Xhat$, $\Yhat$,
-and $\Zhat$ scalar equations in the inertial frame:
 \begin{equation}
     \Xddot=-\frac{\mu_{2BP}}{r_{P\rightarrow s/c}^{3}}(X_{s/c}-X_{P}),
     \label{eq:TBPEoMX}
@@ -48,9 +46,12 @@ and $\Zhat$ scalar equations in the inertial frame:
     \label{eq:TBPEoMY}
 \end{equation}
 \begin{equation}
-    \Zddot=-\frac{\mu_{2BP}}{r_{P\rightarrow s/c}^{3}}(Z_{s/c}-Z_{P}).
+    \Zddot=-\frac{\mu_{2BP}}{r_{P\rightarrow s/c}^{3}}(Z_{s/c}-Z_{P}),
     \label{eq:TBPEoMZ}
 \end{equation}
+where $\rbarddot_{P\rightarrow s/c}$ is the inertial acceleration vector of the spacecraft relative
+to the primary body, $\Xddot$, $\Yddot$, and $\Zddot$ are the scalar components of that
+acceleration, and $\mu_{2BP}=Gm_{P}$.
 
 \subsection{Conic Sections}
 Instead of relying on numerical propagation of the nonlinear equations of motion, spacecraft motion
@@ -88,15 +89,12 @@ and $r_{a}$ respectively:
     r_{a}=a(1+e).
     \label{eq:apoapsis}
 \end{equation}
-
 The eccentricity can also be used to determine the type of conic section:
 \begin{itemize}
     \item   $0<e<1$: Elliptical orbit ($e=0$ represents a circular orbit).
     \item   $e=1$: Parabola.
     \item   $e>1$: Hyperbola.
 \end{itemize}
-This investigation focuses on circles and ellipses with $0\leq e<1$.
-
 Similarly, Kepler's third law provides the orbit period $\mathbb{P}$ and, consequently, the mean
 motion $n$:
 \begin{equation}
@@ -107,6 +105,7 @@ motion $n$:
     n=\frac{2\pi}{\mathbb{P}}=\sqrt{\frac{\mu_{2BP}}{a^{3}}}.
     \label{eq:meanmotion}
 \end{equation}
+This investigation focuses on arc segments of circles and ellipses in the 2BP with $0\leq e<1$. 
 
 \subsection{Keplerian Orbital Elements}
 Instead of specifying the six-dimensional state of a spacecraft in a relative 2BP elliptical orbit
@@ -137,7 +136,7 @@ Finally, the true anomaly $\theta$ defines the spacecraft position relative to t
 To convert from a Cartesian state vector to Keplerian orbital elements, start by calculating the
 inclination from angular momentum:
 \begin{equation}
-    i=\arccos(\frac{h_{Z}}{||\ambar||})
+    i=\arccos(\frac{h_{Z}}{||\ambar||}).
     \label{eq:inclination}
 \end{equation}
 Using the node vector $\nbar$:
@@ -178,6 +177,8 @@ where
     v_{r}=\frac{\rbardot_{P\rightarrow s/c}\cdot\rbar_{P\rightarrow s/c}}{r_{P\rightarrow s/c}}.
     \label{eq:radialvelocity}
 \end{equation}
+These six elements define the Keplerian orbit as well as the specific state along that orbit.
+
 
 \subsubsection{Keplerian orbital elements to Cartesian state}
 Similarly, the Cartesian state vector can be obtained from the Keplerian orbital elements. First,
@@ -227,6 +228,8 @@ inclination, RAAN, and argument of periapsis:
     \rbardot_{P\rightarrow s/c}=C\rbardot_{0}.
     \label{eq:velocityvector}
 \end{equation}
+Finally, $\rbar_{P\rightarrow s/c}$ and $\rbardot_{P\rightarrow s/c}$ provide the six-dimensional
+relative state in Cartesian coordinates.
 
 \subsection{Kepler's Equation}
 If the difference in true anomaly between two points on an orbit is known, Kepler's equation
@@ -245,7 +248,6 @@ linking the eccentric anomaly to time:
     M=E-e\sin(E).
     \label{eq:Keplersequation}
 \end{equation}
-
 To determine eccentric anomalies given corresponding true anomalies, employ
 \cref{eq:eccentricanomaly}, and subsequently, using Kepler's equation (\cref{eq:Keplersequation}),
 convert them to mean anomalies. The difference in mean anomalies with \cref{eq:meananomaly}

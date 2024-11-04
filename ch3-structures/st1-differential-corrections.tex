@@ -53,7 +53,6 @@ here\cite{Zimovan:2017}:
     \frac{\partial U}{\partial z\partial z}=-\frac{1-\mu}{d^{3}}-\frac{\mu}{r^{3}}+\frac{3(1-\mu)z^{2}}{d^{5}}+\frac{3\mu z^{2}}{r^{5}}.
     \label{eq:partialUpartialzz}
 \end{equation}
-
 The solution to \cref{eq:linearvariational}:
 \begin{equation}
     \partial\qbar(t)=\frac{\partial\qbar(t)}{\partial\qbar_{0}}\partial\qbar_{0},
@@ -70,7 +69,7 @@ propagating:
     \dot{\Phi}(t,t_{0})=A(t)\Phi(t,t_{0}),
     \label{eq:STMEoM}
 \end{equation}
-with an initial condition of $\Phi(t_{0},t_{0})=I_{6\times6}$.
+where the initial condition is $\Phi(t_{0},t_{0})=I_{6\times6}$.
 
 \subsection{Multi-Variable Newton-Raphson Method}
 Targeting problems require iterative approaches where an initial guess is updated until it meets a
@@ -163,3 +162,6 @@ Jacobian matrix:
     DF(\Xbar_{0})=\begin{bmatrix}   D\Fbar_{1}(\Xbar_{0})   &   \dots   &   D\Fbar_{m}(\Xbar_{0})\end{bmatrix}.
     \label{eq:centraldifference}
 \end{equation}
+These numerical $DF$ matrices can be compared to their analytical counterparts (such as the example
+Jacobian in \cref{eq:exJacobian}) to verify partial derivatives or applied in isolation when
+analytical partial derivatives are either not available or exceedingly complex.

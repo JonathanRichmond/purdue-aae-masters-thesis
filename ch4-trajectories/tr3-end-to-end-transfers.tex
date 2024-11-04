@@ -5,6 +5,9 @@ All of the transfers used in this investigation arrive into the same Sun-Mars no
 follows:
 
 \subsection{Transfers with "Direct" System Departure}
+"Direct" transfers depart from the system directly along an Earth-Moon unstable invariant manifold
+arc instead of using a staging orbit, not to be confused with direct patched conic transfers
+between the Earth and Mars. 
 \begin{enumerate}
     \item   Starting from the Earth-Moon CR3BP departure orbit, both unstable half-manifolds are
             propagated to the edge of the Earth's SoI (ignoring those that crash into the Earth or
@@ -16,19 +19,13 @@ follows:
             inequality constraint (\cref{eq:MMAT}), then they produce two end-to-end "direct"
             transfers between an Earth-Moon and Sun-Mars orbit.
 \end{enumerate}
-
-This transfer type is denoted as "direct" since it directly departs from the system along the
-invariant manifold arc instead of using a staging orbit, not to be confused with direct patched
-conic transfers between the Earth and Mars. An example "direct" transfer is shown in
-\cref{fig:directE} and \cref{fig:directMMAT}. The departure CR3BP arc originates from an Earth-Moon
-northern $L_{2}$ halo with a Jacobi constant of $3.13$ in \cref{fig:directE}(a), shown in the
-Earth-Moon rotating frame, and continues under the Sun-Earth dynamics until it reaches the Earth
-SoI in \cref{fig:directE}(b).
-
-Note that this trajectory is not optimized, nor is it the minimum-TOF or minimum-$\Delta v$
-solution in the MMAT family originating from that Earth-Moon departure orbit. This particular
-"direct" transfer has a total maneuver cost of $5.544$ km/s with a total time-of-flight of $3.26$
-years.
+An example "direct" transfer is shown in \cref{fig:directE} and \cref{fig:directMMAT}. The
+departure CR3BP arc originates from an Earth-Moon northern $L_{2}$ halo with a Jacobi constant of
+$3.13$ in \cref{fig:directE}(a), shown in the Earth-Moon rotating frame, and continues under the
+Sun-Earth dynamics until it reaches the Earth SoI in \cref{fig:directE}(b). Note that this
+trajectory is not optimized, nor is it the minimum-TOF or minimum-$\Delta v$ solution in the MMAT
+family originating from that Earth-Moon departure orbit. This particular "direct" transfer has a
+total maneuver cost of $5.544$ km/s with a total time-of-flight of $3.26$ years.
 
 \begin{figure}[ht]
     \begin{subfigure}[h]{0.495\linewidth}
@@ -52,6 +49,9 @@ years.
 \end{figure}
 
 \subsection{Transfers with an Intermediate Staging Orbit}
+The staging orbit transfers connect Earth-Moon unstable invariant manifold arcs to Sun-Earth stable
+manifold arcs before staging in a Sun-Earth $L_{2}$ halo orbit. After using the orbit to properly
+phase, the transfers depart from the system along a Sun-Earth unstable invariant manifold arc.
 \begin{enumerate}
     \item   Starting from the Earth-Moon CR3BP departure orbit, a near-ballistic transfer to a
             Sun-Earth northern halo orbit is computed using the methodology introduced in Section
@@ -67,7 +67,6 @@ years.
             end-to-end transfers between an Earth-Moon and Sun-Mars orbit with an intermediate
             staging Sun-Earth halo orbit for each feasible manifold arc.
 \end{enumerate}
-
 \cref{fig:stagedEM}-\cref{fig:stagedMMAT} show a sample transfer with an intermediate Sun-Earth
 staging halo orbit. The departure from the Earth-Moon orbit in \cref{fig:stagedEM} is similar to
 the "direct" transfer example, using the same $L_{2}$ orbit. However, a different manifold arc is
