@@ -1,178 +1,192 @@
 \chapter{CONCLUDING REMARKS}
 For humanity to develop and maintain a constant presence at Mars and other deep space locations, a
 comprehensive understanding of multi-body dynamical systems theory and departure dynamics within
-cislunar space is critical for trajectory design. This investigation develops a methodology for
-designing transfers from unstable cislunar periodic orbits to deep space targets utilizing
-invariant manifolds in the CR3BP. By applying dynamical systems theory, this design approach can
-link multiple CR3BP systems for end-to-end transfers that exist in families of solutions, allowing
-for more flexible mission designs. Additionally, in this investigation, various unstable cislunar
-periodic orbit families are analyzed in the context of these interplanetary transfers to evaluate
-their departure characteristics. The result is an improved understanding of invariant manifold
-departure behavior in the Earth-Moon CR3BP, as well as a catalog of Mars transfer tradespaces. The
-end-to-end transfer maneuver costs are consistent with those from previous investigations and
-better than traditional approaches, although they come with increased times-of-flight. This
-section will summarize the main contributions of this investigation and provide several
-recommendations for future work.
+cislunar space is critical. This investigation develops a methodology for designing transfers from
+unstable cislunar periodic orbits to deep space targets utilizing invariant manifolds in the CR3BP.
+By applying dynamical systems theory, this design approach links multiple CR3BP systems for
+end-to-end transfers that exist in families of solutions, allowing for more flexible mission
+designs. Additionally, in this investigation, various unstable cislunar periodic orbit families are
+analyzed in the context of these interplanetary transfers to evaluate their departure
+characteristics. The result is an improved understanding of invariant manifold departure behavior
+in the Earth-Moon CR3BP, as well as a catalog of Mars transfer tradespaces. The end-to-end transfer
+maneuver costs in this investigation are consistent with other lower-energy transfers in previous
+literature and better than traditional approaches, although the time-of-flight increases
+significantly. This section summarizes the contributions of this investigation and provides
+several recommendations for future work.
 
 \section{Investigation Summary}
 \subsection{Low-Energy Cislunar-to-Mars Transfer Design Methodology}
 Unstable periodic orbits in the CR3BP possess unstable and stable invariant manifolds that
-asymptotically depart from or arrive onto the orbit. Arcs from these manifolds can be utilized to
+asymptotically depart from or arrive onto the orbit and arcs from these manifolds are utilized to
 construct ballistic transfers starting or terminating at these orbits. However, in the context of
 interplanetary and deep space transfers, the energy gaps between invariant manifolds of different
 systems prevent direct connections between these manifolds, dictating the need for bridging arcs
 or alternative strategies. The end-to-end cislunar-to-Mars transfer design methodology developed in
 this investigation patches two planetary manifold arcs together with a heliocentric Keplerian
-bridging arc using the MMAT approach. Since this bridging leg of the trajectory is sufficiently far
-away from both the Earth and Mars, the Sun's gravity is the dominating force considered, allowing
-for a simplified model (the 2BP) and a semi-analytical method to compute this part of the transfer.
-This approach is also able to incorporate the true planes of motion of the Earth and Mars,
-resulting in a slightly higher fidelity for this patched 2BP-CR3BP model.
+bridging arc employing the MMAT approach. Since this bridging leg of the trajectory is sufficiently
+far away from both the Earth and Mars, the solar gravity is the dominating force considered and is
+adequately modeled by the relative 2BP, leading to a semi-analytical method for computing this part
+of the transfer. This approach is also able to incorporate the true orbital planes of Earth and
+Mars, resulting in a higher model fidelity and robust framework for a transfer design to bridge
+planetary systems. 
 
 In addition to the MMAT methodology, some end-to-end transfers constructed in this investigation
 stage in an intermediate $L_{2}$ halo orbit in the Sun-Earth CR3BP. Those solutions rely on
 near-ballistic connections between unstable Earth-Moon and stable Sun-Earth invariant manifold arcs
-for low-cost transfers in a blended CR3BP model. The solutions that directly depart the system
-instead, without connecting to a staging orbit, still rely on this blended model, transitioning
-from one CR3BP system to the other after exiting the Moon's sphere of influence. The successful
-meshing of the blended CR3BP and patched 2BP-CR3BP dynamical models facilitates the end-to-end
-transfers between Earth-Moon and Sun-Mars CR3BP periodic orbits.
+for low-cost transfers in a blended CR3BP model. Solutions that instead directly depart the system
+without connecting to a staging orbit still rely on this blended model, transitioning from one
+CR3BP system to the other at the edge of the Moon sphere of influence. The successful meshing of
+the blended CR3BP and patched 2BP-CR3BP dynamical models facilitates the end-to-end transfers
+between Earth-Moon and Sun-Mars CR3BP periodic orbits.
 
 Another major benefit of this new transfer methodology is that the transfers exist in families of
 solutions. Through the exploitation of dynamical systems theory, there are a variety of ways to
-continue the family of solutions. Each solution tradespace for the orbits used in this
-investigation, supplied in Appendix A, shows families of transfer solutions continued by varying
-the unstable departure manifold or the initial departure epoch. New families could also be
-generated by varying the stable arrival manifold onto the Sun-Mars halo orbit or the Jacobi
-constant of the intermediate staging orbit. By not relying on individual point solutions that have
-to be recomputed whenever a parameter changes, this developed transfer methodology offers improved
-mission design flexibility while also providing a broader view of the design tradespace.
+continue the family of solutions. Each solution tradespace for the orbits employed in this
+investigation, all of which are supplied in Appendix A, shows families of transfer solutions
+continued by varying either the unstable departure manifold or the initial departure epoch. New
+families could also be generated by varying the stable arrival manifold onto the Sun-Mars halo
+orbit or the Jacobi constant of the intermediate staging orbit. By not relying on individual point
+solutions that have to be recomputed whenever a parameter changes, the transfer methodology
+developed in this investigation offers improved mission design flexibility while also providing a
+broader view of the design tradespace.
 
 \subsection{Intermediate Sun-Earth Staging Halo Orbits}
 Since unstable invariant manifolds asymptotically depart from periodic orbits, the cislunar
-manifold arcs can take a long time to depart from the Earth-Moon system. Once they do, they are
-also propagated under the Sun-Earth dynamics until they leave the Earth's SoI. In some cases, the
+manifold arcs take a long time to depart from the Earth-Moon system. Once they do, these manifold
+arcs are propagated under the Sun-Earth dynamics until they leave the Earth SoI. In some cases, the
 unstable invariant manifolds from Sun-Earth periodic orbits depart the Earth region with more
-desirable characteristics. Therefore, for each cislunar departure orbit analyzed in this
+desirable characteristics. Consequently, for each cislunar departure orbit analyzed in this
 investigation, transfers with direct manifold departures from the system are compared to those that
-stage in an intermediate Sun-Earth $L_{2}$ northern halo orbit.
+stage in an intermediate Sun-Earth $L_{2}$ northern halo orbit. This comparative analysis
+identifies the optimal system departure strategy for each cislunar orbit.
 
-In the context of the end-to-end transfer methodology developed in this investigation, it is shown
+In the context of the end-to-end transfer methodology developed in this investigation, it appears
 that the direct departure transfers perform better overall than those that utilize a staging orbit
 in terms of total maneuver $\Delta v$ cost and TOF. While staging orbit transfers for a few of the
-selected orbits can achieve a slightly lower average $\Delta v$, the direct transfers have lower
+selected orbits achieve a slightly lower average $\Delta v$, the direct transfers have lower
 times-of-flight in every case analyzed. The TOF decrease can be on the order of $1$ year compared
-to around $0.1$ km/s in maneuver savings. This conclusion is reinforced by the cost function
+to around $0.1$ km/s for maneuver costs. This conclusion is further reinforced by the cost function
 analysis of the transfers, where all of the direct transfer families have lower cost function
-values than those with staging orbits. Therefore, in this investigation, the transfers that
-directly depart the Earth system are shown to outperform those that stage in an intermediate
-Sun-Earth halo orbit in terms of TOF and often maneuver cost as well.
+values than those with staging orbits. Consequently, in this investigation, the transfers that
+directly depart the Earth system appear to outperform those that stage in an intermediate Sun-Earth
+halo orbit in terms of TOF and usually maneuver cost as well.
 
 \subsection{Cislunar Departure Characteristics}
-Each cislunar departure orbit included in this investigation provides families of solutions,
-evaluated in a tradespace between total maneuver $\Delta v$ and total TOF. For each tradespace, a
-cost function is used to determine the ten best orbits in each family (staging orbit and direct)
-based on mission design preferences. In this investigation, parameters are chosen such that
-decreases in TOF are valued more highly than decreases in $\Delta v$. The characteristics of these
-ten best transfers are compared between the different cislunar departure orbits to identify trends
-in characteristics across families and energy levels.
+Each cislunar departure orbit included in this investigation provides families of transfer
+solutions, evaluated in a tradespace between total maneuver $\Delta v$ and total TOF. For each
+tradespace, a cost function is applied to determine the ten lowest-cost orbits in each family
+(staging orbit and direct) based on mission design preferences. In this investigation, parameters
+are selected such that decreases in TOF are valued more highly than decreases in $\Delta v$. The
+characteristics of these ten lowest-cost transfers are compared between the different cislunar
+departure orbits to identify characteristics across families and energy levels.
 
-Across both types of transfers developed in this investigation, the location of the second MMAT
-maneuver, which includes the orbit inclination change, is the dominating factor for total
-$\Delta v$ cost. The closer this burn occurs to the periapsis of the heliocentric bridge conic arc,
-the lower the maneuver cost. Additionally, in the case of transfers that directly depart the Earth
-system, invariant manifold arcs that exit near the Sun-Earth $L_{2}$ point provide the
-minimum-$\Delta v$ solutions in the family. The main contributing factor for lowering total
+The timing and placement of the second MMAT maneuver are crucial in minimizing both the total
+$\Delta v$ maneuver cost and TOF for these interplanetary transfers. For both types of transfers
+developed in this investigation, the location of the second MMAT maneuver, which includes the
+inclination change, is the dominating factor for the transfer total $\Delta v$ cost. The closer
+this burn occurs to the periapsis of the heliocentric bridge conic arc, the lower the maneuver
+cost. Additionally, in the case of transfers that directly depart the Earth vicinity, unstable
+invariant manifold arcs that exit near the Sun-Earth $L_{2}$ point provide the minimum-$\Delta v$
+solutions in the family. On the other hand, the main contributing factor for lowering total
 transfer TOF is the relative phasing of the Keplerian conic arcs. When the true anomaly of the
 arrival conic arc at the Mars SoI intersection is just after the intersection of the bridge and
-arrival conic arcs, this minimizes the arrival conic arc TOF and therefore the total transfer TOF.
-The minimum-TOF solutions in the families occur when the invariant manifold arcs exit near the
-Sun-Earth $L_{1}$ Lagrange point, although the best transfers that balance the two parameters still
-exit from $L_{2}$.
+arrival conic arcs, this minimizes the arrival conic arc TOF and consequently the total transfer
+TOF. The minimum-TOF solutions in the families occur when the invariant manifold arcs exit near the
+Sun-Earth $L_{1}$ Lagrange point; however, the lowest-cost transfers that balance the two
+parameters still exit from $L_{2}$.
 
-In terms of maneuver cost, the $L_{1}$ halo and vertical orbit families, as well as the $L_{2}$
-axial orbit family, provide the best options for staging orbit transfers. For the transfers with
-direct departures, the $L_{1}$ Lyapunov and halo orbit families result in the lowest-$\Delta v$
-transfer options. The $L_{1}$ family departures leverage close passes by the Moon to lessen the
-planetary system energy gap between invariant manifold arcs. When it comes to the transfer TOF,
-staging orbit $L_{2}$ Lyapunov and halo orbit families perform the best, while $L_{2}$ halo, axial,
-and butterfly orbit families have the fastest direct transfers. The $L_{2}$ orbit families often
-have invariant manifolds that depart the Earth-Moon system faster and extend further than the
-$L_{1}$ orbit families. Using the cost function to find a balance between $\Delta v$ and TOF, this
-investigation identifies that transfers from the $L_{2}$ Lyapunov, halo, and vertical orbit
-families with direct departures perform well at various Jacobi constant levels. The best cislunar
-departure orbit identified in this investigation is the $3.13$ $L_{2}$ Lyapunov orbit, whose best
-transfers have an average maneuver cost of $5.282$ km/s and TOF of $3.92$ years.
+The selection of cislunar departure periodic orbit significantly influences both the maneuver cost
+and TOF for interplanetary transfers. In terms of maneuver cost, the $L_{1}$ halo and vertical
+orbit families, as well as the $L_{2}$ axial orbit family, provide the best options for staging
+orbit transfers. For the transfers with direct departures, the $L_{1}$ Lyapunov and halo orbit
+families result in the lowest-$\Delta v$ transfer options. The $L_{1}$ family departures leverage
+close passes by the Moon to lessen the energy gap between invariant manifold arcs of two planetary
+systems. When it comes to the transfer TOF, $L_{2}$ Lyapunov and halo orbit families perform the
+best for staging orbit transfers, while $L_{2}$ halo, axial, and butterfly orbit families have the
+fastest direct transfers. The $L_{2}$ orbit families often have invariant manifolds that depart the
+Earth-Moon system faster and extend further than the $L_{1}$ orbit families. Applying the cost
+function to find a balance between $\Delta v$ and TOF, this investigation identifies that transfers
+from the $L_{2}$ Lyapunov, halo, and vertical orbit families with direct departures perform well at
+various Jacobi constant levels. The best cislunar departure orbit identified in this investigation
+is the $3.13$ $L_{2}$ Lyapunov orbit, whose lowest-cost transfers have an average maneuver cost of
+$5.282$ km/s and a TOF of $3.92$ years. This analysis underscores the importance of selecting
+appropriate cislunar departure orbits to achieve efficient deep space transfers with a balance
+between maneuver cost and TOF.
 
-Using the two interplanetary transfer methodologies developed in this investigation, all of the
+Employing the two interplanetary transfer methodologies developed in this investigation, all of the
 included cislunar departure orbits have staging orbit and direct transfers with total maneuver
 costs that are up to $1$ km/s less than the traditional Earth-Mars interplanetary transfer methods.
 And while the times-of-flight of these transfers are significantly longer than traditional
-interplanetary transfers due to the exploitation of invariant manifolds, the transfers in this
-investigation with direct departures can save up to $1$ year compared to the staging orbit
-transfers. The transfers developed in this investigation confirm that invariant manifold arcs can
-be used to decrease interplanetary transfer maneuver costs and highlight a few cislunar orbit
-families with more desirable departure characteristics.
+interplanetary transfers due to the asymptotic nature of invariant manifolds, the transfers with
+direct departures save up to $1$ year compared to the staging orbit transfers. The transfers
+developed in this investigation confirm that invariant manifold arcs can be utilized to decrease
+interplanetary transfer maneuver costs and highlight a few cislunar orbit families with desirable
+departure characteristics.
 
 \section{Recommendations for Future Work}
-With increasing interest in interplanetary missions and the use of dynamic systems theory in
-trajectory design, there are many potential avenues of research to build off the work done in this
-investigation. A few promising options are presented here:
+With increasing interest in interplanetary missions and the application of dynamic systems theory
+in multi-body trajectory design, there are many potential avenues of future research to build off
+the work done in this investigation. A few promising options are presented here:
 \begin{itemize}
     \item   \textbf{Continue this analysis with cislunar departure orbits in a broader Jacobi
             constant range and transfers to other deep space targets.}
 
             In the current investigation, cislunar departure orbits were limited to a Jacobi
             constant range of $2.98$-$3.13$. Many potentially useful unstable orbits and orbit
-            families in the Earth-Moon CR3BP exist at Jacobi constant values below that range.
-            Additionally, there are many families of resonant and period-multiplying orbits that
+            families in the Earth-Moon CR3BP exist at Jacobi constant values outside of that range.
+            For example, there are many families of resonant and period-multiplying orbits that
             were not examined in this investigation. A complete analysis of cislunar departure
             dynamics from unstable orbits would require an extension of the current analysis to
-            these other orbits. This investigation also limited its scope by using a Sun-Mars
-            $L_{1}$ northern halo as its arrival destination. The methodologies developed here
-            are applicable for any unstable CR3BP arrival orbit and should be verified using
-            other arrival periodic orbits in other CR3BP systems such as Venus or large asteroids. 
-    \item   \textbf{Investigate how dynamical systems theory and invariant manifolds can be
-            incorporated into other interplanetary transfer design methodologies and optimization.}
+            these other orbits and families. This investigation also limited its scope by selecting
+            a Sun-Mars $L_{1}$ northern halo orbit as its arrival destination. The methodologies
+            developed are applicable for any unstable CR3BP arrival periodic orbit and should be
+            verified with other arrival orbits and CR3BP deep space target systems such as Venus or
+            Jupiter.
+    \item   \textbf{Investigate strategies for incorporating dynamical systems theory and invariant
+            manifolds into other interplanetary transfer design methodologies and optimization.}
 
-            This investigation used a combination of near-ballistic Earth-Moon to Sun-Earth
-            transfers and the MMAT methodology to design interplanetary transfers, but this is by
-            far not the only way to incorporate multi-body dynamical systems theory into trajectory
-            design. Many other strategies exist that incorporate intentional Earth or Moon flybys
-            or additional or differently placed maneuvers. It is very possible that some of these
-            methodologies could offer transfers with lower times-of-flight than those computed in
-            this investigation. The transfers presented here, while they exist in families, are
-            also not optimized solutions. Therefore, an exploration of other transfer methodologies
-            that includes trajectory optimization is necessary to continue to improve
-            interplanetary mission design.
+            This investigation employed a combination of near-ballistic Earth-Moon to Sun-Earth
+            transfers and the MMAT methodology to design interplanetary transfers, but this
+            technique is not the only way to incorporate multi-body dynamical systems theory into
+            deep space trajectory design. Many other strategies exist that incorporate intentional
+            Earth or Moon flybys or different maneuver counts and placements. It is possible that
+            some of these methodologies could offer transfers with lower times-of-flight than those
+            computed in this investigation. The transfers presented here, while they exist in
+            families of solutions, are not optimized. Consequently, an exploration of other
+            transfer methodologies that incorporates trajectory optimization is necessary to
+            continue to improve interplanetary mission design.
     \item   \textbf{Explore cislunar departure dynamics from stable CR3BP orbits.}
     
-            Unstable cislunar departure and arrival orbits are exclusively used in this
+            Unstable CR3BP departure and arrival periodic orbits are exclusively employed in this
             investigation to exploit their invariant manifolds for ballistic departures and
             arrivals. Unfortunately, the methodologies developed do not apply to stable CR3BP
-            orbits so other dynamical systems theory techniques are required. The utilization of
-            maneuvers along stretching directions is a promising approach for stable orbit
+            orbits due to their lack of these manifolds so other dynamical systems theory
+            techniques are required. The utilization of impulsive maneuvers along the most
+            stretching directions of a periodic orbit is a promising approach for stable orbit
             departure and could be applied as an alternative to invariant manifold arcs with the
-            MMAT method. Muralidharan and Howell show the usefulness of such an approach and some
-            applications within cislunar space\cite{Muralidharan:2022}.
+            MMAT method. Muralidharan and Howell demonstrate the usefulness of such an approach
+            with some applications within cislunar space\cite{Muralidharan:2022}. This approach
+            opens alternative avenues for low-energy deep space trajectory design by facilitating
+            efficient departure from stable CR3BP orbits.
     \item   \textbf{Employ higher-fidelity dynamical models to confirm the results of this
             investigation and further explore cislunar departure dynamics.}
 
             Since the gravitational effects of the Earth, Moon, and Sun are all considered at
-            various points throughout the models employed in this investigation, it would be
-            beneficial to incorporate a 4-body model such as the BCR4BP. There is precedent for
-            using this model to explore cislunar departure dynamics, and it would also simplify the
-            construction of transfers between the Earth-Moon and Sun-Earth systems, as well as
-            better facilitate the relative phasing between the celestial
-            bodies\cite{Boudad:2021,Boudad:2022}. The inclusion of the Sun's gravitational
-            influence would also aid in the departure from stable cislunar orbits using
-            pseudo-manifolds that stem from the inclusion of the Sun in the dynamical model.
-            Finally, while the BCR4BP does provide a higher-fidelity dynamical model to further
-            explore departure dynamics and interplanetary transfers, the results of this
-            investigation, as well as all of those proposed in this future work section, need to be
-            validated in the high-fidelity ephemeris model. This will ensure that the transfer
-            geometries persist under a more accurate representation of the dynamics while also
-            providing insight into feasible launch dates and windows in the near future for these
-            types of interplanetary transfers. That is the necessary next step for these transfers
-            to be applied to real mission scenarios.
+            various stages in this investigation, depending on the dynamical model being applied,
+            it would be beneficial to incorporate a 4-body model such as the BCR4BP to efficiently
+            represent these dynamics. There is precedent for applying this model to the exploration
+            of cislunar departure dynamics, and it would also simplify the construction of
+            transfers between the Earth-Moon and Sun-Earth systems, as well as better facilitate
+            the relative phasing between the celestial bodies\cite{Boudad:2021,Boudad:2022}. The
+            inclusion of the solar gravitational influence in the cislunar region would also aid in
+            the departure from stable cislunar orbits through pseudo-manifolds that stem from the
+            inclusion of the Sun in the Earth-Moon dynamical model. Finally, while the BCR4BP does
+            provide a higher-fidelity dynamical model to further explore departure dynamics and
+            interplanetary transfers, the results of this investigation, as well as all of those
+            proposed in this future work section, need to be validated in the high-fidelity
+            ephemeris model. This validation will ensure that the transfer geometries persist
+            under a more accurate representation of the dynamical regime while also providing
+            insight into feasible launch dates and windows in the near future for these types of
+            deep space transfers. Transition to higher-fidelity dynamical models is the necessary
+            next step for these transfers to be applied to real mission scenarios.
 \end{itemize}

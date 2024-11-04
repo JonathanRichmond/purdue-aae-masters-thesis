@@ -48,24 +48,24 @@ depending on the particular application. This investigation uses $\alpha=5$ and 
 representative cost function to prioritize lowering the TOF while still looking for decreased
 maneuver costs. This cost function is applied to transfers in the tradespace that are below the
 modified Hohmann transfer $\Delta v$ baseline, and the ten transfers that have the lowest $J$-value
-from each transfer category are determined to be the best transfers for this application. In
+from each transfer category are determined to be the lowest-cost transfers for this application. In
 \cref{fig:lowDeltav}, these are cyan points for the "direct" transfers and magenta ones for the
 "staging orbit" transfers.
 
-\subsection{Comparing Best Cost Solutions between Transfer Types}
-In \cref{fig:lowDeltav}, among the best solutions selected using the cost function, the direct
-options have a lower average TOF than the staging orbit ones, $4.04$ and $4.94$ years,
+\subsection{Comparing Lowest-Cost Solutions between Transfer Types}
+In \cref{fig:lowDeltav}, among the lowest-cost solutions selected using the cost function, the
+direct options have a lower average TOF than the staging orbit ones, $4.04$ and $4.94$ years,
 respectively, while the transfers with staging orbits achieve a slightly lower average $\Delta v$
 cost, $5.207$ km/s compared to $5.238$. The earlier example from \cref{fig:tradespace}, now shown
-including the best solutions from the cost function in \cref{fig:costTradespace}, produces similar
-results. In contrast, the "direct" options in \cref{fig:lowBoth} have both lower times-of-flight
-and maneuver costs when compared to the staging orbit transfers, $4.33$ years and $4.869$ km/s
-average for direct transfers versus $4.82$ years and $5.148$ km/s for those with a staging orbit.
-In all of the tradespaces computed in this investigation, the best cost direct solutions perform
-better than the best cost staging orbit transfers with regards to TOF. While the best staging orbit
-solutions often have slightly lower $\Delta v$ costs on average, the significantly longer
-times-of-flight outweigh those benefits, and there are still many cases where the direct options
-require lower maneuver costs.
+including the lowest-cost solutions from the cost function in \cref{fig:costTradespace}, produces
+similar results. In contrast, the "direct" options in \cref{fig:lowBoth} have both lower
+times-of-flight and maneuver costs when compared to the staging orbit transfers, $4.33$ years and
+$4.869$ km/s average for direct transfers versus $4.82$ years and $5.148$ km/s for those with a
+staging orbit. In all of the tradespaces computed in this investigation, the lowest-cost direct
+solutions perform better than the lowest-cost staging orbit transfers with regards to TOF. While
+the lowest-cost staging orbit solutions often have slightly lower $\Delta v$ costs on average, the
+significantly longer times-of-flight outweigh those benefits, and there are still many cases where
+the direct options require lower maneuver costs.
 
 \begin{figure}[ht]
     \centering
@@ -92,8 +92,8 @@ successful end-to-end transfers with direct departures, as shown in \cref{fig:fe
 there is a significantly decreased number of available "direct" solutions and that the ones that do
 exist no longer follow a familial pattern similar to the previous examples. Since the staging orbit
 transfers only require one manifold arc to interface with the Sun-Earth orbit stable manifold,
-there is still a full range of staging orbit transfers available for this case. However, the best
-cost direct solutions still outperform the staging orbit ones in this specific scenario.
+there is still a full range of staging orbit transfers available for this case. However, the
+lowest-cost direct solutions still outperform the staging orbit ones in this specific scenario.
 
 \begin{figure}[ht]
     \centering
@@ -105,8 +105,8 @@ cost direct solutions still outperform the staging orbit ones in this specific s
 The results of this investigation and the provided observations demonstrate that the methodology
 developed to construct end-to-end cislunar-to-Mars transfers that directly depart the Sun-Earth
 system performs better overall than the strategy that incorporates an intermediate Sun-Earth halo
-staging orbit. The best cost solutions that directly depart the cislunar orbits used in this
-investigation always have a faster average TOF than the best cost staging orbit transfers. While
+staging orbit. The lowest-cost solutions that directly depart the cislunar orbits used in this
+investigation always have a faster average TOF than the lowest-cost staging orbit transfers. While
 the direct options only sometimes have a lower $\Delta v$ maneuver cost than the staging orbit
 ones, the decrease in TOF is significant enough to outweigh the potential slight increases in
 maneuver cost.
