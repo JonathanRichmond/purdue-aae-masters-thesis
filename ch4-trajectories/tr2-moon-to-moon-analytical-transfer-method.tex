@@ -50,8 +50,8 @@ the path for either the departure or arrival conic arc.
 \cref{eq:inclination}-\cref{eq:radialvelocity} can be used to retrieve the equivalent Keplerian
 orbital elements.
 
-In the distant, two-burn MMAT strategy, the first maneuver is placed at the periapsis of the
-departure conic. Given that the true anomaly $\theta=0$ at periapsis,
+In the distant, two-burn MMAT strategy, for an outward journey, the first maneuver is placed at
+the periapsis of the departure conic. Given that the true anomaly $\theta=0$ at periapsis,
 \cref{eq:eccentricanomaly}-\cref{eq:velocityvector} are used to compute the inertial state at
 periapsis while \cref{eq:meananomaly} and \cref{eq:Keplersequation} are used to compute the
 time-of-flight along the departure conic:
@@ -60,13 +60,14 @@ time-of-flight along the departure conic:
     \label{eq:departureTOF}
 \end{equation}
 where $\mathbb{P}_{d}$ is the period of the departure conic and $(t-t_{p})$ is the time since
-periapsis of the SoI state.
+periapsis of the SoI state. An inward journey would depart from the apoapsis of the departure
+conic.
 
 As mentioned previously, a bridge arc is needed to connect the departure and arrival conic arcs,
-with a maneuver at both ends. The distant, two-burn MMAT bridge arc has the same periapsis radius
-as the departure conic arc and the same apoapsis as the arrival conic arc. These values form a
-bridge ratio which can then be used to compute the semimajor axis and eccentricity of the bridge
-conic:
+with a maneuver at both ends. The distant, two-burn MMAT bridge arc for an outward transfer has the
+same periapsis radius as the departure conic arc and the same apoapsis as the arrival conic arc
+(and vice versa for an inward transfer). These values form a bridge ratio which can then be used to
+compute the semimajor axis and eccentricity of the bridge conic:
 \begin{equation}
     \mathcal{P}_{b}=\frac{r_{p_{b}}}{r_{a_{b}}}=\frac{1-e_{b}}{1+e_{b}},
     \label{eq:bridgeratio}
@@ -79,11 +80,17 @@ conic:
     a_{b}=\frac{r_{p_{b}}}{1-e_{b}}.
     \label{eq:bridgesemimajoraxis}
 \end{equation}
-The remaining three angles of the bridge conic ($i$, $\Omega$, $\omega$) are identical to those of
-the departure conic, implying that the bridge arc lies in the same plane as the departure conic
-arc. Since only the semimajor axis and eccentricity change between the departure and bridge conics,
-this first maneuver is tangential to the motion (only changing the energy) at periapsis and can be
-calculated by the difference in the velocity states at periapsis.
+For an outward journey, the bridge arc lies in the same plane as the departure conic arc, since
+Keplerian inclination changes are more efficient the farther away they are from the primary. This
+implies that the remaining three angles of the bridge conic ($i$, $\Omega$, $\omega$) are identical
+to those of the departure conic. Since only the semimajor axis and eccentricity change between the
+departure and bridge conics, this first maneuver is tangential to the motion (only changing the
+energy) at periapsis and can be calculated by the difference in the velocity states at periapsis.
+An inward journey would combine the inclination change with the first maneuver, so the bridge conic
+would lie in the same plane as the arrival conic. The following methodology would be similar for
+this case but flipped so that that the constraints are on the intersection between the departure
+and bridge conic arcs. The associated equations would also be slightly different since the geometry
+is flipped.
 
 The non-coplanar MMAT methodology revolves around the following analytical constraint derived by
 Canales\cite{Canales:2021b}:

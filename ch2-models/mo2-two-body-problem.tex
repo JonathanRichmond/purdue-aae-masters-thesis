@@ -1,11 +1,12 @@
-\section{The Two-Body Problem}
+\section{The Relative Two-Body Problem}
 This investigation treats the motion of spacecraft in heliocentric space, specifically when they
-are far from planets and moons, as a 2-body Problem, governed by a single gravitational force. This
-section provides a brief overview of key aspects of relative 2BP dynamics, Keplerian orbital
-elements, and Kepler's Equation. For a more comprehensive derivation of the 2BP, refer to Chapters
-1 and 2 of Vallado's \emph{Fundamentals of Astrodynamics and Applications}\cite{Vallado:2013}.
-Additionally, Canales highlights the background information relevant to understanding the transfer
-methodologies presented in this analysis\cite{Canales:2021b}.
+are far from planets and moons, as a relative 2-body Problem, governed by a single gravitational
+force. This section provides a brief overview of key aspects of relative 2BP dynamics, Keplerian
+orbital elements, and Kepler's Equation. For a more comprehensive derivation of the 2BP, refer to
+Chapters 1 and 2 of Vallado's \emph{Fundamentals of Astrodynamics and
+Applications}\cite{Vallado:2013}. Additionally, Canales highlights the background information
+relevant to understanding the transfer methodologies presented in this
+analysis\cite{Canales:2021b}.
 
 \subsection{Equations of Motion}
 The relative 2BP involves two point masses, for example, a primary body and a spacecraft, that
@@ -23,7 +24,7 @@ respectively, $r_{P\rightarrow s/c}$ is the distance from the primary body to th
 $\rbar_{P\rightarrow s/c}=\rbar_{s/c}-\rbar_{P}$ is the relative position vector from the primary
 body to the spacecraft in the inertial frame, as illustrated in \cref{fig:2BP}.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{figures/TBP.jpg}
     \caption{Two-body problem in a barycentric inertial frame.}
@@ -105,7 +106,7 @@ motion $n$:
     n=\frac{2\pi}{\mathbb{P}}=\sqrt{\frac{\mu_{2BP}}{a^{3}}}.
     \label{eq:meanmotion}
 \end{equation}
-This investigation focuses on arc segments of circles and ellipses in the 2BP with $0\leq e<1$. 
+This investigation focuses on arc segments of circles and ellipses in the 2BP with $0\leq e<1$.
 
 \subsection{Keplerian Orbital Elements}
 Instead of specifying the six-dimensional state of a spacecraft in a relative 2BP elliptical orbit
@@ -124,13 +125,29 @@ depicted in \cref{fig:orbitalElements}:
     periapsis.
 \end{itemize}
 Finally, the true anomaly $\theta$ defines the spacecraft position relative to the orbit periapsis.
+\cref{tab:orbitValues} shows the gravitational constants and relevant orbital values for the
+two-body systems used in this investigation.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{figures/OrbitalElements.jpg}
     \caption{Orientation and location along an orbit in an inertial frame using Keplerian orbital elements.}
     \label{fig:orbitalElements}
 \end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{Orbital values of relevant 2BP systems.}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textbf{Body}   &   \boldmath$\mu_{2BP}$ [\textbf{km}\boldmath$^{3}/$\textbf{s}\boldmath$^{2}$] &   \boldmath$a$ \textbf{[km]}  &   \boldmath$\mathbb{P}$ \textbf{[d]}  &   \boldmath$e$            &   \boldmath$i$ \textbf{[deg]} \\  \hline
+        Sun             &   $1.32712\times10^{11}$                                                      &   -                           &   -                                   &   -                       &   -                           \\  \hline
+        Earth           &   $398600$                                                                    &   $1.49598\times10^{8}$       &   $365.257$                           &   $1.67359\times10^{-2}$  &   $1.70780\times10^{-5}$      \\  \hline
+        Moon            &   $4902.80$                                                                   &   $384748$                    &   $27.4892$                           &   $5.55455\times10^{-2}$  &   $5.15665$                   \\  \hline
+        Mars            &   $42828.4$                                                                   &   $2.27941\times10^{8}$       &   $686.979$                           &   $9.34015\times10^{-2}$  &   $1.84971$                   \\  \hline
+    \end{tabular}
+    \label{tab:orbitValues}
+\end{table}
 
 \subsubsection{Cartesian state to Keplerian orbital elements}
 To convert from a Cartesian state vector to Keplerian orbital elements, start by calculating the
@@ -188,7 +205,7 @@ location (perpendicular to the eccentricity vector) on an auxiliary circle drawn
 ellipse. The eccentric anomaly and the auxiliary circle are illustrated in \cref{fig:auxCircle}, along
 with the eccentricity vector and semimajor axis.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{figures/AuxCircle.jpg}
     \caption{Definition of eccentric anomaly and the auxiliary circle.}

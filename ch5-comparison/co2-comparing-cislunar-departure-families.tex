@@ -1,6 +1,6 @@
 \section{Comparing Cislunar Departure Families}
 In this investigation, unstable periodic orbits in the Earth-Moon CR3BP are considered as potential
-departure orbits for deep space transfers. Several orbit families with unstable members are
+departure orbits for deep-space transfers. Several orbit families with unstable members are
 introduced in Section 3.2 and from these families, unstable orbits between Jacobi constants of
 $2.98$ and $3.13$ are analyzed to determine their feasibility for these transfers. This range was
 chosen since the upper energy bound of $2.98$ is slightly above the energy level of the $L_{4}$ and
@@ -190,7 +190,8 @@ but unfortunately, unstable members only exist at lower Jacobi constant values. 
 the optimal choice in every mission scenario, the lowest maneuver cost staging orbit transfers in
 this investigation originate from the $3.03$ $L_{1}$ northern halo orbit, with an average total
 $\Delta v$ of $4.978$ km/s. \cref{fig:stagedMinDvEM}-\cref{fig:stagedMinDvMMAT} show one such
-transfer from this specific departure orbit.
+transfer from this specific departure orbit. On the other hand, the $L_{1}$ and $L_{2}$ Lyapunov
+families, as well as the butterfly family, all have higher maneuver costs compared to the others.
 
 \begin{figure}[!htb]
     \centering
@@ -209,7 +210,8 @@ performs the best by far at every Jacobi constant value except $3.1$ (where it i
 options). The $L_{1}$ halo family also performs well overall. The $3.0$ $L_{1}$ Lyapunov orbit
 provides the lowest maneuver cost direct transfer with an average total $\Delta v$ of $4.791$ km/s.
 An example transfer from this orbit is shown in \cref{fig:directMinDvE} and
-\cref{fig:directMinDvMMAT}.
+\cref{fig:directMinDvMMAT}. The $L_{2}$ halo and vertical families have the highest maneuver costs
+of the families.
 
 \begin{figure}[!htb]
     \centering
@@ -250,11 +252,13 @@ across each family of orbits. Regardless, for the transfers with staging orbits,
 Lyapunov and $L_{2}$ halo orbits perform the best overall in TOF, although the results are a little
 less clear than when comparing $\Delta v$ costs. The lowest TOF option investigated is the $3.13$
 $L_{2}$ northern halo orbit, with an average total TOF of $4.76$ years, shown in
-\cref{fig:stagedMinTOFEM}-\cref{fig:stagedMinTOFMMAT}. For the direct transfers, the $L_{2}$ halo
-and $L_{2}$ butterfly orbits have the lowest times-of-flight. The $L_{2}$ axial orbits also perform
-well at their limited energy values as before. In this category, the $3.13$ $L_{2}$ northern halo
-orbit again performs the best with an average total TOF of $3.91$ years, shown in
-\cref{fig:directMinDvE} and \cref{fig:directMinDvMMAT}. While $L_{1}$ departure orbits seem to
+\cref{fig:stagedMinTOFEM}-\cref{fig:stagedMinTOFMMAT}. With this transfer type, the families that
+perform the worst are the $L_{1}$ vertical and $L_{2}$ axial families. For the direct transfers,
+the $L_{2}$ halo and $L_{2}$ vertical orbits have the lowest times-of-flight. The $L_{2}$ axial
+orbits also perform well at their limited energy values as with the $\Delta v$. In this category,
+the $3.13$ $L_{2}$ northern halo orbit again performs the best with an average total TOF of $3.91$
+years, shown in \cref{fig:directMinDvE} and \cref{fig:directMinDvMMAT}. The ones that have the
+longest times-of-flight are the $L_{1}$ Lyapunov and halo families. While $L_{1}$ departure orbits seem to
 provide lower maneuver costs, \cref{fig:compareTOF} shows that $L_{2}$ departure orbits tend to
 have lower lowest-cost times-of-flight. This may be because the manifold arcs reach the Earth SoI
 faster and extend slightly farther, decreasing the TOF of the transfer.
@@ -280,12 +284,13 @@ perform the best. For the staging orbits, the $L_{2}$ halo orbits have lower cos
 Jacobi constant values. At the lower Jacobi constants, the better families are different for each
 case, although the $L_{2}$ Lyapunov orbits are consistently low throughout. Comparing the direct
 transfers, the $L_{2}$ vertical orbit family performs well across the majority of the energy range,
-with the $L_{2}$ halos again having low values at higher Jacobi constant orbits. The lowest overall
-cost departure orbit is surprisingly the $3.13$ $L_{2}$ Lyapunov orbit direct departure, with an
-average cost function value of $30.19$, an average total maneuver cost of $5.282$ km/s, and an
-average total TOF of $3.92$ years. The lowest-cost direct transfer from this departure orbit is
-shown in \cref{fig:bestE} and \cref{fig:bestMMAT} with a total maneuver cost of $5.293$ km/s and
-TOF of $3.24$ years.
+with the $L_{2}$ halos again having low values at higher Jacobi constant orbits. Still within the
+direct transfer category, the $L_{1}$ Lyapunov family performs the worst when evaluated with the
+cost function. The lowest overall cost departure orbit is surprisingly the $3.13$ $L_{2}$ Lyapunov
+orbit direct departure, with an average cost function value of $30.19$, an average total maneuver
+cost of $5.282$ km/s, and an average total TOF of $3.92$ years. The lowest-cost direct transfer
+from this departure orbit is shown in \cref{fig:bestE} and \cref{fig:bestMMAT} with a total
+maneuver cost of $5.293$ km/s and TOF of $3.24$ years.
 
 \begin{figure}[!htb]
     \begin{subfigure}[h]{0.495\linewidth}

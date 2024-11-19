@@ -23,7 +23,7 @@ $\Zhat=\zhat$. In \cref{fig:baryFrames}, the barycentric $\{\xhat,\yhat,\zhat\}$
 $\{\Xhat,\Yhat,\Zhat\}$ arbitrary inertial frame for a sample CR3BP system are illustrated, with
 their common origin centered at the barycenter of the primaries, $P_{1}$ and $P_{2}$.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{figures/BaryFrames.jpg}
     \caption{Barycentric rotating and arbitrary inertial frames in a CR3BP system.}
@@ -32,17 +32,17 @@ their common origin centered at the barycenter of the primaries, $P_{1}$ and $P_
 
 \subsection{The Ecliptic J2000 Primary-Centered Frame}
 A commonly used primary-centered reference frame is the Ecliptic J2000. As the name implies, this
-frame is established with its origin at the center of a primary body and the Sun-Earth orbital
-plane on January 1, 2000 as the $\Xhat_{Ec}\Yhat_{Ec}$-plane. The $\Xhat_{Ec}$-axis is directed
-towards the vernal equinox, which is the line of intersection between the Earth's equatorial and
-ecliptic planes on January 1, 2000. The $\Zhat_{Ec}$-axis is orthogonal to the ecliptic plane, and
-the $\Yhat_{Ec}$-axis completes the triad, defined as $\Yhat_{Ec}=\Zhat_{Ec}\times\Xhat_{Ec}$.
-Since the origin of the frame is at a primary, it is valuable for patched dynamical models that
-share primary bodies. The construction of this coordinate frame, as depicted in
-\cref{fig:eclipJ2000Frame}, is computed using the Navigation and Ancillary Information Facility's
-(NAIF) SPICE ephemeris toolkit\cite{Semenov:2023}.
+frame is defined with its origin at the center of Earth and the Sun-Earth orbital (ecliptic) plane
+on January 1, 2000 as the $\Xhat_{Ec}\Yhat_{Ec}$-plane. The $\Xhat_{Ec}$-axis is directed towards
+the vernal equinox, which is the line of intersection between the Earth's equatorial and ecliptic
+planes on January 1, 2000. The $\Zhat_{Ec}$-axis is orthogonal to the ecliptic plane, and the
+$\Yhat_{Ec}$-axis completes the triad, defined as $\Yhat_{Ec}=\Zhat_{Ec}\times\Xhat_{Ec}$. In this
+investigation, the Ecliptic J2000 frame is utilized with its origin translated to the center of the
+Sun, which is the shared primary body for the patched dynamical model. The construction of this
+coordinate frame, as depicted in \cref{fig:eclipJ2000Frame}, is computed using the Navigation and
+Ancillary Information Facility's (NAIF) SPICE ephemeris toolkit\cite{Semenov:2023}.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{figures/EclipJ2000Frame.jpg}
     \caption{Earth-centered Ecliptic J2000 frame.}
