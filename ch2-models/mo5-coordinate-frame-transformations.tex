@@ -1,119 +1,120 @@
-\section{Coordinate Frame Transformations}
-Since the patched and blended models used in this investigation use a variety of models centered
+\section{Coordinate Frame Transformations}\label{sec:FrameTransformations}
+Since the patched and blended models in this investigation employ a variety of models centered
 around different bodies, it is helpful to be able to view any trajectories in multiple reference
-frames. As mentioned previously, reference frames can be inertial or rotating, and an important
+frames. As mentioned previously, reference frames can be rotating or stationary, and an important
 component of interplanetary trajectory design is the ability to transform states and trajectories
-between these two types of frames. A few representative examples of coordinate frame
-transformations follow.
+between the two types of frames. A few representative examples of coordinate frame transformations
+employed in this investigation follow.
 
-\subsection{Barycentric Rotating Frame - Primary-Centered Arbitrary Frame}
+\subsection{Barycentric Rotating Frame - Primary-Centered Arbitrary Inertial Frame}
 Most trajectories in a CR3BP are constructed in the barycentric rotating frame where
 \cref{eq:EoMx}-\cref{eq:EoMz} are defined (see \cref{fig:baryFrames}). However, it can also be
-beneficial to view these in an inertial reference frame. An arbitrary inertial frame is defined
-where the inertial unit vectors $\{\Xhat,\Yhat,\Zhat\}$ are equivalent to the rotating unit
+beneficial to view trajectories in an inertial reference frame. An arbitrary inertial frame is
+defined where the inertial unit vectors $\{\Xhat,\Yhat,\Zhat\}$ are equivalent to the rotating unit
 vectors $\{\xhat,\yhat,\zhat\}$ at time $t_{0}$. The origin of the unit vectors is also translated
 to the center of the primary body.
 
-The following steps will transform (nondimensionalized) states from the barycentric rotating frame
-to the primary-centered arbitrary frame:
-
+The following steps transform (nondimensionalized) states from the barycentric rotating frame to
+the primary-centered arbitrary frame:
 \begin{enumerate}
     \item   Translate the position states from barycentric to primary-centric:
             \begin{equation}
                 \rhobar_{P\rightarrow s/c}=\rhobar_{s/c}-\rhobar_{P}.
                 \label{eq:translation}
             \end{equation}
-    \item   Rotate the states depending on time since $t_{0}$
-    
-            Recall that the mean motion $n$ of the rotating frame is constant. When
-            nondimensionalized in the CR3BP, $\ntilde=1$ and therefore the rotation angle is just
-            $\tau-\tau_{0}$. Since the $\zhat$- and $\Zhat$-axes coincide for an arbitrary inertial
-            frame, a simple rotation matrix can be used to rotate the position states:
+    \item   Rotate the states depending on time since $t_{0}$. Recall that the mean motion $n$ of
+            the rotating frame is constant. When nondimensionalized in the CR3BP, $\ntilde=1$ and
+            consequently the rotation angle are just $\tau-\tau_{0}$. Since the $\zhat$- and
+            $\Zhat$-axes coincide for an arbitrary inertial frame, a simple rotation matrix is
+            utilized to rotate the position states:
             \begin{equation}
                 \Pbar=\begin{bmatrix}   \cos(\tau-\tau_{0}) &   -\sin(\tau-\tau_{0})    &   0   \\
                                         \sin(\tau-\tau_{0}) &   \cos(\tau-\tau_{0})     &   0   \\
                                         0                   &   0                       &   1   \end{bmatrix}\rhobar=\prescript{I}{}{C}^{R}\rhobar,
                 \label{eq:positionrotation}
             \end{equation}
-            where $\rhobar$ is the rotating position and $\Pbar$ is the inertial position.
-
-            Basic kinematics can be used to compute the velocity in the rotating frame relative to
-            an inertial observer:
+            where $\rhobar$ is the rotating position and $\Pbar$ is the inertial position. The
+            basic kinematic equation is then employed to compute the velocity in the rotating frame
+            relative to an inertial observer:
             \begin{equation}
                 \frac{\prescript{I}{}{d\rhobar}}{d\tau}=\frac{\prescript{R}{}{d\rhobar}}{d\tau}+\prescript{I}{}{\omegabar}^{R}\times\rhobar=\rhobardot+\zhat\times\rhobar,
                 \label{eq:BKE}
             \end{equation}
             where $\prescript{I}{}{\omegabar}^{R}=\ntilde\zhat$ is the angular velocity relating
-            the two frames. Therefore:
+            the two frames. Consequently:
             \begin{equation}
                 \frac{\prescript{I}{}{d\rhobar}}{d\tau}=(\xdot-y)\xhat+(\ydot+x)\yhat+\zdot\zhat.
                 \label{eq:inertialrotatingvelocity}
             \end{equation}
-            
-            Using the rotation matrix $\prescript{I}{}{C}^{R}$ from \cref{eq:positionrotation},
-            \cref{eq:inertialrotatingvelocity} can be written in a matrix form and combined with
-            the position rotation to achieve full state rotation:
+            Utilizing the rotation matrix $\prescript{I}{}{C}^{R}$ from \cref{eq:positionrotation},
+            \cref{eq:inertialrotatingvelocity} is expressed in matrix form and combined with the
+            position rotation to achieve full state rotation:
             \begin{equation}
                 \Qbar=\begin{bmatrix}   \prescript{I}{}{C}^{R}      &   \zerobar                \\
                                         \prescript{I}{}{\dot{C}}^{R} &   \prescript{I}{}{C}^{R}  \end{bmatrix}\qbar,
                 \label{eq:rotation}
             \end{equation}
             where $\qbar$ is the rotating state and $\Qbar$ is the inertial state.
-    \item   Dimensionalize the states if desired (see Section 2.3.2).
+    \item   Dimensionalize the states if desired (see \cref{sec:CR3BP}).
 \end{enumerate}
-To transform a primary-centric arbitrary state to a barycentric rotating state, just reverse the
-above process (nondimensionalizing the states if necessary) and invert the state rotation matrix.
+To transform a primary-centric arbitrary inertial state to a barycentric rotating state, just
+reverse the above process (nondimensionalizing the states if necessary), inverting the state
+rotation matrix.
 
 \subsection{Barycentric Rotating Frame - Ecliptic J2000 Frame}
-When designing a trajectory across multiple systems, it is often useful to view each part of the
-trajectory in a common reference frame. In this investigation, the Earth Ecliptic J2000 frame,
-introduced in Section 2.1.2 (\cref{fig:eclipJ2000Frame}), is used as the common frame for
-interplanetary trajectories.
+When designing a trajectory across multiple systems, it is often beneficial to view each part of
+the trajectory in a common reference frame. In this investigation, the Earth Ecliptic J2000 frame,
+introduced in \cref{sec:CoordinateFrames} (\cref{fig:eclipJ2000Frame}), is employed as the common
+frame for viewing interplanetary trajectories.
 
-The transformation between barycentric rotating frame states and a primary-centric Ecliptic J2000
-frame states follows a similar process to the arbitrary frame. However, since this frame is defined
-by a particular epoch (January 1, 2000), the frame rotation is epoch-dependent:
-
+The transformation between barycentric rotating frame states and primary-centric Ecliptic J2000
+frame states follows a similar process to that for the arbitrary inertial frame. However, since
+the Ecliptic J2000 frame is defined by a particular epoch (January 1, 2000), the frame rotation is
+epoch-dependent:
 \begin{enumerate}
-    \item   To properly compare the rotating frame to the Ecliptic J2000 frame, the location of the
-            second primary in its orbit at each epoch of the trajectory is needed. This is obtained
-            by retrieving the orbital elements of the second primary at a selected initial epoch
-            from SPICE\cite{Semenov:2023}. These orbital elements are then modified to match the
+    \item   Determine the state vector of the second primary with respect to the first in the
+            Ecliptic J2000 frame. To properly compare the two frames, the location of the second
+            primary in its orbit at each epoch of the trajectory is required. This is obtained by
+            retrieving the orbital elements of the second primary at a selected initial epoch from
+            SPICE kernels\cite{Semenov:2023}. The orbital elements are then modified to match the
             CR3BP orbit assumptions ($a=l^{*}$ and $e=0$). Since the mean motion/angular velocity
-            in the CR3Bp is constant at $\ntilde=1$:
+            in the CR3BP is constant at $\ntilde=1$:
             \begin{equation}
                 \theta=\tau-\tau_{0}+\theta_{0},
                 \label{eq:instantaneoustrueanomaly}
             \end{equation}
-            where $\theta_{0}$ is the true anomaly at the initial epoch $t-{0}$ obtained from
-            SPICE. These updated orbital elements are then used to calculate the full state vector
-            (in dimensional units) of the second primary relative to the first using
+            where $\theta_{0}$ is the true anomaly at the initial epoch $t_{0}$ obtained from
+            the SPICE kernels. The updated orbital elements are then employed to calculate the full
+            state vector (in dimensional units) of the second primary relative to the first with
             \cref{eq:eccentricanomaly}-\cref{eq:velocityvector}.
-    \item   Dimensionalize the trajectory states, times, and angular velocity (see Section 2.3.2).
-    \item   At each time, translate the position states from barycentric to primary-centric using
-            \cref{eq:translation} (note that dimensional values should be used).
-    \item   Define the instantaneous state rotation matrix using the second primary's Ecliptic
-            J2000 state vector and angular momentum $\ambar$ (\cref{eq:angularmomentum}) at each
-            time:
+    \item   Dimensionalize the trajectory states, times, and angular velocity (see
+            \cref{sec:CR3BP}).
+    \item   At each time, translate the position states from barycentric to primary-centric with
+            \cref{eq:translation} (note that the values should be in dimensional units).
+    \item   Define the instantaneous state rotation matrix utilizing the Ecliptic J2000 state
+            vector of the second primary and angular momentum $\ambar$ (\cref{eq:angularmomentum})
+            at each time:
             \begin{equation}
                 \xhat=\frac{\Rbar_{P_{1}\rightarrow P_{2}}}{|\Rbar_{P_{1}\rightarrow P_{2}}|},
                 \label{eq:xhat}
             \end{equation}
+            \vspace{1mm}
             \begin{equation}
                 \zhat=\frac{\ambar}{|\ambar|},
                 \label{eq:zhat}
             \end{equation}
+            \vspace{1mm}
             \begin{equation}
                 \yhat=\zhat\times\xhat,
                 \label{eq:yhat}
             \end{equation}
+            \vspace{1mm}
             \begin{equation}
                 \prescript{Ec}{}{C}^{R}=\begin{bmatrix} \xhat   &   \yhat   &   \zhat   \end{bmatrix}.
                 \label{eq:eclipticpositionrotation}
             \end{equation}
-
-            The full state rotation matrix can be found through the same process used in Section
-            2.5.1, using a dimensional angular velocity:
+            The full state rotation matrix is found through the same process as before, utilizing a
+            dimensional angular velocity:
             \begin{equation}
                 \prescript{Ec}{}{\dot{C}}^{R}=\begin{bmatrix}   n\yhat  &   -n\xhat &   \zerobar    \end{bmatrix}.
                 \label{eq:eclipticvelocityrotation}
@@ -121,6 +122,5 @@ by a particular epoch (January 1, 2000), the frame rotation is epoch-dependent:
             in \cref{eq:rotation} with dimensional values.
     \item   Nondimensionalize the states if desired.
 \end{enumerate}
-States can be transformed from a primary-centric Ecliptic J2000 frame to a barycentric rotating
-frame by reversing the above steps and inverting the state rotation matrix. This becomes a useful
-tool when designing interplanetary trajectories using multi-body dynamics.
+States are transformed from a primary-centric Ecliptic J2000 frame to a barycentric rotating frame
+by reversing the above steps, inverting the state rotation matrix.
