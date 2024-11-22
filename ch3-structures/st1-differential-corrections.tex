@@ -1,9 +1,9 @@
 \section{Differential Corrections}
-Differential corrections are used to compute solutions in targeting problems that satisfy the
+Differential corrections are employed to compute solutions in targeting problems that satisfy the
 provided constraints on the initial condition and the trajectory arc. To do so, it is necessary to
-be able to relate constraints on the trajectory to any parameters in the problem that are free to
-vary through Jacobians such as the state transition matrix. In this investigation, this targeting
-process is accomplished via multi-variable Newton-Raphson methods.
+relate constraints on the trajectory to any parameters in the problem that are free to vary through
+Jacobians such as the state transition matrix. In this investigation, the targeting process is
+accomplished via multi-variable Newton-Raphson methods.
 
 \subsection{State Transition Matrix}
 The state transition matrix (STM) relates variations in an initial state, $\qbar_{0}=\qbar(t_{0})$,
@@ -14,7 +14,7 @@ about the baseline trajectory arc, the linear variational equation is derived:
     \label{eq:linearvariational}
 \end{equation}
 where $A(t)$ is the Jacobian matrix for the equations of motion with respect to the state at time
-$t$. A full derivation for the CR3BP $A(t)$ matrix can be found in Zimovan, but the result is given
+$t$. A full derivation for the CR3BP $A(t)$ matrix is found in Zimovan, but the result is given
 here\cite{Zimovan:2017}:
 \vfill
 \begin{equation}
@@ -67,13 +67,12 @@ The solution to \cref{eq:linearvariational}:
     \partial\qbar(t)=\frac{\partial\qbar(t)}{\partial\qbar_{0}}\partial\qbar_{0},
     \label{eq:variationalsolution}
 \end{equation}
-can be rearranged to provide the STM $\Phi(t,t_{0})$:
+is rearranged to provide the STM $\Phi(t,t_{0})$:
 \begin{equation}
     \Phi(t,t_{0})=\frac{\partial\qbar(t)}{\partial\qbar_{{0}}}.
     \label{eq:STM}
 \end{equation}
-The equation of motion for the STM can be appended to the CR3BP equations of motion when
-propagating:
+The equation for the STM is appended to the CR3BP equations of motion when propagating:
 \begin{equation}
     \dot{\Phi}(t,t_{0})=A(t)\Phi(t,t_{0}),
     \label{eq:STMEoM}
@@ -82,11 +81,11 @@ where the initial condition is $\Phi(t_{0},t_{0})=I_{6\times6}$.
 
 \subsection{Multi-Variable Newton-Raphson Method}
 Targeting problems require iterative approaches where an initial guess is updated until it meets a
-set of constraints to solve a boundary value problem. This investigation uses a multi-variable
+set of constraints to solve a boundary value problem. This investigation employs a multi-variable
 Newton-Raphson method as a differential corrections process for single-shooting targeting problems,
 applying analytical or numerical partial derivatives of constraints with respect to the initial
-conditions. This iterative approach facilitates convergence to local solutions that satisfy the
-boundary conditions.
+conditions. The Newton-Raphson iterative approach facilitates convergence to local solutions that
+satisfy the boundary conditions.
 
 If $\Xbar$ is a free variable vector and $\Fbar(\Xbar)$ is a constraint vector that is dependent on
 the free variables, then the goal of the targeting problem is to find $\Xbar$ such that
@@ -97,15 +96,14 @@ provided by a first-order Taylor series expansion about the initial condition $\
     \Fbar(\Xbar)=\Fbar(\Xbar_{0})+DF(\Xbar_{0})(\Xbar-\Xbar_{0})=\zerobar,
     \label{eq:updateequation}
 \end{equation}
-where $DF(\Xbar)$ is the Jacobian matrix containing the partial derivatives of the constraint
-vector with respect to the free variable vector. With this update equation, the next iteration on
-the initial conditions is computed. If the number of free variables matches the number of
-constraints:
+where $DF(\Xbar)$ is the Jacobian containing the partial derivatives of the constraints with
+respect to the free variables. With the update equation, the next iteration on the initial
+conditions is computed. If the number of free variables matches that of the constraints:
 \begin{equation}
     \Xbar=\Xbar_{0}-DF(\Xbar_{0})^{-1}\Fbar(\Xbar_{0}),
     \label{eq:NRsolution}
 \end{equation}
-and this becomes the new iteration of the initial conditions. Ideally, upon each iteration, the
+and $\Xbar$ becomes the new iteration of the initial conditions. Ideally, upon each iteration, the
 norm of the constraint vector approaches closer to the tolerance. If the number of free variables
 is greater than the number of constraints, a minimum-norm solution is computed:
 \begin{equation}
@@ -127,8 +125,8 @@ and constraint vector:
     \Fbar(\Xbar)=\begin{bmatrix}    x_{f}-x_{d} &   y_{f}-y_{d} \end{bmatrix}^{T}=\zerobar.
     \label{eq:exconst}
 \end{equation}
-The Jacobian matrix is comprised of the partial derivatives of the constraint vector with respect
-to the free variable vector, in this case, a combination of the STM and time derivatives:
+The Jacobian is comprised of the partial derivatives of the constraint vector with respect to the
+free variable vector, in this example, a combination of the STM and time derivatives:
 \begin{equation}
     DF(\Xbar)=\begin{bmatrix}   \frac{\partial(x_{f}-x_{d})}{\partial\xdot_{0}} &   \frac{\partial(x_{f}-x_{d})}{\partial\ydot_{0}} &   \frac{\partial(x_{f}-x_{d})}{\partial\tau}  \\
                                 \frac{\partial(y_{f}-y_{d})}{\partial\xdot_{0}} &   \frac{\partial(y_{f}-y_{d})}{\partial\ydot_{0}} &   \frac{\partial(y_{f}-y_{d})}{\partial\tau}  \end{bmatrix}
@@ -141,11 +139,11 @@ are then applied with \cref{eq:minimumnorm} to iteratively solve for the free va
 satisfies the constraint vector and solves the provided boundary value problem.
 
 \subsection{Central Difference Method}
-The Newton-Raphson method uses partial derivatives to solve a targeting problem iteratively. These
-partial derivatives can be provided analytically (like in the previous example) or numerically
-using an approximation method such as central differencing. The numerical approach is used in this
-investigation to check analytical partial derivatives or when the analytical partials are overly
-complicated.
+The Newton-Raphson method utilizes partial derivatives to solve a targeting problem iteratively.
+These partial derivatives can be provided analytically (like in the previous example) or
+numerically through an approximation method such as central differencing. The numerical approach is
+employed in this investigation to check analytical partial derivatives or when the analytical
+partials are overly complicated.
 
 \begin{figure}[H]
     \centering
@@ -161,11 +159,11 @@ before and after the initial condition:
     \label{eq:slope}
 \end{equation}
 where $X_{i}$ is one of the components of the free variable vector and $\kappa$ is a small
-perturbation (this investigation uses the square root of the machine tolerance, $\sqrt{\epsilon}$).
-Each variable in the free variable vector is perturbed in both directions by $\kappa$, one at a
-time, and the constraint vector is evaluated at each new free variable vector and substituted into
-\cref{eq:slope} above. Perturbing all of the free variables individually makes up the numerical
-Jacobian:
+perturbation (this investigation selects the square root of the machine tolerance,
+$\sqrt{\epsilon}$). Each variable in the free variable vector is perturbed in both directions by
+$\kappa$, one at a time, and the constraint vector is evaluated at each new free variable vector
+and substituted into \cref{eq:slope} above. Perturbing all of the free variables individually makes
+up the numerical Jacobian:
 \begin{equation}
     DF(\Xbar_{0})=\begin{bmatrix}   D\Fbar_{1}(\Xbar_{0})   &   \dots   &   D\Fbar_{m}(\Xbar_{0})\end{bmatrix}.
     \label{eq:centraldifference}

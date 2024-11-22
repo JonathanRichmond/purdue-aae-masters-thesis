@@ -1,8 +1,8 @@
 \section{Invariant Manifolds}
-Dynamically unstable periodic orbits in the CR3BP have useful structures called invariant manifolds
-that represent a combination of the hyperbolic and oscillatory local flow near the orbit. With
-applications for transfer design, trajectories along these manifold surfaces asymptotically arrive
-at or depart from the periodic orbit ballistically. Perko provides the following theorem for
+Dynamically unstable periodic orbits in the CR3BP have valuable structures called invariant
+manifolds that represent a combination of the hyperbolic and oscillatory local flow near the orbit.
+With applications for transfer design, trajectories along these manifold surfaces asymptotically
+arrive at or depart from the periodic orbit ballistically. Perko provides the following theorem for
 stable/unstable manifolds for periodic orbits\cite{Perko:1991}:
 \begin{quote}
     Let $f\in C^{1}(E)$ where E is an open subset of $R^{n}$ containing a periodic orbit,
@@ -16,25 +16,27 @@ stable/unstable manifolds for periodic orbits\cite{Perko:1991}:
     \begin{equation}
         S(\Gamma)=\{\xbar\in N_{\delta}(\Gamma)|d(\phi_{t}(\xbar),\Gamma)\rightarrow0\text{ as }t\rightarrow\infty\text{ and }\phi_{t}(\xbar)\in N_{\delta}(\Gamma)\text{ for }t\geq0\},
     \end{equation}
-    is a $(k+1)$-dimensional, differentiable manifold which is positively invariant under the flow
+    is a $(k+1)$-dimensional, differentiable manifold that is positively invariant under the flow
     $\phi_{t}$ and the unstable manifold of $\Gamma$,
     \begin{equation}
         U(\Gamma)=\{\xbar\in N_{\delta}(\Gamma)|d(\phi_{t}(\xbar),\Gamma)\rightarrow0\text{ as }t\rightarrow-\infty\text{ and }\phi_{t}(\xbar)\in N_{\delta}(\Gamma)\text{ for }t\leq0\},
     \end{equation}
-    is an $(n-k)$-dimensional, differentiable manifold which is negatively invariant under the flow
+    is an $(n-k)$-dimensional, differentiable manifold that is negatively invariant under the flow
     $\phi_{t}$. Furthermore, the stable and unstable manifolds of $\Gamma$ intersect transversally
     in $\Gamma$.
 \end{quote}
-In layman's terms, if a periodic orbit is unstable (has eigenvalues greater than and lesser than
-$1$), then stable/unstable manifold surfaces exist that approach/leave the orbit asymptotically in
-forward time.
+In layman's terms, if a periodic orbit is unstable (it has eigenvalues with magnitudes greater than
+and lesser than $1$), then stable/unstable manifold surfaces exist that approach/leave the orbit
+asymptotically.
 
 \subsection{Approximating a Manifold Arc}
-Since these manifold structures asymptotically depart the orbit structure, no deterministic
-maneuver is required to transfer onto them. However, a consequence of this is that it is not
-possible to identify the exact location along the orbit from where a manifold trajectory departs.
-Therefore, a numerical process is necessary to approximate the stable/unstable subspace of the
-orbit to determine an appropriate initial condition for an arc along the manifold surface.
+Numerical methods are essential for approximating stable and unstable manifold arcs of periodic
+orbits. Since invariant manifold structures naturally depart the periodic solution asymptotically,
+a deterministic maneuver is not required to transfer onto them from the orbit. However, a
+consequence of the asymptotic behavior is that it is not trivial to identify the exact location
+along the orbit from where a manifold trajectory departs. Consequently, a numerical process is
+necessary to approximate the stable/unstable subspaces of the orbit to determine an appropriate
+initial condition for an arc along the manifold surface.
 
 Near the periodic orbit, the manifolds are tangent to their corresponding eigenspaces of the orbit.
 For a selected point on the periodic orbit:
@@ -44,38 +46,41 @@ For a selected point on the periodic orbit:
 \end{equation}
 where $\nubar(t_{0})$ is the eigenvector at the initial condition corresponding to the stable or
 unstable eigenvalue of the monodromy matrix. Once the stable/unstable eigenvector at the selected
-point has been obtained:
+point is obtained:
 \begin{equation}
     \nubar_{n}=\frac{\nubar}{\sqrt{\nu_{x}^{2}+\nu_{y}^{2}+\nu_{z}^{2}}},
     \label{eq:normeigenvector}
 \end{equation}
 where $\nu_{x}$ is the $x$-component of the eigenvector and $\nubar_{n}$ is the eigenvector
-normalized by the nondimensional distance from the selected point. Using the normalized
+normalized by the nondimensional distance from the selected point. Utilizing the normalized
 stable eigenvector to approximate the initial condition for a stable manifold arc:
 \begin{equation}
     \qbar^{S}=\qbar^{\Gamma}\pm d\nubar_{n}^{S},
     \label{eq:stablemanifold}
 \end{equation}
 where $\qbar^{\Gamma}$ is the state vector at the selected point along the periodic orbit and $d$
-is a step-off distance, generally chosen based on the specific CR3BP system. The scaled eigenvector
-can be either added to or subtracted from the periodic state as the eigenspace is bi-directional,
-creating two half-manifolds for each stability. To compute an initial condition for an unstable
-manifold arc, use \cref{eq:eigenvector}-\cref{eq:stablemanifold}, replacing the stable components
-for unstable ones. Stable manifold arcs are then propagated backward in time from the initial
-condition (arriving at the orbit in forward time) while unstable arcs are propagated forward in
-time from their initial condition.
+is a step-off distance, generally selected based on the specific CR3BP system. The scaled
+eigenvector is either added to or subtracted from the periodic state as the eigenspace is
+bi-directional, creating two half-manifolds for each stability. To compute an initial condition for
+an unstable manifold arc, employ \cref{eq:eigenvector}-\cref{eq:stablemanifold}, replacing the
+stable components for unstable ones. Stable manifold arcs are then propagated backward in time from
+the initial condition (arriving at the orbit in forward time) while unstable arcs are propagated
+forward in time from their initial condition. This step-off approach enables the approximation of
+initial conditions for invariant manifold arcs, facilitating their propagation in the CR3BP.
 
-As mentioned, the value for $d$ depends on the CR3BP system in use. This parameter needs to be
-sufficiently small to approximate the manifold structure well. However, if $d$ is too small, the
-trajectory will take longer than reasonable to arrive at/depart from the orbit since the dynamics
-are asymptotic\cite{Kakoi:2015}. \cref{tab:manifoldValues} shows the values of $d$ used for the
-systems in this investigation. As some examples of manifold structures, \cref{fig:LyapunovManifold}
-and \cref{fig:haloManifold} show the stable and unstable manifolds for a planar Lyapunov orbit and
-a spatial halo orbit, respectively, in the Earth-Moon system. Each figure also shows a single
-manifold arc overlayed on the full structure for reference. A more thorough explanation of manifold
-theory can be found in Perko\cite{Perko:1991}.
+As mentioned, the step-off value $d$ depends on the CR3BP system. The step-off parameter needs to
+be sufficiently small to approximate the manifold structure well. However, if $d$ is too small, the
+trajectory takes longer than reasonable to arrive at/depart from the orbit since the dynamics
+are asymptotic\cite{Kakoi:2015}. \cref{tab:manifoldValues} provides the values of $d$ employed for
+the systems in this investigation. As some examples of manifold structures,
+\cref{fig:LyapunovManifold} and \cref{fig:haloManifold} illustrate the stable and unstable
+manifolds for a planar Lyapunov orbit and a spatial halo orbit, respectively, in the Earth-Moon
+system. Each figure also provides a single manifold arc overlayed on the full structure for
+reference. A more thorough explanation of manifold theory is found in Perko\cite{Perko:1991}. These
+examples illustrate how appropriate selection of the step-off value ensures accurate representation
+of the manifold structures.
 
-\begin{table}[ht]
+\begin{table}[H]
     \centering
     \caption{Manifold-related values of relevant CR3BP systems.}
     \begin{tabular}{|c|c|c|}
@@ -88,14 +93,14 @@ theory can be found in Perko\cite{Perko:1991}.
     \label{tab:manifoldValues}
 \end{table}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/LyapunovManifold.pdf}
     \caption{Earth-Moon $L_{1}$ Lyapunov Manifolds ($C=3.05$).}
     \label{fig:LyapunovManifold}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/HaloManifold.pdf}
     \caption{Earth-Moon $L_{2}$ Halo Manifolds ($C=3.08$).}
@@ -104,11 +109,11 @@ theory can be found in Perko\cite{Perko:1991}.
 
 \subsection{Manifold Time-of-Flight}
 Since manifolds asymptotically arrive at/depart from their orbit, even with a reasonable step-off
-distance, they can take a long time to depart from the orbit vicinity. Under higher-fidelity
-dynamics, this period of time would be eliminated from the mission design, so it would be useful to
+distance, they take a long time to depart from the orbit vicinity. Under higher-fidelity dynamics,
+the period of time spent near the orbit is often absorbed by the dynamics, so it is beneficial to
 have a metric to determine when the manifold has departed the orbit vicinity. In this
 investigation, the momentum integral, or more specifically the momentum integral difference, is
-used to indicate orbit departure:
+employed to indicate orbit departure:
 \begin{equation}
     MI=\int_{t_{0}}^{t}(x\xdot+y\ydot+z\zdot)d\tau,
     \label{eq:momentumintegral}
@@ -121,6 +126,8 @@ the two values measures the similarity of the two trajectories:
     \label{eq:momentumdifference}
 \end{equation}
 Once $\Delta MI$ has reached a threshold value (determined for each system), the trajectory is
-considered departed from the orbit\cite{Guzzetti:2017}. Thus, the time it takes for the manifold to
-depart can be subtracted from the time-of-flight along the manifold arc starting from the step-off.
-\cref{tab:manifoldValues} shows the threshold values chosen for each system in this investigation.
+considered departed from the orbit\cite{Guzzetti:2017}. Consequently, the time it takes for the
+manifold to depart is subtracted from the time-of-flight along the manifold arc starting from the
+step-off. \cref{tab:manifoldValues} provides the threshold values selected for each system in this
+investigation. The momentum integral difference approach ensures consistent identification of
+manifold departure, enabling accurate trajectory modeling under different dynamics.
