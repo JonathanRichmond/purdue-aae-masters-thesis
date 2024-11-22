@@ -1,32 +1,32 @@
 \section{Periodic Orbits}
-Using the multi-variable Newton-Raphson scheme described above, periodic solutions can be targeted
-in a CR3BP system. In the CR3BP, these periodic solutions exist as members of families that share
+With the multi-variable Newton-Raphson scheme described above, periodic solutions are targeted in a
+CR3BP system. In the CR3BP, these periodic solutions exist as members of families that share
 similar geometric characteristics. Some of these orbit families are symmetric about a plane or axis
 in the rotating frame and this information can be utilized in the targeting process. In addition,
 the initial conditions for these families can be obtained through a variety of methods including
 linear variational equations about the Lagrange points and bifurcations from other orbit families.
-All of the orbit families used in this investigation and shown here were selected for their
-relative instability in the Earth-Moon CR3BP. For some example initial conditions and computation
-strategies for these orbit families and others, see Grebow's and Sadaka's theses and NASA Jet
-Propulsion Laboratory's CR3BP orbit database\cite{Grebow:2006,Sadaka:2023,Park}.
+All of the orbit families used in this investigation and shown here are selected for their relative
+instability in the Earth-Moon CR3BP. For some example initial conditions and computation strategies
+for orbit families, see Grebow's\cite{Grebow:2006} and Sadaka's\cite{Sadaka:2023} theses and the
+NASA Jet Propulsion Laboratory CR3BP orbit database\cite{Park}.
 
 \subsection{Lyapunov Orbits}
 \phantomsection
 \subsubsection{A Lyapunov Targeter}
-To demonstrate the periodic orbit targeting process, the Newton-Raphson scheme will be used to
-solve for a periodic orbit in the $xy$-plane of the rotating frame around the first Lagrange point.
-This family of solutions is known as the $L_{1}$ Lyapunov family and they are symmetric about the
-$xz$-plane. Therefore, instead of targeting the full orbit, it is only necessary to target half of
-it, from one perpendicular crossing of the $xz$-plane to the next. To target one of these orbits at
-a specified energy level (Jacobi constant), consider the free variable vector:
+To demonstrate the periodic orbit targeting process, a Newton-Raphson scheme is used to solve for a
+periodic orbit in the $xy$-plane of the rotating frame around the first Lagrange point. This family
+of solutions is known as the $L_{1}$ Lyapunov family and they are symmetric about the $xz$-plane.
+Consequently, instead of targeting the full orbit, it is only necessary to target half of it, from
+one perpendicular crossing of the $xz$-plane to the next. To target one of these orbits at a
+specified energy level (Jacobi constant), consider the free variable vector:
 \begin{equation}
     \Xbar=\begin{bmatrix}   x_{0}   &   \ydot_{0}   &   \tau    \end{bmatrix}^{T}.
     \label{eq:Lyapunovfreevar}
 \end{equation}
 Since the boundary value problem being solved starts from a perpendicular crossing, it is only
-necessary to allow $x_{0}$ and $\ydot_{0}$ to vary as the rest of the initial states will all be
-$0$. In \cref{eq:Lyapunovfreevar}, $\tau$ represents the nondimensional propagation time (TOF) of
-the initial conditions. To target another perpendicular crossing for the endpoint of the trajectory
+necessary to allow $x_{0}$ and $\ydot_{0}$ to vary as the rest of the initial states are all $0$.
+In \cref{eq:Lyapunovfreevar}, $\tau$ represents the nondimensional propagation time (TOF) of the
+initial conditions. To target another perpendicular crossing for the endpoint of the trajectory
 arc, the following constraint vector is used:
 \begin{equation}
     \Fbar(\Xbar)=\begin{bmatrix}    y_{f}   &   \xdot_{f}   &   C-C_{d} \end{bmatrix}^{T}=\zerobar,
@@ -44,12 +44,12 @@ partial derivatives of the Jacobi constant with respect to state variables:
                                 2x_{0}-\frac{2(x_{0}+\mu)(1-\mu)}{d^{3}}-\frac{2\mu(x_{0}-1+\mu)}{r^{3}}    &   -2\ydot_{0}                                 &   0                                       \end{bmatrix}.
     \label{eq:Lyapunovjacobian}
 \end{equation}
-This Jacobian matrix can then be used with \cref{eq:NRsolution} to iteratively solve for the free
+This Jacobian matrix is then inserted into \cref{eq:NRsolution} to iteratively solve for the free
 variable vector $\Xbar$ that solves the provided problem. This provides the initial state and half
 of the propagation time for a periodic Lyapunov orbit.
 
 \subsubsection{Lyapunov Initial Guess}
-An initial guess for a Lyapunov orbit close to the Lagrange point can come from variational
+An initial guess for a Lyapunov orbit close to the Lagrange point comes from the variational
 equations of motion, linearized about the equilibrium point:
 \begin{equation}
     x_{0}=x_{L}+\xi,
@@ -64,21 +64,23 @@ where $\xi$ is a chosen variation from the $x$-value of the Lagrange point,
     \beta_{1}=2-\frac{\frac{\partial U}{\partial x\partial x}+\frac{\partial U}{\partial y\partial y}}{2},
     \label{eq:beta1}
 \end{equation}
+\vspace{1mm}
 \begin{equation}
     \beta_{2}=\sqrt{-\frac{\partial U}{\partial x\partial x}\frac{\partial U}{\partial y\partial y}},
     \label{eq:beta2}
 \end{equation}
+\vspace{1mm}
 \begin{equation}
     s=\sqrt{\beta_{1}+\sqrt{\beta_{1}^{2}+\beta_{2}^{2}}},
     \label{eq:s}
 \end{equation}
+\vspace{1mm}
 \begin{equation}
     \beta_{3}=\frac{s^{2}+\frac{\partial U}{\partial x\partial x}}{2s}.
     \label{eq:beta3}
 \end{equation}
 The last part of the initial guess for the free variable vector is the half-period of the orbit
-$\tau$. This can be approximated by propagating the initial state guess until it reaches the
-$x$-axis.
+$\tau$. This is approximated by propagating the initial state guess until it reaches the $x$-axis.
 
 \subsubsection{Converged Lyapunov Orbit}
 The linear variational equations only approximate the dynamics very close to the Lagrange point.
@@ -91,65 +93,69 @@ the Earth-Moon system:
 and from the guess for the initial state, $C_{d}=3.186877$. This initial free variable guess is
 propagated using the CR3BP equations of motion and is represented by the dashed curve in
 \cref{fig:Lyapunov}. After targeting a perpendicular crossing using the targeter described above,
-the solution can be propagated (for $2\tau$) to obtain the full periodic Lyapunov orbit, shown as
-a closed, solid curve in \cref{fig:Lyapunov}. Note that while the energy of the converged solution
+the solution is propagated (for $2\tau$) to obtain the full periodic Lyapunov orbit, shown as a
+closed, solid curve in \cref{fig:Lyapunov}. Note that while the energy of the converged solution
 matches that of the initial guess, the $x$- and $\ydot$-values have shifted slightly.
 
-\begin{figure}[ht]
+\subsubsection{Natural Parameter Continuation}
+The process described above produces a single periodic solution near the Lagrange point. To compute
+more solutions (orbits) in the family, especially further away from the Lagrange point where the linear
+variational equations no longer apply, converged solutions are used in a continuation scheme to
+compute other family members. This investigation utilizes natural parameter continuation, where one
+of the parameters of a converged solution is changed by a small amount. This new guess for an orbit
+is then converged, and a new solution is obtained. This continuation process is then repeated until
+the scheme reaches a natural/dynamical end or a desired orbit is reached. Natural parameters of the
+orbit family include (but are not limited to) components of the initial state, the period, or the
+Jacobi constant. \cref{fig:L1Lyapunov} shows a large portion of the $L_{1}$ Lyapunov family in the
+Earth-Moon system, continued in Jacobi constant from the orbit in \cref{fig:Lyapunov}. Lyapunov
+families also exist about $L_{2}$ and $L_{3}$ and are computed via the same process. Since $L_{2}$
+Lyapunov orbits are also used in this investigation, they are shown in \cref{fig:L2Lyapunov}. This
+continuation method enables the systematic exploration of orbit families, providing a comprehensive
+understanding of their dynamics and characteristics within the CR3BP.
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{figures/Lyapunov.pdf}
     \caption{Converged periodic Lyapunov orbit in the Earth-Moon barycentric rotating frame.}
     \label{fig:Lyapunov}
 \end{figure}
 
-\subsubsection{Natural Parameter Continuation}
-The process described above produces a single solution near the Lagrange point. To compute more
-solutions (orbits) in the family, especially further away from the Lagrange point where the linear
-variational equations no longer apply, converged solutions can be used in a continuation scheme to
-find other family members. This investigation utilizes natural parameter continuation, where one of
-the parameters of a converged solution is changed by a small amount. This new guess for an orbit is
-then converged, and a new solution is obtained. This continuation process can then be repeated
-until the scheme reaches a natural/dynamical end or a desired orbit is reached. Natural parameters
-of the orbit include (but are not limited to) components of the initial state, the period, or the
-Jacobi constant. \cref{fig:L1Lyapunov} shows a large portion of the $L_{1}$ Lyapunov family in the
-Earth-Moon system, continued in Jacobi constant from the orbit in \cref{fig:Lyapunov}. Lyapunov
-families also exist about $L_{2}$ and $L_{3}$ and can be computed via the same process. Since
-$L_{2}$ Lyapunovs are also used in this investigation, they are shown in \cref{fig:L2Lyapunov}.
+\subsection{Orbital Stability}
+Before discussing other orbit families, it is important to introduce orbital stability as it leads
+to orbit family bifurcations and another way to generate new orbit families. Orbital stability
+helps describe the characteristics of the orbit and the surrounding dynamics. The stability of an
+orbit also informs the best transfer design strategies to minimize the $\Delta v$ cost.
+Understanding orbital stability and its consequences is crucial for identifying bifurcations,
+generating new orbit families, and designing efficient transfers.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/L1LyapunovFamily.pdf}
     \caption{Earth-Moon $L_{1}$ Lyapunov orbit family.}
     \label{fig:L1Lyapunov}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/L2LyapunovFamily.pdf}
     \caption{Earth-Moon $L_{2}$ Lyapunov orbit family.}
     \label{fig:L2Lyapunov}
 \end{figure}
 
-\subsection{Orbital Stability}
-Before discussing other orbit families, it is important to introduce orbital stability as it leads
-to orbit family bifurcations and another way to generate new orbit families. Orbital stability
-helps describe the characteristics of the orbit and the surrounding dynamics. The stability of an
-orbit also determines the best transfer design strategies to minimize the $\Delta v$ cost. 
-
-\phantomsection
-\subsubsection{Monodromy Matrix}
+\subsubsection{The Monodromy Matrix}
 The STM of one revolution of a periodic orbit in the CR3BP, $\Phi(t_{0}+\mathbb{P},t_{0})$, is
-called the monodromy matrix, and discretely maps the linear growth of perturbations. Some
-useful properties of the monodromy matrix are that it is symplectic, it has a determinant of $1$,
-and its eigenvalues occur in reciprocal pairs\cite{ZimovanSpreen:2021}. Since the trajectory is
-periodic, two of the eigenvalues (one pair) are always $1$, denoted the trivial pair, and
-correspond to the trajectory's periodicity and membership in a family of solutions.
+called the monodromy matrix, and discretely maps the linear growth of perturbations from the
+periodic solution. Some useful properties of the monodromy matrix are that it is symplectic, it has
+a determinant of $1$, and its eigenvalues occur in reciprocal pairs\cite{ZimovanSpreen:2021}. Since
+the trajectory is periodic in the CR3BP, two of the eigenvalues (one pair) are always $1$, denoted
+the trivial pair, and correspond to the trajectory's periodicity and membership in a family of
+solutions.
 
 The stability of the orbit is characterized by the remaining two pairs of eigenvalues. Since the
-monodromy matrix is a discrete-time mapping, eigenvalues that lie within the unit circle (magnitude
-less than $1$) in the complex plane are stable and those outside the unit circle are unstable.
-Perturbations in the stable subspace will flow back toward the orbit, while perturbations in the
-unstable subspace will depart the orbit. If the eigenvalues lie directly on the unit circle, then
+monodromy matrix is a discrete-time mapping of the flow, eigenvalues that lie within the unit
+circle (magnitude less than $1$) in the complex plane are stable and those outside the unit circle
+are unstable. Perturbations in the stable subspace flow back toward the orbit, while perturbations
+in the unstable subspace depart the orbit. If the eigenvalues lie directly on the unit circle, then
 the corresponding flow is in the center subspace and remains bounded around the orbit. When the
 stability of an eigenvalue pair changes, it can indicate a change in the characteristics of orbits
 within a family and sometimes leads to a bifurcation in the family, discussed later.
@@ -163,20 +169,21 @@ stability of the members may change, the eigenvalues experience a smooth (but no
 monotonic) evolution.
 
 \subsubsection{Stability Index}
-A variety of metrics exist to more succinctly portray the stability of orbits, rather than viewing
-all of the eigenvalues. One such metric is a stability index, of which there are a variety of
-definitions whose usefulness vary depending on the application. In this investigation, the focus is
-on just the overall stability of the orbit --- whether it is unstable or marginally stable --- so a
-metric that can quickly differentiate between these behaviors suffices. Therefore, the following
-definition is used\cite{Power:2019}:
+A variety of metrics exist to more succinctly portray the stability of orbits, rather than
+evaluating all of the eigenvalues. One such metric is a stability index, of which there are a
+variety of definitions whose usefulness vary depending on the application. In this investigation,
+the focus is on just the overall stability of the orbit --- whether it is unstable or marginally
+stable --- so a metric that can quickly differentiate between these behaviors suffices.
+Consequently, the following definition of the stability index is employed:
 \begin{equation}
     \varsigma=||\bar{\lambda}||_{\infty},
     \label{eq:stabilityindex}
 \end{equation}
 where $\bar{\lambda}$ is a vector of the eigenvalues of the monodromy matrix and the infinity norm
-returns the magnitude of the largest (magnitude) element of the vector. With this definition,
-$\varsigma>1$ indicates an unstable orbit and $\varsigma=1$ indicates one that is marginally
-stable. Other definitions can be found in Zimovan Spreen's work\cite{ZimovanSpreen:2021}.
+returns the magnitude of the largest (magnitude) element of the vector\cite{Power:2019}. With this
+definition, $\varsigma>1$ indicates an unstable orbit and $\varsigma=1$ indicates one that is
+marginally stable. Other stability index definitions are utilized by Zimovan
+Spreen\cite{ZimovanSpreen:2021}.
 
 Like the eigenvalues themselves, the evolution of the stability index over an orbit family is
 smooth. \cref{fig:stability} shows the stability indices for the members of the $L_{1}$ (a) and
@@ -186,7 +193,7 @@ faster growth. Note that all of the members of both of these families are unstab
 are stability changes among individual eigenvalues within each family that can lead to
 bifurcations.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \begin{subfigure}[h]{0.4\linewidth}
         \includegraphics[width=\textwidth]{figures/L1LyapunovStability.pdf}
         \caption{$L_{1}$}
@@ -201,19 +208,21 @@ bifurcations.
 \end{figure}
 
 \subsubsection{Time Constant}
-Another useful metric of stability is the time constant, which approximates how long it takes, in
-time units or in orbit revolutions, for a perturbation to grow by a factor of $e$:
+Another useful metric of stability is the time constant, which approximates how long it takes for a
+perturbation to grow by a factor of $e$. In terms of orbit revolutions:
 \begin{equation}
-    \Upsilon=\frac{1}{\ln\varsigma},
+    \Upsilon=\frac{1}{\ln\varsigma}.
     \label{eq:timeconstant}
 \end{equation}
-where the dimensions are orbit revolutions. This equation can be multiplied by the period of the
-orbit $\mathbb{P}$ to produce the time constant in time units. \cref{fig:timeConstant} shows the
-time constant evolution of both Lyapunov families in orbit revolutions. Note that a larger time
-constant indicates that it takes longer for a perturbation, meaning that the orbit is less
-unstable, and a marginally stable orbit has an infinite time constant.
+This equation is multiplied by the period of the orbit $\mathbb{P}$ to produce the time constant in
+time units. \cref{fig:timeConstant} shows the time constant evolution of both Lyapunov families in
+orbit revolutions. Note that a larger time constant indicates that it takes longer for a
+perturbation to grow, indicating that the orbit is less unstable, and a marginally stable orbit has
+an infinite time constant. This parameter provides a valuable measure of orbital stability,
+offering insights into the susceptibility of an orbit to perturbations and its long-term dynamical
+behavior.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \begin{subfigure}[h]{0.4\linewidth}
         \includegraphics[width=\textwidth]{figures/L1LyapunovTimeConstant.pdf}
         \caption{$L_{1}$}
@@ -228,15 +237,16 @@ unstable, and a marginally stable orbit has an infinite time constant.
 \end{figure}
 
 \subsubsection{Bifucations}
-Within the context of the CR3BP, bifurcation theory can be used to detect changes in orbit
-stability characteristics within a family that can sometimes lead to the generation of orbit
-families that branch off from the original family. Zimovan Spreen provides a more thorough
-analysis of how bifurcation theory can be applied to the CR3BP so only the information most
-relevant to this investigation will be provided here\cite{ZimovanSpreen:2021}.
+Within the context of the CR3BP, bifurcation theory is applied to detect changes in the orbit
+stability characteristics within a family that sometimes lead to the generation of new orbit
+families. These new solutions branch off from the original family and generally have different
+characteristics. Zimovan Spreen provides a more thorough analysis of how bifurcation theory can be
+applied to the CR3BP, so only the information most relevant to this investigation will be provided
+here\cite{ZimovanSpreen:2021}.
 
 Two main bifurcation types are relevant to the orbits used in this analysis:
 \begin{itemize}
-    \item \textbf{Tangent bifurcations} occur when an eigenvalue pair goes to $1$, either from the
+    \item \textbf{Tangent bifurcations} occur when an eigenvalue pair reaches $1$, either from the
     unit circle or the real axis. With a cyclic fold tangent bifurcation, which occurs at an
     extremum in the Jacobi constant, the stability of the eigenvalues changes, but there is no new
     family of solutions created. Pitchfork tangent bifurcations produce two new families that have
@@ -245,37 +255,39 @@ Two main bifurcation types are relevant to the orbits used in this analysis:
     family.
     \item \textbf{Period-multiplying bifurcations} occur when an eigenvalue pair reaches a root of
     $1$ ($\sqrt{1}$, $\sqrt[3]{1}$, $\sqrt[m]{1}$, etc.). In general, this produces a new family
-    with a period of $m$ times the original, but not necessarily a change in stability. The most
-    commonly seen subtype is the period-doubling bifurcation, where the pair of eigenvalues meets
-    at $-1$, either from the unit circle or the real axis. This results in a change in the
-    stability of the eigenvalues and a new family that has double the period of the original
-    family.
+    with a period $m$ times the original, but not necessarily a change in stability. The most
+    commonly seen multiple is the period-doubling bifurcation, where the pair of eigenvalues meets
+    at $-1$ either from the unit circle or the real axis. This results in a change in the
+    stability of the eigenvalues and a new family whose bifurcating member has double the period of
+    the original bifurcating orbit.
 \end{itemize}
 There are other methods of detecting bifurcations beyond examining the evolution of the eigenvalues
-such as Broucke stability or bifurcation diagrams that are also described in Zimovan
+such as Broucke stability or bifurcation diagrams that are also described by Zimovan
 Spreen\cite{ZimovanSpreen:2021}.
 
 \subsubsection{New Family Generation from Bifurcation}
-To find the initial conditions for an orbit in a new family from a bifurcation, first, the precise
-bifurcating orbit (within a tolerance) must be obtained. This can be done through a simple
-bisection algorithm. The Jacobian matrix of this bifurcating orbit should have an additional
-nullspace compared to the other orbits in the family since another pair of eigenvalues (besides the
-trivial pair) is at $1$. Note that for a period-multiplying bifurcation, the orbit must be
+To find the initial conditions of an orbit in a new bifurcated family, first the precise
+bifurcating orbit (within a specified tolerance) is obtained. This is achieved through a simple
+bisection algorithm. The Jacobian matrix of this bifurcating orbit has an additional nullspace
+compared to the other orbits in the family since another pair of eigenvalues (besides the trivial
+pair) have values of $1$. Note that for a period-multiplying bifurcation, the orbit must be
 propagated for $m$ revolutions to obtain the proper Jacobian matrix. When this is the case, one of
 the nullspace vectors points in the direction of continuing the old family, while the other vector
-indicates a direction for the new family.
+indicates a direction for the new family. This process enables the precise identification of
+bifurcating orbits, providing a foundation for exploring potential new orbit families.
 
-Using a singular value decomposition (SVD), this new nullspace direction can be identified by the
-right singular vector of $DF$ that corresponds to the additional nullspace. Stepping in this
-direction from the bifurcating orbit's initial conditions and correcting for a periodic solution
-should result in a new periodic orbit belonging to the new family. This approach is also known as
-pseudo-arclength continuation and the new member can then be continued using any scheme to obtain
-the new family.
+To identify another orbit in a new bifurcated family, a singular value decomposition (SVD) of the
+monodromy matrix provides the new nullspace direction as the right singular vector of $DF$
+corresponding to the new singular value of $0$. Stepping in this direction from the initial
+conditions of the bifurcating orbit and correcting for a periodic solution results in a new
+periodic orbit belonging to the new family. This approach is also known as pseudo-arclength
+continuation but the new member is then continued using any available scheme to obtain more of the
+new family.
 
 \subsection{Halo Orbits}
 \phantomsection
 \subsubsection{A Halo Targeter}
-Similar to Lyapunov orbits, halo orbits are symmetric about the $xz$-plane although they are
+Similar to Lyapunov orbits, halo orbits are symmetric about the $xz$-plane, although they are
 spatial in the rotating frame and not limited to the $xy$-plane. This again allows for
 targeting only half of the periodic orbit, from one perpendicular crossing to the next. Since there
 is now a $z$-component to the orbits, it is helpful to introduce a new free variable and constraint
@@ -288,6 +300,7 @@ for the halo targeter:
     \Fbar(\Xbar)=\begin{bmatrix}    y_{f}   &   \xdot_{f}   &   \zdot_{f}   &   C-C_{d} \end{bmatrix}^{T}=\zerobar,
     \label{eq:haloconst}
 \end{equation}
+\vspace{1mm}
 \begin{equation}
     DF(\Xbar)=\begin{bmatrix}   \phi_{21}                                                                   &   \phi_{23}                                               &   \phi_{25}                                   &   \ydot_{f}                               \\
                                 \phi_{41}                                                                   &   \phi_{43}                                               &   \phi_{45}                                   &   \xddot_{f}                              \\
@@ -295,20 +308,21 @@ for the halo targeter:
                                 2x_{0}-\frac{2(x_{0}+\mu)(1-\mu)}{d^{3}}-\frac{2\mu(x_{0}-1+\mu)}{r^{3}}    &   -\frac{2z_{0}(1-\mu)}{d^{3}}-\frac{2z_{0}\mu}{r^{3}}    &   -2\ydot_{0}                                 &   0                                       \end{bmatrix}.
     \label{eq:halojacobian}
 \end{equation}
-The result of this targeting will provide the initial state ($y_{0}=\xdot_{0}=\zdot_{0}=0$) and
-half of the propagation time for a periodic halo orbit.
+The result of this targeting provides the initial state ($y_{0}=\xdot_{0}=\zdot_{0}=0$) and half of
+the propagation time for a periodic halo orbit.
 
 \subsubsection{Converged Halo Families}
-The initial guess for a halo orbit comes from a bifurcating orbit in a Lyapunov family. At
-$C\approx3.174352$, the $L_{1}$ Lyapunov family has a tangent bifurcation and the $L_{1}$ halo
-family is formed. The pseudo-arclength method for generating an initial guess can be used as
-described above to obtain the initial guess for the initial state, propagation time, and Jacobi
-constant. Using natural parameter continuation, more of the family is produced, shown in
-\cref{fig:L1Halo}. Since the Lyapunov orbit can bifurcate above or below the $xy$-plane, two halves
-of the family are formed. \cref{fig:L1Halo} is denoted the $L_{1}$ northern halos because most of
-the orbit is spent north (in the rotating frame) of the Moon.
+An initial guess for a halo orbit comes from one of the bifurcating orbits in a Lyapunov family. At
+$C\approx3.174352$, the $L_{1}$ Lyapunov family has a tangent bifurcation where the $L_{1}$ halo
+family is formed. The pseudo-arclength method for generating an initial guess is used as described
+above to obtain the initial guess for the initial state, propagation time, and Jacobi constant.
+Using natural parameter continuation, more of the family is produced, shown in \cref{fig:L1Halo}.
+Since the Lyapunov orbit bifurcates above and below the $xy$-plane, two halves of the family are
+formed. \cref{fig:L1Halo} is denoted the $L_{1}$ northern halo orbits because most of each orbit is
+spent north (in the rotating frame) of the Moon. This method efficiently generates and extends the
+halo families.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/L1HaloFamily.pdf}
     \caption{Earth-Moon $L_{1}$ northern halo orbit family.}
@@ -316,18 +330,18 @@ the orbit is spent north (in the rotating frame) of the Moon.
 \end{figure}
 
 \cref{fig:L2Halo} shows the $L_{2}$ northern halo family, generated in the same way as the $L_{1}$
-halos but from the $L_{2}$ Lyapunov family. Note that these halo families are not monotonic in
-Jacobi constant. The stability indices for both families are shown in \cref{fig:haloStability}.
-$L_{3}$ halos also exist, but are not used in this investigation.
+halo orbits but from the $L_{2}$ Lyapunov family. Note that these halo families are not monotonic
+in Jacobi constant. The stability indices for both families are shown in \cref{fig:haloStability}.
+$L_{3}$ halo orbits also exist, but are not utilized in this investigation.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/L2HaloFamily.pdf}
     \caption{Earth-Moon $L_{2}$ northern halo orbit family.}
     \label{fig:L2Halo}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \begin{subfigure}[h]{0.4\linewidth}
         \includegraphics[width=\textwidth]{figures/L1HaloStability.pdf}
         \caption{$L_{1}$}
