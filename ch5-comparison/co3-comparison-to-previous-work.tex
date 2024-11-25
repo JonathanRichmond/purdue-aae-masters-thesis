@@ -1,20 +1,36 @@
-\section{Comparison to Previous Work}
-As mentioned previously in Section 1.3, several authors have investigated transfers between Earth
-or cislunar space and Mars. These studies use a variety of methodologies to accomplish these
-transfers, leveraging direct impulsive burns, low-thrust, and/or invariant manifolds. Some of their
-relevant findings are provided here for comparison to the results of this investigation.
+\section{Comparison to Previous Work}\label{sec:PreviousWork}
+As mentioned previously, several authors have investigated transfers between Earth or cislunar
+space and Mars. The studies employ a variety of methodologies to accomplish their transfers,
+leveraging direct impulsive burns, low-thrust, and/or invariant manifolds. Some of their relevant
+findings are provided here for comparison to the results of this investigation. It is important to
+note that each of the transfers from these investigations, whose results are consolidated into
+\cref{tab:transferCosts}, utilizes a different methodology. Some employ an optimizer, others
+leverage invariant manifolds, and the number and placement of maneuvers vary from transfer to
+transfer. Additionally, each one departs from and arrives at different locations, making it
+difficult to directly compare the total maneuver cost and TOF values. Many of the investigations
+also assume that the orbital planes of Earth and Mars are coplanar, neglecting the nontrivial plane
+change maneuver required when considering true orbital planes. Consequently, a direct comparison
+cannot be made between all of the methodologies. However, they do provide some intuition for the
+costs of similar interplanetary transfer types.
 
-It is important to note that each of the transfers from these investigations, whose results are
-consolidated into \cref{tab:transferCosts}, uses a different methodology. Some use an optimizer,
-others leverage invariant manifolds, and the number and placement of maneuvers vary from transfer
-to transfer. Additionally, each one departs from and arrives at different locations, making it
-difficult to directly compare the total maneuver $\Delta v$ and TOF values. Many of the
-investigations also assume that the orbital planes of Earth and Mars are coplanar, neglecting the
-nontrivial plane change maneuver required when considering true orbital planes. Therefore, a direct
-comparison cannot be made between all of these methodologies. However, they do provide some
-intuition for the costs of similar interplanetary transfers.
+Kakoi et al. inspires the transfer methodology between the Earth-Moon and Sun-Earth CR3BP
+models in this investigation\cite{Kakoi:2014,Kakoi:2015}. Their investigation focused on comparing
+different transfer scenarios departing from Earth-Moon $L_{1}$ and $L_{2}$ halo orbits. While the
+strategies employed are slightly different, Kakoi et al. construct transfers that utilize Sun-Earth
+unstable invariant manifold arcs and compare them to direct transfers from Earth-Moon halo orbits.
+As some sample values for an $L_{2}$ halo departure, their investigation found that a transfer
+along a Sun-Earth halo unstable manifold arc required a total maneuver cost of $1.604$ km/s and a
+total TOF of $1762$ days ($4.82$ years). Note that in their investigation, a maneuver is applied
+along the departure manifold arc to speed up the transfer and the final destination is the
+ephemeris location of Mars, cutting off the long arrival time of the stable manifold arc. On the
+other hand, directly utilizing an unstable manifold arc from the Earth-Moon halo orbit resulted in
+a transfer with a $\Delta v$ of $0.921$ km/s and a TOF of $1784$ days ($4.88$
+years)\cite{Kakoi:2015}. The direct transfer again employs a maneuver along the departure manifold
+arc, as well as an inclination change maneuver during an Earth-flyby. Other direct transfers
+provided in the study have lower and higher times-of-flight and maneuver costs, demonstrating that
+there are a wide variety of available transfer options.
 
-\begin{table}[ht]
+\begin{table}[H]
     \centering
     \caption{Representative transfer costs from previous and current investigations.}
     \begin{tabular}{|c|c|c|c|c|}
@@ -34,62 +50,49 @@ intuition for the costs of similar interplanetary transfers.
     \label{tab:transferCosts}
 \end{table}
 
-Kakoi et al. inspired the transfer methodology between the Earth-Moon and Sun-Earth CR3BP
-models\cite{Kakoi:2014,Kakoi:2015}. Their investigation focused on comparing different transfer
-scenarios departing from Earth-Moon $L_{1}$ and $L_{2}$ halo orbits. While the strategies used are
-slightly different, Kakoi et al. construct transfers that utilize Sun-Earth unstable invariant
-manifolds and compare them to direct transfers from Earth-Moon halo orbits. As some sample values
-for an $L_{2}$ halo departure, their investigation found that a transfer along a Sun-Earth halo
-invariant manifold required a total maneuver cost of $1.604$ km/s and a total TOF of $1762$ days
-($4.82$ years). Note that in their investigation, a maneuver is applied along the departure
-manifold arc to speed up the transfer and the final destination is Mars' location, cutting off the
-long arrival time of the stable manifold arc. On the other hand, directly using the unstable
-manifold from the Earth-Moon halo orbit resulted in a transfer with a $\Delta v$ of $0.921$ km/s
-and a TOF of $1784$ days ($4.88$ years)\cite{Kakoi:2015}. This direct transfer again uses a
-maneuver along the departure manifold arc, as well as an inclination change maneuver during an
-Earth-flyby. Other direct transfers provided in the study have lower and higher times-of-flight and
-maneuver costs, showing that there is a wide variety of available options.
-
 The results of the current investigation are consistent with Kakoi's conclusions. Utilizing
-invariant manifolds can decrease transfer maneuver $\Delta v$ values while increasing the
-TOF\cite{Kakoi:2015}. This is shown here via comparison to the results of previous investigations
-and direct comparison to the patched conic modified Hohmann solution. While Kakoi's transfer data
-cannot be directly compared to those from this investigation, the general conclusion of Kakoi et
-al. is that the utilization of direct Earth-Moon manifolds allows for more flexible departure dates
-and transfer options, while the comparison of transfers with direct departures to those with
-Sun-Earth staging orbits is orbit-dependent\cite{Kakoi:2014,Kakoi:2015}. This investigation
-supports the flexibility of the direct transfer methodology and concludes that the maneuver cost
-comparison is orbit-dependent. However, with the MMAT strategy used to connect the planetary system
-invariant manifolds, it is shown that the options with direct departures have shorter
-times-of-flight compared to when an intermediate staging orbit is included.
+invariant manifold arcs decreases transfer maneuver $\Delta v$ values while increasing the
+TOF\cite{Kakoi:2015}, compared here to the results of previous investigations and direct comparison
+to the Keplerian modified Hohmann transfer solution. While Kakoi's transfer data cannot be directly
+compared to those from this investigation, the general conclusion of Kakoi et al. is that the
+utilization of direct Earth-Moon manifolds allows for more flexible departure dates and transfer
+options, while the comparison of transfers with direct departures to those with Sun-Earth staging
+orbits is orbit-dependent\cite{Kakoi:2014,Kakoi:2015}. This investigation supports the flexibility
+of the direct transfer methodology and concludes that the maneuver cost comparison is
+orbit-dependent. However, employing the MMAT strategy to connect the planetary system invariant
+manifold arcs, it appears that the options with direct departures have shorter times-of-flight
+compared to when an intermediate staging orbit is included. This investigation reinforces Kakoi's
+findings, highlighting the flexibility and reduced times-of-flight of direct transfers, while also
+confirming that maneuver costs remain highly orbit-dependent.
 
 From a direct comparison between the $\Delta v$ and TOF results of this investigation and the
-previous studies summarized in \cref{tab:transferCosts}, incorporating invariant manifolds can
-decrease maneuver cost on the order of $1$ km/s compared to modified Hohmann transfers, Lambert
-arcs\cite{Eagle:2022}, and optimized direct solutions from LEO to LMO\cite{Miele:1999}. As
-explained, the manifold arcs do significantly increase the transfer TOF, but this is an acceptable
-trade-off for some mission scenarios and depends on the transfer design. The results are also
-consistent with some previous manifold transfers between CR3BP
-orbits\cite{Cavallari:2019,Canales:2022}.
+previous studies summarized in \cref{tab:transferCosts}, incorporating invariant manifold arcs
+decreases maneuver cost on the order of $1$ km/s compared to a modified Hohmann transfer, Lambert
+arcs\cite{Eagle:2022}, and optimized direct solutions between LEO and LMO\cite{Miele:1999}. As
+explained, the manifold arcs do significantly increase the transfer TOF, an acceptable trade-off
+for some mission scenarios, depending on the transfer design. The results are also consistent with
+some previous manifold arc transfers between CR3BP orbits\cite{Cavallari:2019,Canales:2022}.
 
-At first glance, several of the entries in \cref{tab:transferCosts} that utilize manifolds appear
-to have better results than those produced by this investigation. However, the transfers cannot be
-directly compared because of discrepancies between the assumptions and dynamical models utilized as
-well as different origins/destinations. All of these investigations besides the one from Kakoi et
-al. assume that the Sun-Earth and Sun-Mars systems are coplanar and depart from the Sun-Earth
-system instead of cislunar space\cite{Topputo:2005,Haibin:2014}. This results in a lower $\Delta v$
-and TOF for those transfers by ignoring the first leg of the journey and the inclination change
-maneuver. Kakoi's transfers target Mars' position instead of terminating in a nearby orbit,
-eliminating the need for arrival maneuvers and manifold arcs that end $\Delta v$ and
-time\cite{Kakoi:2014}. Even with those simplifying assumptions, the results from these
-investigations that include invariant manifolds have long times-of-flight, suggesting that these
-results do not contradict the findings from this investigation.
+At first glance, several of the entries in \cref{tab:transferCosts} that utilize manifold arcs
+appear to provide better results than this investigation. However, the transfers cannot be directly
+compared because of discrepancies between the assumptions and dynamical models utilized as well as
+different origins/destinations. All of the investigations besides the one from Kakoi et al. assume
+that the Sun-Earth and Sun-Mars systems are coplanar and the trajectories depart from the Sun-Earth
+system instead of cislunar space\cite{Topputo:2005,Haibin:2014}, resulting in a lower $\Delta v$
+and TOF for those transfers by ignoring the first leg of the journey included in this investigation
+and the inclination change maneuver. Kakoi's transfers target the ephemeris position of Mars
+instead of terminating in a nearby periodic orbit, eliminating the need for arrival maneuvers and
+manifold arcs that add $\Delta v$ and time\cite{Kakoi:2014}. Even with those simplifying
+assumptions, the results from the investigations that include manifold arcs have long
+times-of-flight, suggesting that the results do not contradict the findings from this
+investigation.
 
 Overall, this investigation provides transfers that have lower maneuver $\Delta v$ costs than
 direct patched conic methods but with longer times-of-flight. The results are consistent with
-invariant manifold transfers from previous literature; the maneuver costs are higher due to the use
-of a more accurate dynamical model and cislunar departure orbits. While the TOF is longer in some
-cases, using transfers that directly depart the system instead of intermediate staging in Sun-Earth
-halo orbits can decrease those times on the order of $1$ year. Additionally, the proposed transfer
-methodologies connect Earth-Moon CR3BP orbits to Sun-Mars CR3BP orbits using invariant manifolds, a
-likely future mission scenario that has not received a lot of attention to date.
+invariant manifold arc transfers from previous literature; the maneuver costs are higher due to the
+application of a more accurate dynamical model and cislunar departure orbits. While the TOF is
+longer in some cases, employing transfers that directly depart the system instead of intermediate
+staging in Sun-Earth halo orbits decreases those times on the order of $1$ year. Additionally, the
+proposed transfer methodologies connect Earth-Moon CR3BP orbits to Sun-Mars CR3BP orbits via
+invariant manifolds arcs, a likely future mission scenario that has not received a lot of attention
+to date.
